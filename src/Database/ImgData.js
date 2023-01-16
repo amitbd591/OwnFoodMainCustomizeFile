@@ -107,3 +107,33 @@ export const FoodItem = [
     item_image: "/Assets/Img/roll_chicken.png",
   },
 ];
+
+export const Two_one = [
+  {
+    item_name: "Barger",
+    item_image: "/Assets/Img/barger.png",
+  },
+  {
+    item_name: "Biriyani",
+    item_image: "/Assets/Img/biriyani.png",
+  },
+];
+
+export const Four_two = [
+  {
+    item_name: "Barger",
+    item_image: "/Assets/Img/barger.png",
+  },
+  {
+    item_name: "Biriyani",
+    item_image: "/Assets/Img/biriyani.png",
+  },
+  {
+    item_name: "Chaowmin",
+    item_image: "/Assets/Img/chaowmin.png",
+  },
+  {
+    item_name: "Nachos",
+    item_image: "/Assets/Img/nachos.png",
+  },
+];

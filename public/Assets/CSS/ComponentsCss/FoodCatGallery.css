@@ -1,0 +1,81 @@
+.FoodCatGallery {
+  padding: 5px;
+}
+.FoodCatGallery a {
+  text-decoration: none;
+  display: inline-block;
+}
+.FoodCatGallery a:hover {
+  text-decoration: none;
+}
+.FoodCatGallery h3,
+p {
+  margin-bottom: 0px;
+  text-transform: capitalize;
+}
+.FoodCatGallery p {
+  font-family: var(--pfamily);
+}
+.FoodCatGallery h3 {
+  font-weight: 500;
+  color: var(--heading);
+}
+.FoodCatGallery h3 {
+  font-size: var(--h3size);
+  line-height: var(--h3height);
+  font-family: var(--pfamily);
+}
+.FoodCatGallery .section {
+  margin-bottom: 60px;
+}
+@media (max-width: 767px) {
+  .FoodCatGallery .section {
+    margin-bottom: 55px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .FoodCatGallery .section {
+    margin-bottom: 75px;
+  }
+}
+.FoodCatGallery .img_animation {
+  transition: all linear 0.3s;
+}
+/*! CSS Used from: https://ownfood.hostdivine.com/static/css/main.5667a3ca.css */
+.FoodCatGallery .see_more {
+  float: right;
+  font-family: --pfamily;
+  font-weight: 700;
+  margin-top: -15px;
+}
+.FoodCatGallery .sf_top_card {
+  background-color: #1b6dc1;
+}
+.FoodCatGallery .sf_top_name {
+  color: #fff;
+  padding-bottom: 5px;
+}
+.FoodCatGallery .img_animation img {
+  overflow: hidden;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.FoodCatGallery .img_animation :hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.FoodCatGallery .card_navigate {
+  margin-bottom: 15px;
+}
+
+.FoodCatGallery .card_product {
+  padding: 15px;
+}
+
+.FoodCatGallery .single_product_card {
+  padding: 10px;
+}
+.FoodCatGallery .single_product_card_navigation {
+  margin-bottom: 15px;
+}
