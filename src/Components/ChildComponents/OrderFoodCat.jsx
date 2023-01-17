@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
 import { FoodItem } from "../../Database/ImgData";
@@ -21,7 +22,7 @@ const OrderFoodCat = () => {
               <span></span>
               <div class='card-body searchform show-hide-content'>
                 <div class='d-flex flex-wrap'>
-                  <div className='col-md-3 '>
+                  <div className='col-md-3  product-card-center'>
                     <div className='col shadow '>
                       <div className='product-card'>
                         <div className='product-media'>
@@ -51,11 +52,26 @@ const OrderFoodCat = () => {
                         </div>
                         <div className='product-content'>
                           <div className='product-rating'>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='icofont-star'></i>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
                             <a href='#'>(3)</a>
                           </div>
                           <h6 className='product-name'>
@@ -103,7 +119,7 @@ const OrderFoodCat = () => {
                       </div>
                     </div>
                   </div>
-                  <div className='col-md-3  '>
+                  <div className='col-md-3 product-card-center '>
                     <div className='col shadow '>
                       <div className='product-card'>
                         <div className='product-media'>
@@ -133,11 +149,26 @@ const OrderFoodCat = () => {
                         </div>
                         <div className='product-content'>
                           <div className='product-rating'>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='icofont-star'></i>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
                             <a href='#'>(3)</a>
                           </div>
                           <h6 className='product-name'>
@@ -185,7 +216,7 @@ const OrderFoodCat = () => {
                       </div>
                     </div>
                   </div>
-                  <div className='col-md-3  '>
+                  <div className='col-md-3 product-card-center '>
                     <div className='col shadow '>
                       <div className='product-card'>
                         <div className='product-media'>
@@ -215,11 +246,26 @@ const OrderFoodCat = () => {
                         </div>
                         <div className='product-content'>
                           <div className='product-rating'>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='icofont-star'></i>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
                             <a href='#'>(3)</a>
                           </div>
                           <h6 className='product-name'>
@@ -267,7 +313,7 @@ const OrderFoodCat = () => {
                       </div>
                     </div>
                   </div>
-                  <div className='col-md-3  '>
+                  <div className='col-md-3 product-card-center '>
                     <div className='col shadow '>
                       <div className='product-card'>
                         <div className='product-media'>
@@ -297,11 +343,26 @@ const OrderFoodCat = () => {
                         </div>
                         <div className='product-content'>
                           <div className='product-rating'>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='active icofont-star'></i>
-                            <i className='icofont-star'></i>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
+                            <span>
+                              {" "}
+                              <FaStar />
+                            </span>
                             <a href='#'>(3)</a>
                           </div>
                           <h6 className='product-name'>
@@ -355,7 +416,7 @@ const OrderFoodCat = () => {
                       onClick={() => {
                         navigate("shoppingpage");
                       }}
-                      className='see_more'
+                      className='see_more_1'
                     >
                       See more
                     </a>
@@ -516,7 +577,7 @@ const OrderFoodCat = () => {
                     <a
                       href='#'
                       alt=''
-                      className='see_more'
+                      className='see_more_2'
                       onClick={() => {
                         navigate("shoppingpage");
                       }}

@@ -2,6 +2,22 @@
   padding-top: 0;
   padding-bottom: 30px;
 }
+.OpenAccountInfo .headerText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.OpenAccountInfo .sf_init_title {
+  font-weight: 700;
+  font-size: larger;
+  color: #333;
+}
+.OpenAccountInfo .sf_text-theme {
+  font-family: var(--style-font);
+  color: #1b6dc1;
+  font-weight: 700;
+  font-size: larger;
+}
 .OpenAccountInfo .upSection {
   margin-top: 30px;
 }
@@ -10,7 +26,7 @@
   font-weight: 700;
 }
 .OpenAccountInfo .upSection p {
-  font-size: 16px;
+  font-size: 14px;
 }
 .OpenAccountInfo .downSection .leftSide {
   margin-top: 15px;
@@ -115,10 +131,6 @@
 .OpenAccountInfo .downSection .rightSide .arrow svg {
   font-size: 30px;
   color: #333;
-}
-
-.OpenAccountInfo .sf_init_title {
-  color: white;
 }
 
 .OpenAccountInfo .sf_sub-title {

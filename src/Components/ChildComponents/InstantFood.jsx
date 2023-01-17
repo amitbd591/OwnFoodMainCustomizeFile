@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import { AiFillHeart, AiOutlineShopping } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
 import { FoodItem } from "../../Database/ImgData";
 
 const InstantFood = () => {
@@ -31,12 +31,14 @@ const InstantFood = () => {
     >
       <div className='row  '>
         <div className='col'>
-          <div className='section-heading mt-5'>
-            <div className='title-area text-center'>
-              <span className='sub-title'></span>
-              <h2 className='sec-title'>
-                Instant <span className=' sf_text-theme'>Food</span>
-              </h2>
+          <div className='section-heading'>
+            <div className='headerText '>
+              <div>
+                <h2>
+                  <span className='sf_init_title'>Instant</span>{" "}
+                  <span className='sf_text-theme'>Foods</span>
+                </h2>
+              </div>
             </div>
           </div>
         </div>
@@ -73,11 +75,26 @@ const InstantFood = () => {
                 </div>
                 <div class='product-content'>
                   <div class='product-rating'>
-                    <i class='active icofont-star'></i>
-                    <i class='active icofont-star'></i>
-                    <i class='active icofont-star'></i>
-                    <i class='active icofont-star'></i>
-                    <i class='icofont-star'></i>
+                    <span>
+                      {" "}
+                      <FaStar />
+                    </span>
+                    <span>
+                      {" "}
+                      <FaStar />
+                    </span>
+                    <span>
+                      {" "}
+                      <FaStar />
+                    </span>
+                    <span>
+                      {" "}
+                      <FaStar />
+                    </span>
+                    <span>
+                      {" "}
+                      <FaStar />
+                    </span>
                     <a href='#' tabindex='-1'>
                       (3)
                     </a>
@@ -112,7 +129,7 @@ const InstantFood = () => {
       <div className='row'>
         <div className='col'>
           <div className='section-btn-25'>
-            <span>show more</span>
+            <button>show more</button>
           </div>
         </div>
       </div>

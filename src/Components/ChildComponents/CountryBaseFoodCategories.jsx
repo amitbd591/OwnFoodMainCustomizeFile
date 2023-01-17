@@ -56,6 +56,14 @@ const CountryBaseFoodCategories = () => {
   return (
     <section className='CountryBaseFoodCategories sf_section brand-part '>
       <div className='container-fluid'>
+        <div className='headerText '>
+          <div>
+            <h2>
+              <span className='sf_init_title'>Food Base On</span>{" "}
+              <span className='sf_text-theme'>Country</span>
+            </h2>
+          </div>
+        </div>
         <div className='brand-slider slider-arrow slick-initialized slick-slider'>
           <div className='slick-list draggable '>
             <div

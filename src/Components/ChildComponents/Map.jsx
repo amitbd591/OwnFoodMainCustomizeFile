@@ -15,14 +15,16 @@ const Map = () => {
       <div className='container-fluid'>
         <div className='row' style={{ zIndex: -1 }}>
           <div className='col text-center'>
-            <div class='title-area text-center'>
-              <span class='sub-title'></span>
-              <h2 class='sec-title'>
-                Find us in this <span class=' sf_text-theme'>State</span>
-              </h2>
+            <div className='headerText '>
+              <div>
+                <h2>
+                  <span className='sf_init_title'>Find Us In This</span>{" "}
+                  <span className='sf_text-theme'>State</span>
+                </h2>
+              </div>
             </div>
             <div
-              className='col mt-5'
+              className='col mt-3'
               style={{ position: "relative", overflow: "hidden" }}
             >
               <MapContainer

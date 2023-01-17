@@ -1,6 +1,24 @@
 .InstantFood {
   padding: 30px 0px;
 }
+
+.InstantFood .headerText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.InstantFood .sf_init_title {
+  font-weight: 700;
+  font-size: larger;
+  color: #333;
+}
+.InstantFood .sf_text-theme {
+  font-family: var(--style-font);
+  color: #1b6dc1;
+  font-weight: 700;
+  font-size: larger;
+}
 .InstantFood h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -219,7 +237,7 @@ label {
 }
 
 .InstantFood .product-card:hover {
-  border-color: navy;
+  border-color: rgb(27, 109, 193);
   -webkit-box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 5px 8px 15px 0px rgba(0, 0, 0, 0.1);
 }
@@ -231,7 +249,7 @@ label {
 
 .InstantFood .product-card:hover .product-add {
   color: white;
-  background: navy;
+  background: rgb(27, 109, 193);
 }
 
 .InstantFood .product-media {
@@ -309,7 +327,7 @@ label {
   text-align: center;
   border-radius: 8px;
   color: white;
-  background: navy;
+  background: rgb(27, 109, 193);
   text-shadow: 2px 2px 2px gray;
   -webkit-box-shadow: 0px 7px 12px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 7px 12px 0px rgba(0, 0, 0, 0.12);
@@ -332,6 +350,9 @@ label {
   -ms-flex-pack: center;
   justify-content: center;
   margin-bottom: 3px;
+}
+.InstantFood .product-rating svg {
+  color: #f6c800;
 }
 
 .InstantFood .product-rating i,
@@ -374,7 +395,7 @@ label {
 }
 
 .InstantFood .product-name a:hover {
-  color: navy;
+  color: rgb(27, 109, 193);
 }
 
 .InstantFood .product-price {
@@ -399,7 +420,7 @@ label {
 }
 
 .InstantFood .product-price span {
-  color: navy;
+  color: rgb(27, 109, 193);
   white-space: nowrap;
 }
 
@@ -496,10 +517,6 @@ label {
   right: 0;
 }
 
-.InstantFood .sf_init_title {
-  color: white;
-}
-
 .InstantFood .sf_sub-title {
   font-family: var(--pfamily);
   color: var(--title-color);
@@ -512,4 +529,16 @@ label {
 .InstantFood .sf_text-theme {
   font-family: var(--style-font);
   color: #1b6dc1;
+}
+.InstantFood .section-btn-25 {
+  display: flex;
+  justify-content: center;
+}
+.InstantFood .section-btn-25 button {
+  display: flex;
+  justify-content: center;
+  background: rgb(27, 109, 193);
+  padding: 8px 15px;
+  border-radius: 10px;
+  color: #fff;
 }

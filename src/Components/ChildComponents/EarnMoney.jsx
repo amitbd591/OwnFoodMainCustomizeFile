@@ -1,4 +1,5 @@
 import React from "react";
+
 const EarnMoney = () => {
   return (
     <section className='EarnMoney section shadow-lg'>
@@ -19,7 +20,10 @@ const EarnMoney = () => {
                 {/* <img src={ArrowOne} alt="step-arrow" /> */}
               </div>
               <div className='bd-step__icon'>
-                <img src={"/Assets/Img/step-3.png"} alt='step-icon' />
+                <img
+                  src={"Assets/Img/earn_money/restaurant.png"}
+                  alt='step-icon'
+                />
               </div>
               <div className='bd-step__content '>
                 <h3>Instant Food</h3>
@@ -33,7 +37,10 @@ const EarnMoney = () => {
                 {/* <img src={ArrowTwo} alt="step-arrow" /> */}
               </div>
               <div className='bd-step__icon'>
-                <img src={"/Assets/Img/step-3.png"} alt='step-icon' />
+                <img
+                  src={"/Assets/Img/earn_money/catering.png"}
+                  alt='step-icon'
+                />
               </div>
               <div className='bd-step__content'>
                 <h3>Pre-Order</h3>
@@ -47,7 +54,7 @@ const EarnMoney = () => {
                 {/* <img src={ArrowOne} alt="step-arrow" /> */}
               </div>
               <div className='bd-step__icon'>
-                <img src={"/Assets/Img/step-3.png"} alt='step-icon' />
+                <img src={"/Assets/Img/earn_money/salad.png"} alt='step-icon' />
               </div>
               <div className='bd-step__content'>
                 <h3>Cook and Sell</h3>
@@ -58,7 +65,10 @@ const EarnMoney = () => {
           <div className='col-xl-3 col-lg-3 col-md-6 col-sm-6 sf-container'>
             <div className='bd-step__item text-center p-relative mb-60'>
               <div className='bd-step__icon'>
-                <img src={"/Assets/Img/step-3.png"} alt='step-icon' />
+                <img
+                  src={"/Assets/Img/earn_money/food-delivery.png"}
+                  alt='step-icon'
+                />
               </div>
               <div className='bd-step__content'>
                 <h3>Catering</h3>
@@ -69,7 +79,10 @@ const EarnMoney = () => {
           <div className='col-xl-3 col-lg-3 col-md-6 col-sm-6  sf-container'>
             <div className='bd-step__item text-center p-relative mb-60 '>
               <div className='bd-step__icon'>
-                <img src={"/Assets/Img/step-3.png"} alt='step-icon' />
+                <img
+                  src={"/Assets/Img/earn_money/blogger.png"}
+                  alt='step-icon'
+                />
               </div>
               <div className='bd-step__content'>
                 <h3>Blog</h3>

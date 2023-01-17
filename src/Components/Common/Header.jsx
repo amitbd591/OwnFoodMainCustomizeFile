@@ -183,17 +183,17 @@ const Header = () => {
           </div>
 
           <div className='d-flex justify-content-between  '>
-            <form
+            <span
               className='zip-form ms-1'
               onClick={() => {
                 handleOpen();
               }}
             >
               <input placeholder=' Search Food Drinks...' disabled />
-              <button>
+              <label htmlFor='searchInput'>
                 <i className='fas fa-search'></i>
-              </button>
-            </form>
+              </label>
+            </span>
           </div>
 
           <nav class='nav  bg-white'>
@@ -251,7 +251,7 @@ const Header = () => {
 
                       <li className='navbar-item'>
                         <a class='navbar-link ' href='#'>
-                          BLOG
+                          DAIRY
                         </a>
                       </li>
                     </ul>
@@ -357,7 +357,7 @@ const Header = () => {
               <hr />
               <div className='sidebar-item'>
                 <div className='sidebar-title'>
-                  <span>BLOG</span>
+                  <span>Dairy</span>
                 </div>
               </div>
             </div>
@@ -635,6 +635,7 @@ const Header = () => {
                 </button>
                 <form className='sf_search-form'>
                   <input
+                    id='searchInput'
                     type='text'
                     placeholder='Food, groceries, drinks, etc'
                     style={{ marginLeft: 5 }}

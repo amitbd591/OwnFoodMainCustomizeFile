@@ -363,7 +363,7 @@ button {
 .Header .zipCode .zipCodeBtn {
   background: #ffffff;
   color: black;
-  padding: 7px 6px;
+  padding: 11px 8px;
   border-radius: 5px;
   font-weight: 900;
   cursor: pointer;
@@ -373,8 +373,7 @@ button {
   border: 1px solid #ddd;
 }
 .Header .zipCode .zipCodeBtn:hover {
-  color: #c6cef4;
-  border-color: rgba(248, 250, 253, 0.319);
+  color: #8b9ef7;
 }
 .Header .zipCode .zipCodePopup {
   padding: 30px 100px;

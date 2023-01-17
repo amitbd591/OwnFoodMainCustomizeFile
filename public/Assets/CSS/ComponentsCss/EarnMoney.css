@@ -36,11 +36,11 @@
 }
 
 .EarnMoney .bd-step__content h3 {
-  color: white;
+  color: #d2cece;
   margin-bottom: 25px;
 }
-.EarnMoney .bd-step__content h3 a:hover {
-  color: #2727b8 !important;
+.EarnMoney .bd-step__content h3:hover {
+  color: #ffffff;
 }
 .EarnMoney .bd-step__item {
   padding: 0 27px;
@@ -53,6 +53,8 @@
 
 .EarnMoney .sf_init_title {
   color: white;
+  font-weight: 700;
+  font-size: larger;
 }
 
 .EarnMoney .sf_sub-title {
@@ -67,4 +69,6 @@
 .EarnMoney .sf_text-theme {
   font-family: var(--style-font);
   color: #1b6dc1;
+  font-weight: 700;
+  font-size: larger;
 }

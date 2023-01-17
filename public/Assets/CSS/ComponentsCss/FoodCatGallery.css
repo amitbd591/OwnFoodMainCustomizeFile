@@ -39,6 +39,7 @@ p {
   }
 }
 .FoodCatGallery .img_animation {
+  overflow: hidden;
   transition: all linear 0.3s;
 }
 /*! CSS Used from: https://ownfood.hostdivine.com/static/css/main.5667a3ca.css */
@@ -49,10 +50,10 @@ p {
   margin-top: -15px;
 }
 .FoodCatGallery .sf_top_card {
-  background-color: #1b6dc1;
+  background-color: #ffffff;
 }
 .FoodCatGallery .sf_top_name {
-  color: #fff;
+  color: rgb(27, 109, 193);
   padding-bottom: 5px;
 }
 .FoodCatGallery .img_animation img {

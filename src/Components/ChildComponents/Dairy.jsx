@@ -8,11 +8,13 @@ const Dairy = () => {
       <div class='container-fluid'>
         <div class='row'>
           <div class='col-12'>
-            <div class='title-area text-center'>
-              <span class='sub-title'></span>
-              <h2 class='sec-title'>
-                Food <span class=' sf_text-theme'>Blog</span>
-              </h2>
+            <div className='headerText '>
+              <div>
+                <h2>
+                  <span className='sf_init_title'>Foods</span>{" "}
+                  <span className='sf_text-theme'>Dairy</span>
+                </h2>
+              </div>
             </div>
           </div>
         </div>

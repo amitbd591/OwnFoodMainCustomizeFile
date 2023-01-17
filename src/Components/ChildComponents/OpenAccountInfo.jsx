@@ -19,11 +19,13 @@ const OpenAccountInfo = () => {
       <Container>
         <Row className='upSection'>
           <Col>
-            <div class='title-area text-center'>
-              <span class='sub-title'></span>
-              <h2 class='sec-title'>
-                How It <span class=' sf_text-theme'>Works</span>
-              </h2>
+            <div className='headerText '>
+              <div>
+                <h2>
+                  <span className='sf_init_title'>Food Base On</span>{" "}
+                  <span className='sf_text-theme'>Country</span>
+                </h2>
+              </div>
             </div>
             <div className='text-center'>
               <p>

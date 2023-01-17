@@ -48,6 +48,8 @@
 }
 .Circle .sf_init_title {
   color: white;
+  font-weight: 700;
+  font-size: larger;
 }
 
 .Circle .sf_sub-title {
@@ -62,6 +64,8 @@
 .Circle .sf_text-theme {
   font-family: var(--style-font);
   color: #1b6dc1;
+  font-size: larger;
+  font-weight: 700;
 }
 .Circle .name {
   position: relative;

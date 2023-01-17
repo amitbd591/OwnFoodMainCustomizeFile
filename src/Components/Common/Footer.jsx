@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className='Footer footer-part bg-dark'>
       <div className='container-fluid'>
-        <div className='row pt-5'>
+        <div className='row py-5'>
           <div className='col-sm-6 col-xl-4'>
             <div className='footer-widget'>
               <a className='footer-logo ' href='#'>

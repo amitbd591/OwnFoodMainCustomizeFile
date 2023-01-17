@@ -1,6 +1,23 @@
 .Dairy {
   padding: 30px 0;
 }
+.Dairy .headerText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+.Dairy .sf_init_title {
+  font-weight: 700;
+  font-size: larger;
+  color: #333;
+}
+.Dairy .sf_text-theme {
+  font-family: var(--style-font);
+  color: #1b6dc1;
+  font-weight: 700;
+  font-size: larger;
+}
 .Dairy .blog-card {
   margin-bottom: 30px;
 }
