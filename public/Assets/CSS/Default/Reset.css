@@ -1,37 +1,62 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&amp;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@300;400;500;600;700;800;900&amp;display=swap");
+@font-face {
+  font-family: myFirstFont;
+  src: url(../fonts/Audiowide.ttf);
+}
+:root {
+  --h1size: 50px;
+  --h2size: 40px;
+  --h3size: 24px;
+  --h4size: 20px;
+  --h5size: 18px;
+  --h6size: 16px;
+  --bodysize: 16px;
+  --h1height: 58px;
+  --h2height: 48px;
+  --h3height: 32px;
+  --h4height: 28px;
+  --h5height: 26px;
+  --h6height: 26px;
+  --bodyheight: 26px;
+  --pfamily: "Rubik", sans-serif;
+  --style-font: "Lobster Two", cursive;
+  --red: #ff3838;
+  --gray: #777777;
+  --text: #555555;
+  --blue: #1494a9;
+  --white: #ffffff;
+  --chalk: #f5f5f5;
+  --green: #2962e7;
+  --purple: #b12fad;
+  --orange: #e86121;
+  --yellow: #ffab10;
+  --body: #ffffff;
+  --border: #e8e8e8;
+  --heading: #39404a;
+  --primary: #1b6dc1;
+  --sub-heading: #565765;
+  --green-chalk: #ddffd5;
+  --green-dark: #072f17;
+  --gray-chalk: #ffffff;
+  --intro-bg: #f8fffa;
+  --facebook: #3b5998;
+  --linkedin: #0e76a8;
+  --twitter: #00acee;
+  --google: #e60023;
+  --instagram: #f77737;
+  --primary-bshadow: 0px 15px 35px 0px rgba(0, 0, 0, 0.1);
+  --primary-tshadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+}
 
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html {
-  overflow-x: hidden !important;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  color: #333;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Roboto", sans-serif;
-  color: #333;
-}
-img {
-  height: auto;
-  max-width: 100%;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-:focus-visible {
+input,
+button {
+  border: none;
   outline: none;
+  background: none;
+}
+
+ul,
+li {
+  list-style: none;
 }

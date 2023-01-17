@@ -1,0 +1,59 @@
+.cardSlider {
+  margin: 10px 0;
+  margin-bottom: 50px;
+}
+.cardSlider .cardSlider_body {
+  padding: 20px 20px;
+  box-shadow: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07))
+    drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner {
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner.Purple {
+  background: #9333ea;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner.Pink {
+  background: #db2777;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner.Green {
+  background: #16a34a;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner.Orange {
+  background: #ea580c;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner .textFile {
+  width: 75%;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner .textFile h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner .textFile a {
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 5px;
+  display: inline-block;
+  color: #333;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner .imgFile {
+  width: 35%;
+}
+
+.cardSlider .slick-prev:before,
+.cardSlider .slick-next:before {
+  color: #333;
+}
