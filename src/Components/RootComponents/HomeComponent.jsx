@@ -14,6 +14,7 @@ import BrowseByKitchen from "../ChildComponents/BrowseByKitchen";
 import FoodNameCategory from "../ChildComponents/FoodNameCategory";
 import Map from "../ChildComponents/Map";
 import Dairy from "../ChildComponents/Dairy";
+import Footer from "../Common/Footer";
 
 const HomeComponent = () => {
   return (
@@ -33,6 +34,7 @@ const HomeComponent = () => {
       <FoodNameCategory />
       <Dairy />
       <Map />
+      <Footer />
     </section>
   );
 };

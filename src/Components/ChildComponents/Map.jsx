@@ -2,24 +2,10 @@ import React, { useState, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 
-import "leaflet/dist/leaflet.css";
 import Cities from "../../Database/Cities";
+import osmProviders from "../../Database/Osm-providers";
+
 const Map = () => {
-  const markerIcon = new L.Icon({
-    iconUrl: require("https://res.cloudinary.com/dwmkmhnqo/image/upload/v1673937598/Data/marker_eh2tfs.png"),
-    iconSize: [40, 40],
-    iconAnchor: [17, 46], //[left/right, top/bottom]
-    popupAnchor: [0, -46], //[left/right, top/bottom]
-  });
-
-  const osm = {
-    maptiler: {
-      url: "https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=7Vn8lBSjAxNkEKphIATz",
-      attribution:
-        '&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-    },
-  };
-
   const [center, setCenter] = useState({ lat: 23.777176, lng: 90.407608 });
   const ZOOM_LEVEL = 6;
   const mapRef = useRef();
@@ -46,16 +32,12 @@ const Map = () => {
                 style={{ height: 400, width: "100wh" }}
               >
                 <TileLayer
-                  url={osm.maptiler.url}
-                  attribution={osm.maptiler.attribution}
+                  url={osmProviders.maptiler.url}
+                  attribution={osmProviders.maptiler.attribution}
                 />
 
                 {Cities.map((city, idx) => (
-                  <Marker
-                    position={[city.lat, city.lng]}
-                    icon={markerIcon}
-                    key={idx}
-                  >
+                  <Marker position={[city.lat, city.lng]} key={idx}>
                     <Popup>
                       <b>
                         {city.city}, {city.country}

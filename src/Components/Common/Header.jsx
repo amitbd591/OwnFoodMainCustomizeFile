@@ -31,7 +31,7 @@ import { BsXLg } from "react-icons/bs";
 
 import { useNavigate } from "react-router-dom";
 import { Uber_image } from "../../Database/ImgData";
-const Header = ({}) => {
+const Header = () => {
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
   const [paneLeft, SetpanLeft] = useState(false);
@@ -405,7 +405,7 @@ const Header = ({}) => {
               <li className='cart-item'>
                 <div className='cart-media'>
                   <a href='#'>
-                    <img src='images/product/01.jpg' alt='product' />
+                    <img src='Assets/Img/product/01.jpg' alt='product' />
                   </a>
                   <button className='cart-delete'>
                     <i className='far fa-trash-alt'></i>
@@ -441,7 +441,7 @@ const Header = ({}) => {
               <li className='cart-item'>
                 <div className='cart-media'>
                   <a href='#'>
-                    <img src='images/product/02.jpg' alt='product' />
+                    <img src='Assets/Img/product/02.jpg' alt='product' />
                   </a>
                   <button className='cart-delete'>
                     <i className='far fa-trash-alt'></i>
@@ -477,7 +477,7 @@ const Header = ({}) => {
               <li className='cart-item'>
                 <div className='cart-media'>
                   <a href='#'>
-                    <img src='images/product/03.jpg' alt='product' />
+                    <img src='Assets/Img/product/03.jpg' alt='product' />
                   </a>
                   <button className='cart-delete'>
                     <i className='far fa-trash-alt'></i>
@@ -513,7 +513,7 @@ const Header = ({}) => {
               <li className='cart-item'>
                 <div className='cart-media'>
                   <a href='#'>
-                    <img src='images/product/04.jpg' alt='product' />
+                    <img src='Assets/Img/product/04.jpg' alt='product' />
                   </a>
                   <button className='cart-delete'>
                     <i className='far fa-trash-alt'></i>
@@ -549,7 +549,7 @@ const Header = ({}) => {
               <li className='cart-item'>
                 <div className='cart-media'>
                   <a href='#'>
-                    <img src='images/product/05.jpg' alt='product' />
+                    <img src='Assets/Img/product/05.jpg' alt='product' />
                   </a>
                   <button className='cart-delete'>
                     <i className='far fa-trash-alt'></i>
