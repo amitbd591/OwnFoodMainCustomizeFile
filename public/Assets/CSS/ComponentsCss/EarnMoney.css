@@ -1,4 +1,9 @@
-.sf-container {
+.EarnMoney {
+  background-image: url("/Assets/Img/Slider/footer_bg_3.jpg");
+  background-size: cover;
+  margin: 30px 0;
+}
+.EarnMoney .sf-container {
   width: 20%;
 }
 
@@ -39,11 +44,6 @@
 }
 .EarnMoney .bd-step__item {
   padding: 0 27px;
-}
-
-.EarnMoney {
-  background-image: url("/Assets/Img/Slider/footer_bg_3.jpg");
-  background-size: cover;
 }
 
 .sf_earn_wrapper {

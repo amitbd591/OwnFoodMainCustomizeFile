@@ -1,3 +1,6 @@
+.InstantFood {
+  padding: 30px 0px;
+}
 .InstantFood h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -474,9 +477,15 @@ label {
   font-size: 80px;
   transition: all 0.2s linear;
 }
-.InstantFood .slick-prev:hover,
-.InstantFood .slick-next:hover {
-  background-color: blue;
+.InstantFood:hover .slick-prev,
+.InstantFood:hover .slick-next {
+  background-color: white;
+  color: var(--primary);
+  box-shadow: var(--primary-bshadow);
+}
+.InstantFood:hover .slick-prev:hover,
+.InstantFood:hover .slick-next:hover {
+  background-color: var(--primary);
   color: white;
 }
 

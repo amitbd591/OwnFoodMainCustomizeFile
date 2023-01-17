@@ -10,7 +10,7 @@ const OrderFoodCat = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
-    <div className='OrderFoodCat mt-5'>
+    <section className='OrderFoodCat'>
       <div className='container-fluid'>
         <div className='row '>
           <div className='col-md-8 shadow pt-2 rounded pb-2'>
@@ -535,7 +535,7 @@ const OrderFoodCat = () => {
       ) : (
         ""
       )}
-    </div>
+    </section>
   );
 };
 

@@ -1,0 +1,42 @@
+.FoodNameCategory {
+  padding: 40px 0;
+}
+.FoodNameCategory .item {
+  display: grid;
+  gap: 15px;
+  text-align: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+.FoodNameCategory .item > div {
+  height: 150px;
+}
+
+.FoodNameCategory .item .item1 {
+  background-color: rebeccapurple;
+  color: white;
+}
+
+.FoodNameCategory .item .item2 {
+  background-color: rgb(180, 15, 56);
+  color: white;
+}
+
+.FoodNameCategory .item .item3 {
+  background-color: rgb(19, 219, 126);
+  color: white;
+}
+
+.FoodNameCategory .item .item4 {
+  background-color: rgb(153, 121, 51);
+  color: white;
+}
+
+.FoodNameCategory .item .item5 {
+  background-color: rgb(240, 7, 170);
+  color: white;
+}
+
+.FoodNameCategory .item .item6 {
+  background-color: rgb(53, 51, 153);
+  color: white;
+}

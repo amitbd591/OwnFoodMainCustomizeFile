@@ -1,4 +1,7 @@
-/*! CSS Used from: https://ownfood.hostdivine.com/css/main.css */
+.OrderFoodCat {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
 .OrderFoodCat a {
   text-decoration: none;
   display: inline-block;

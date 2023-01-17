@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 const Recipe_Gallery = () => {
   return (
-    <div className=' section Recipe_Gallery'>
+    <section className='Recipe_Gallery section '>
       <Container fluid>
         {/* Top Gallery */}
         <div className='top__gallery'>
@@ -189,7 +189,7 @@ const Recipe_Gallery = () => {
           </Row>
         </div>
       </Container>
-    </div>
+    </section>
   );
 };
 

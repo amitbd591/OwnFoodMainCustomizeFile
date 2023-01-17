@@ -10,6 +10,10 @@ import OrderFoodCat from "../ChildComponents/OrderFoodCat";
 import OpenAccountInfo from "../ChildComponents/OpenAccountInfo";
 import FoodCatGallery from "../ChildComponents/FoodCatGallery";
 import InstantFood from "../ChildComponents/InstantFood";
+import BrowseByKitchen from "../ChildComponents/BrowseByKitchen";
+import FoodNameCategory from "../ChildComponents/FoodNameCategory";
+import Map from "../ChildComponents/Map";
+import Dairy from "../ChildComponents/Dairy";
 
 const HomeComponent = () => {
   return (
@@ -25,6 +29,10 @@ const HomeComponent = () => {
       <OrderFoodCat />
       <FoodCatGallery />
       <InstantFood />
+      <BrowseByKitchen />
+      <FoodNameCategory />
+      <Dairy />
+      <Map />
     </section>
   );
 };

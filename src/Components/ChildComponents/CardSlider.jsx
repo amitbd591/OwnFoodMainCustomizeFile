@@ -44,7 +44,7 @@ const CardSlider = () => {
     pauseOnHover: true,
   };
   return (
-    <section className='cardSlider mt-5'>
+    <section className='CardSlider'>
       <Container>
         <Row>
           <Col>

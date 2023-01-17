@@ -8,7 +8,7 @@ const Circle = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <section className=' Circle mt-5 shadow-lg'>
+    <section className=' Circle shadow-lg'>
       <div className='container-fluid wrap_Upper  shadow-lg '>
         <div className='title-area text-center '>
           <span className='sf_sub-title '></span>

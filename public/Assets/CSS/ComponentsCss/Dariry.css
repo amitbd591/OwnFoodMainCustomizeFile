@@ -1,0 +1,157 @@
+.Dairy {
+  padding: 30px 0;
+}
+.Dairy .blog-card {
+  margin-bottom: 30px;
+}
+
+.Dairy .blog-card:hover .blog-img img {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.Dairy .blog-media {
+  position: relative;
+}
+
+.Dairy .blog-img {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.Dairy .blog-img img {
+  width: 100%;
+  border-radius: 8px;
+  transition: all linear 0.3s;
+  -webkit-transition: all linear 0.3s;
+  -moz-transition: all linear 0.3s;
+  -ms-transition: all linear 0.3s;
+  -o-transition: all linear 0.3s;
+}
+
+.Dairy .blog-content .blog-meta {
+}
+
+.Dairy .blog-title {
+  font-size: 22px;
+  line-height: 30px;
+  margin-bottom: 15px;
+}
+
+.Dairy .blog-title a {
+  font-family: var(--pfamily);
+  color: var(--heading);
+  text-decoration: none;
+  transition: all linear 0.3s;
+  -webkit-transition: all linear 0.3s;
+  -moz-transition: all linear 0.3s;
+  -ms-transition: all linear 0.3s;
+  -o-transition: all linear 0.3s;
+}
+
+.Dairy .blog-title a:hover {
+  color: blue;
+}
+
+.Dairy .blog-desc {
+  font-family: var(--pfamily);
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--gray);
+  margin-bottom: 25px;
+}
+
+.Dairy .blog-btn {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--primary);
+  text-transform: uppercase;
+  transition: all linear 0.3s;
+  -webkit-transition: all linear 0.3s;
+  -moz-transition: all linear 0.3s;
+  -ms-transition: all linear 0.3s;
+  -o-transition: all linear 0.3s;
+}
+
+.Dairy .blog-btn li {
+  list-style: none;
+}
+
+.Dairy .blog-btn i {
+  font-size: 17px;
+  transition: all linear 0.3s;
+  -webkit-transition: all linear 0.3s;
+  -moz-transition: all linear 0.3s;
+  -ms-transition: all linear 0.3s;
+  -o-transition: all linear 0.3s;
+}
+
+.Dairy .blog-btn:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.Dairy .blog-btn:hover i {
+  margin-left: 5px;
+}
+
+@media (max-width: 575px) {
+  .blog-meta li {
+    margin-right: 25px;
+  }
+
+  .blog-content {
+    padding: 15px 8px 0px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .blog-content {
+    padding: 15px 12px 0px;
+  }
+}
+
+@media (min-width: 351px) and (max-width: 575px) {
+  .offer-card {
+    width: 320px;
+    margin: 0px auto 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .account-card {
+    padding: 0px 15px 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .payment-card p span {
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 575px) {
+  .team-card {
+    width: 290px;
+    margin: 0px auto 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-top-welcome,
+  .header-top-list {
+    display: none;
+  }
+
+  .header-top-select {
+    width: 270px;
+    margin: 0px auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header-top-welcome {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}

@@ -1,3 +1,7 @@
+.ClientTop {
+  margin: 30px 0px;
+}
+
 .ClientTop .slider-arrow:hover .right,
 .slider-arrow:hover .left {
   visibility: visible;
@@ -191,9 +195,15 @@
   font-size: 80px;
   transition: all 0.2s linear;
 }
-.ClientTop .slick-prev:hover,
-.ClientTop .slick-next:hover {
-  background-color: blue;
+.ClientTop:hover .slick-prev,
+.ClientTop:hover .slick-next {
+  background-color: white;
+  color: var(--primary);
+  box-shadow: var(--primary-bshadow);
+}
+.ClientTop:hover .slick-prev:hover,
+.ClientTop:hover .slick-next:hover {
+  background-color: var(--primary);
   color: white;
 }
 

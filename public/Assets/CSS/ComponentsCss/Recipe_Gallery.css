@@ -1,6 +1,7 @@
 .Recipe_Gallery {
-  padding: 60px 0;
   background: #ededed4d;
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
 
 /* Top Gallery */
@@ -57,7 +58,7 @@
 
 /* Bottom Gallery */
 .Recipe_Gallery .bottom__gallery {
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 10px 20px;
 }
 .Recipe_Gallery .bottom__gallery .header_text {
