@@ -24,3 +24,6 @@
 @import "./ComponentsCss/SellerProfile.css";
 @import "./ComponentsCss/ProductsDetails.css";
 @import "./ComponentsCss/ShoppingDetails.css";
+@import "./ComponentsCss/CustomerLogin.css";
+@import "./ComponentsCss/CustomerRegistration.css";
+@import "./ComponentsCss/ForgetPassword.css";

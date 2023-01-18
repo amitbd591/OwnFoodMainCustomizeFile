@@ -197,7 +197,18 @@
   border-radius: 50%;
   border: 3px solid #333;
 }
-.ProductsDetails .review__body .profile__user .textFile h5 {
-  font-size: 20px;
-  font-weight: 600;
+.ProductsDetails .review__body .profile__user .textFile {
+  display: flex;
+}
+.ProductsDetails .review__body .profile__user .textFile .name {
+  font-size: 26px;
+  font-weight: 700;
+}
+.ProductsDetails .review__body .profile__user .textFile .name {
+  font-size: 22px;
+  font-weight: 700;
+}
+.ProductsDetails .review__body .profile__user .textFile .name {
+  font-size: 22px;
+  font-weight: 700;
 }

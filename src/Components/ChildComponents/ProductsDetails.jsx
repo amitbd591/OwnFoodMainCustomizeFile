@@ -248,8 +248,8 @@ const ProductsDetails = () => {
                                 />
                               </div>
                               <div className='textFile'>
-                                <span>Alex Jhon</span>
-                                <span>January 18, 2023</span>
+                                <span className='name'>Alex Jhon</span>
+                                <span className='date'>January 18, 2023</span>
                               </div>
                             </div>
                           </div>

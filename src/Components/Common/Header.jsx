@@ -29,7 +29,7 @@ import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import { BsXLg } from "react-icons/bs";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Uber_image } from "../../Database/ImgData";
 const Header = () => {
   const [active, setActive] = useState(false);
@@ -102,9 +102,9 @@ const Header = () => {
       {/* ================== Nav Section ================== */}
       <div className='container-fluid'>
         <div className=' header-content'>
-          <a href='https://ownfood.hostdivine.com/'>
+          <Link to={"/"}>
             <img src='/Assets/Img/Logo.png' alt='logo' className='logo' />
-          </a>
+          </Link>
 
           <button
             className='btn_barger'
@@ -257,23 +257,27 @@ const Header = () => {
                     </ul>
 
                     <div>
-                      <button type='button' class='btnopen btn-primary'>
-                        {" "}
-                        <i class='fa-solid fa-right-to-bracket me-1'></i>
-                        Open Your Account
-                      </button>
+                      <Link to={"/CustomerLogin"}>
+                        <button type='button' class='btnopen btn-primary'>
+                          <i class='fa-solid fa-right-to-bracket me-1'></i>
+                          Open Your Account
+                        </button>
+                      </Link>
 
-                      <button
-                        type='button'
-                        class='btnSign btn-primary'
-                        onClick={() => {
-                          navigate("login");
-                        }}
-                      >
-                        {" "}
-                        <i class='fa-solid fa-right-to-bracket me-1'></i>
-                        Sign In
-                      </button>
+                      <Link to={"/CustomerRegistration"}>
+                        <button
+                          type='button'
+                          class='btnSign btn-primary'
+                          onClick={() => {
+                            navigate("login");
+                          }}
+                        >
+                          {" "}
+                          <i class='fa-solid fa-right-to-bracket me-1'></i>
+                          Sign In
+                        </button>
+                      </Link>
+
                       <button
                         className='header-widget header-cart '
                         title='Cartlist'

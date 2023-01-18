@@ -1,17 +1,17 @@
 import React from "react";
-import CustomerLogin from "../ChildComponents/CustomerLogin";
+import ForgetPassword from "../ChildComponents/ForgetPassword";
 import Footer from "../Common/Footer";
 import Header from "../Common/Header";
 
-const CustomerLoginComponent = () => {
+const ForgetPasswordComponent = () => {
   return (
     <>
       <Header />
       <div className='Space__For__Header'></div>
-      <CustomerLogin />
+      <ForgetPassword />
       <Footer />
     </>
   );
 };
 
-export default CustomerLoginComponent;
+export default ForgetPasswordComponent;

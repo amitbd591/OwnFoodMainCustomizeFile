@@ -111,16 +111,15 @@
   height: 90px;
   border-radius: 50%;
   position: absolute;
-  top: 0;
+  top: 157px;
   bottom: 0;
   color: white;
-  left: 204px;
+  left: 180px;
   right: 0;
   overflow: hidden;
   z-index: 1;
   margin: auto;
   animation: circle3 20s linear infinite;
-  /* animation-delay: 1s; */
   border: 5px solid #1b6dc1;
   background: #f2f2f2;
 }

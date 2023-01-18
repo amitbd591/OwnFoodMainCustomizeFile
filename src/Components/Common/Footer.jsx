@@ -137,7 +137,7 @@ const Footer = () => {
                 exercitationem!
               </p>
               <div className='row mt-3'>
-                <div className='col-5 gap-1'>
+                <div className='col-5 gap-1 cash'>
                   <a href='#'>
                     <img
                       src='/Assets/Img/google-store.png'
@@ -146,7 +146,7 @@ const Footer = () => {
                     />
                   </a>
                 </div>
-                <div className='col-5 gap-1'>
+                <div className='col-5 gap-1 cash'>
                   <a href='#'>
                     <img
                       src='/Assets/Img/app-store.png'
@@ -163,11 +163,8 @@ const Footer = () => {
       <div className='row footer_bottom'>
         <div className='col-12'>
           <div className=''>
-            <div
-              className='d-flex justify-content-between'
-              style={{ backgroundColor: "rgb(27, 109, 193)", padding: 10 }}
-            >
-              <div>
+            <div className='d-flex justify-content-between align-items-center'>
+              <div className='d-flex align-items-center'>
                 <p className='footer-copytext'>
                   © All Copyrights Reserved by <a href='#'>OwnFood</a>
                 </p>
@@ -176,28 +173,28 @@ const Footer = () => {
                 <a href='#'>
                   <img
                     src='/Assets/Img/payment/jpg/01.jpg'
-                    className='img-fluid rounded'
+                    className='img-fluid rounded footer__pay__img'
                     alt='payment'
                   />
                 </a>
                 <a href='#'>
                   <img
                     src='/Assets/Img/payment/jpg/02.jpg'
-                    className='img-fluid rounded'
+                    className='img-fluid rounded footer__pay__img'
                     alt='payment'
                   />
                 </a>
                 <a href='#'>
                   <img
                     src='/Assets/Img/payment/jpg/03.jpg'
-                    className='img-fluid rounded'
+                    className='img-fluid rounded footer__pay__img'
                     alt='payment'
                   />
                 </a>
                 <a href='#'>
                   <img
                     src='/Assets/Img/payment/jpg/04.jpg'
-                    className='img-fluid rounded'
+                    className='img-fluid rounded footer__pay__img'
                     alt='payment'
                   />
                 </a>
