@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import Slider from "react-slick";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Uber_image } from "../../Database/ImgData";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const ClientTop = () => {
@@ -65,26 +65,22 @@ const ClientTop = () => {
             >
               <Slider {...settings}>
                 {Uber_image.map((item) => (
-                  <div
-                    className='sf_brand-wrap slick-slide slick-cloned mt-3'
-                    data-slick-index='-5'
-                    aria-hidden='true'
-                    tabIndex='-1'
-                    style={{ width: 224 }}
-                  >
-                    <div className='sf_brand-media'>
-                      <img src={item.item_image} alt='brand' />
-                      <div
-                        className='sf_brand-overlay'
-                        onClick={() => {
-                          navigate("shoppingpage");
-                        }}
-                      ></div>
+                  <Link to={"/ShoppingDetails"}>
+                    <div
+                      className='sf_brand-wrap slick-slide slick-cloned mt-3'
+                      data-slick-index='-5'
+                      aria-hidden='true'
+                      tabIndex='-1'
+                      style={{ width: 224 }}
+                    >
+                      <div className='sf_brand-media'>
+                        <img src={item.item_image} alt='brand' />
+                      </div>
+                      <div className='brand-meta'>
+                        <h4>vegan lover</h4>
+                      </div>
                     </div>
-                    <div className='brand-meta'>
-                      <h4>vegan lover</h4>
-                    </div>
-                  </div>
+                  </Link>
                 ))}
               </Slider>
             </div>

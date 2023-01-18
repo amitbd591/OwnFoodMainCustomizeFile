@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Two_one, Uber_image, Four_two } from "../../Database/ImgData";
 const FoodCatGallery = () => {
   const navigate = useNavigate();
@@ -35,16 +35,13 @@ const FoodCatGallery = () => {
               </div>
 
               <div className='col-md-12'>
-                <a
-                  href='#'
-                  onClick={() => {
-                    navigate("shoppingpage");
-                  }}
+                <Link
+                  to={"/ShoppingDetails"}
                   className='see_more'
                   style={{ marginRight: 15 }}
                 >
                   See more
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -76,16 +73,13 @@ const FoodCatGallery = () => {
               </div>
 
               <div className='col-md-12'>
-                <a
-                  href='#'
-                  onClick={() => {
-                    navigate("shoppingpage");
-                  }}
+                <Link
+                  to={"/ShoppingDetails"}
                   className='see_more'
                   style={{ marginRight: 15 }}
                 >
                   See more
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -111,16 +105,13 @@ const FoodCatGallery = () => {
                 </div>
               </div>
               <div className='col-md-12'>
-                <a
-                  href='#'
-                  onClick={() => {
-                    navigate("shoppingpage");
-                  }}
+                <Link
+                  to={"/ShoppingDetails"}
                   className='see_more'
-                  style={{ marginRight: 10 }}
+                  style={{ marginRight: 15 }}
                 >
                   See more
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -147,15 +138,13 @@ const FoodCatGallery = () => {
                 </div>
               </div>
               <div className='col-md-12'>
-                <a
-                  href='#'
-                  onClick={() => {
-                    navigate("shoppingpage");
-                  }}
+                <Link
+                  to={"/ShoppingDetails"}
                   className='see_more'
+                  style={{ marginRight: 15 }}
                 >
                   See more
-                </a>
+                </Link>
               </div>
             </div>
           </div>

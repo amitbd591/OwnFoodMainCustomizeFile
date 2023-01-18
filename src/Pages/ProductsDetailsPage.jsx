@@ -8,7 +8,7 @@ const ProductsDetailsPage = () => {
     <Fragment>
       <Suspense fallback={"Loader__item"}>
         <Helmet>
-          <title>Products Details Page || OwnFood</title>
+          <title>Products Details || OwnFood</title>
           <meta name='Products Details Page' content='Our OwnFood' />
         </Helmet>
         <ProductsDetailsComponent />

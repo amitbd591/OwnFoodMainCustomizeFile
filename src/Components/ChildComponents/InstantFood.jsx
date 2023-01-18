@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillHeart, AiOutlineShopping } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
@@ -100,9 +100,9 @@ const InstantFood = () => {
                     </a>
                   </div>
                   <h6 class='product-name'>
-                    <a href='#' tabindex='-1'>
+                    <Link to={"/ProductsDetails"} tabindex='-1'>
                       Chaowmin
-                    </a>
+                    </Link>
                   </h6>
                   <h6 class='product-price'>
                     <del>$34</del>
@@ -129,7 +129,9 @@ const InstantFood = () => {
       <div className='row'>
         <div className='col'>
           <div className='section-btn-25'>
-            <button>show more</button>
+            <Link to={"/ShoppingDetails"}>
+              <button>show more</button>
+            </Link>
           </div>
         </div>
       </div>

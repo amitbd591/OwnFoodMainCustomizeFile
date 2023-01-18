@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const Recipe_Gallery = () => {
   return (
     <section className='Recipe_Gallery section '>
@@ -13,13 +14,29 @@ const Recipe_Gallery = () => {
                   <h2>Down Home Ribs</h2>
                 </div>
                 <div className='topBar'>
-                  <div className='imgFile'>
-                    <img
-                      className='img-fluid'
-                      src={"/Assets/Img/Recipe/imgHub_1_1.png"}
-                      alt=''
-                    />
-                  </div>
+                  <Link to={"/ShoppingDetails"}>
+                    <div className='imgFile'>
+                      <div>
+                        <img
+                          className='img-fluid'
+                          src={"/Assets/Img/Recipe/imgHub_1_1.png"}
+                          alt=''
+                        />
+                      </div>
+                      <div className='overlay__text'>
+                        <div className='inner__body'>
+                          <div>
+                            <h3>Indian Foods Overlay</h3>
+                            <p>
+                              Lorem ipsum dolor, sit amet consectetur
+                              adipisicing elit. Harum repellat dignissimos
+                              repellendus, esse iusto voluptas.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
                 <div className='buttonBar d-flex justify-content-between'>
                   <div className='imgFile'>

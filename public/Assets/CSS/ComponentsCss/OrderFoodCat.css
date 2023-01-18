@@ -27,7 +27,7 @@ h6 {
   font-family: var(--pfamily);
   font-size: 26px;
   font-weight: 600;
-  color: #9333ea;
+  color: rgb(27, 109, 193);
 }
 .OrderFoodCat h6 {
   font-size: var(--h6size);
@@ -235,7 +235,8 @@ button {
   -ms-transition: all linear 0.3s;
   -o-transition: all linear 0.3s;
 }
-.OrderFoodCat .product-widget a {
+.OrderFoodCat .product-widget span {
+  cursor: pointer;
   width: 40px;
   height: 40px;
   font-size: 15px;

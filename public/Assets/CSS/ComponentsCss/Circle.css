@@ -311,3 +311,44 @@
     transform: rotate(-360deg) translate(150px) rotate(360deg);
   }
 }
+
+.Circle .slick-prev,
+.Circle .slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 9px;
+  z-index: 99;
+  border-radius: 50%;
+  font-size: 80px;
+  transition: all 0.2s linear;
+}
+.Circle:hover .slick-prev,
+.Circle:hover .slick-next {
+  background-color: white;
+  color: var(--primary);
+  box-shadow: var(--primary-bshadow);
+}
+.Circle:hover .slick-prev:hover,
+.Circle:hover .slick-next:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.Circle .slick-prev {
+  left: 0;
+}
+.Circle .slick-next {
+  right: 0;
+}

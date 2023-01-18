@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const BrowseByKitchen = () => {
   const navigate = useNavigate();
@@ -42,26 +42,30 @@ const BrowseByKitchen = () => {
               }}
             >
               <Slider {...settings}>
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3 '
-                  data-slick-index='-5'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                  onClick={() => {
-                    navigate("sellerprofle");
-                  }}
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/01.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>vegan lover</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
+                {[...Array(7)].map((item, index) => (
+                  <Link to={"/SellerProfile"}>
+                    <div
+                      className='brand-wrap slick-slide slick-cloned mt-3 '
+                      data-slick-index='-5'
+                      aria-hidden='true'
+                      tabIndex='-1'
+                    >
+                      <div className='brand-media'>
+                        <img
+                          src={`/Assets/Img/brand/0${index + 1}.jpg`}
+                          alt='brand'
+                        />
+                        <div className='brand-overlay'></div>
+                      </div>
+                      <div className='brand-meta'>
+                        <h4 className='sf_title_color_brand'>vegan lover</h4>
+                        <p>(45 items)</p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
 
-                <div
+                {/* <div
                   className='brand-wrap slick-slide slick-cloned mt-3'
                   data-slick-index='-4'
                   aria-hidden='true'
@@ -313,7 +317,7 @@ const BrowseByKitchen = () => {
                     <h4 className='sf_title_color_brand'>econature</h4>
                     <p>(45 items)</p>
                   </div>
-                </div>
+                </div> */}
               </Slider>
             </div>
           </div>

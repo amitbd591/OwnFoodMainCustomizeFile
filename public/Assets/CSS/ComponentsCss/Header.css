@@ -1,5 +1,13 @@
 /*! CSS Used from: https://ownfood.hostdivine.com/css/main.css */
 
+.Header {
+  position: fixed;
+  z-index: 9;
+  background: #fff;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
 .Header .logo {
   height: 90px;
 }
@@ -1006,4 +1014,13 @@ button[type="submit"]:disabled {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.css-79ws1d-MuiModal-root {
+  position: fixed;
+  z-index: 9999 !important;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
 }

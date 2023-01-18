@@ -20,6 +20,7 @@ const HomeComponent = () => {
   return (
     <section>
       <Header />
+      <div className='Space__For__Header'></div>
       <ClientTop />
       <CardSlider />
       <CountryBaseFoodCategories />
