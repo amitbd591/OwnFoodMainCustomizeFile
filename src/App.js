@@ -2,11 +2,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import ProductsDetailsPage from "./Pages/ProductsDetailsPage";
 import SellerProfilePage from "./Pages/SellerProfilePage";
-import ShoppingDetailsPage from "./Pages/ShoppingDetailsPage";
 import CountryCategoryPage from "./Pages/CountryCategoryPage";
 import CustomerLoginPage from "./Pages/CustomerLoginPage";
 import CustomerRegistrationPage from "./Pages/CustomerRegistrationPage";
 import ForgetPasswordPage from "./Pages/ForgetPasswordPage";
+import CategoryPage from "./Pages/CategoryPage";
 
 function App() {
   return (
@@ -19,11 +19,7 @@ function App() {
           element={<ProductsDetailsPage />}
         />
         <Route exact path='/SellerProfile' element={<SellerProfilePage />} />
-        <Route
-          exact
-          path='/ShoppingDetails'
-          element={<ShoppingDetailsPage />}
-        />
+        <Route exact path='/Category' element={<CategoryPage />} />
         <Route
           exact
           path='/CountryCategory'

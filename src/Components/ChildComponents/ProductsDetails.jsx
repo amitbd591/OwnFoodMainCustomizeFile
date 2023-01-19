@@ -14,16 +14,22 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 const ProductsDetails = () => {
   const images = [
     {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
+      original:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108562/Data/Rectangle_1_u9iaul.png",
+      thumbnail:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108561/Data/Rectangle_4_eo2w2w.png",
     },
     {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
+      original:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108563/Data/Rectangle_3_zadxid.png",
+      thumbnail:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108561/Data/Rectangle_6_tgjfzs.png",
     },
     {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
+      original:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108562/Data/Rectangle_2_djre7d.png",
+      thumbnail:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108561/Data/Rectangle_5_vtn7k1.png",
     },
   ];
   return (
@@ -239,17 +245,78 @@ const ProductsDetails = () => {
                       <Row>
                         <Col lg={12}>
                           <div className='inner__body'>
-                            <div className='profile__user'>
-                              <div className='imgFile'>
-                                <img
-                                  className='img-fluid'
-                                  src='/Assets/Img/team/01.jpg'
-                                  alt=''
-                                />
+                            <div className='reviewer'>
+                              <div className='profile__user'>
+                                <div className='imgFile'>
+                                  <img
+                                    className='img-fluid'
+                                    src='/Assets/Img/team/01.jpg'
+                                    alt=''
+                                  />
+                                </div>
+                                <div className='textFile'>
+                                  <span className='name'>Alex Jhon</span>
+                                  <span className='date'>January 18, 2023</span>
+                                </div>
                               </div>
-                              <div className='textFile'>
-                                <span className='name'>Alex Jhon</span>
-                                <span className='date'>January 18, 2023</span>
+                              <div className='reviewIcon'>
+                                <span>
+                                  <FaStar />
+                                </span>
+                                <span>
+                                  <FaStar />
+                                </span>
+                                <span>
+                                  <FaStar />
+                                </span>
+                                <span>
+                                  <FaStar />
+                                </span>
+                                <span>
+                                  <FaStar />
+                                </span>
+                              </div>
+                              <div className='review__user__text'>
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Voluptatibus blanditiis
+                                  corrupti vero deserunt enim voluptates
+                                  assumenda impedit facere nesciunt voluptate?
+                                </p>
+                              </div>
+                              <div className='input__user__replay'>
+                                <input type='text' />
+                                <button>Reply</button>
+                              </div>
+                            </div>
+                            <div className='adminReply ps-5'>
+                              <div className='profile__user'>
+                                <div className='imgFile'>
+                                  <img
+                                    className='img-fluid'
+                                    src='/Assets/Img/team/01.jpg'
+                                    alt=''
+                                  />
+                                </div>
+                                <div className='textFile'>
+                                  <p className='name'>Rohana Tailor</p>
+                                  <p className='date'>
+                                    <span className='author'>Author</span>
+                                    January 18, 2023
+                                  </p>
+                                </div>
+                              </div>
+                              <div className='review__user__text'>
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur,
+                                  adipisicing elit. Voluptatibus blanditiis
+                                  corrupti vero deserunt enim voluptates
+                                  assumenda impedit facere nesciunt voluptate?
+                                </p>
+                              </div>
+                              <div className='input__user__replay'>
+                                <input type='text' />
+                                <button>Reply</button>
                               </div>
                             </div>
                           </div>

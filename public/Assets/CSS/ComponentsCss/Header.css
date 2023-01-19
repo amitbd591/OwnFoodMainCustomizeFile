@@ -1024,3 +1024,7 @@ button[type="submit"]:disabled {
   top: 0;
   left: 0;
 }
+
+.MuiModal-root {
+  z-index: 10 !important;
+}

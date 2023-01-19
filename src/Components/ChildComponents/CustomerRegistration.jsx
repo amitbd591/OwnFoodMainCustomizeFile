@@ -2,6 +2,7 @@ import React from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 const CustomerRegistration = () => {
   return (
     <div class='CustomerRegistration'>
@@ -94,7 +95,7 @@ const CustomerRegistration = () => {
               </div>
               <p class='text-center'>
                 Don't have an account?
-                <a href='RegistarPage.html'> Login here</a>
+                <Link to='/CustomerLogin'> Login here</Link>
               </p>
             </div>
           </div>

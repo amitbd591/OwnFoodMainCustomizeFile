@@ -6,7 +6,7 @@ import { BsHeart } from "react-icons/bs";
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
 import { FoodItem } from "../../Database/ImgData";
 
-const InstantFood = () => {
+const InstantFood = ({ title }) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
@@ -35,8 +35,8 @@ const InstantFood = () => {
             <div className='headerText '>
               <div>
                 <h2>
-                  <span className='sf_init_title'>Instant</span>{" "}
-                  <span className='sf_text-theme'>Foods</span>
+                  <span className='sf_init_title'>{title}</span>
+                  <span className='sf_text-theme'> Foods</span>
                 </h2>
               </div>
             </div>

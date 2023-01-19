@@ -6,16 +6,31 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
+import ImageGallery from "react-image-gallery";
 const ShoppingPopUp = ({ show, handleClose }) => {
+  const images = [
+    {
+      original:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108562/Data/Rectangle_1_u9iaul.png",
+      thumbnail:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108561/Data/Rectangle_4_eo2w2w.png",
+    },
+    {
+      original:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108563/Data/Rectangle_3_zadxid.png",
+      thumbnail:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108561/Data/Rectangle_6_tgjfzs.png",
+    },
+    {
+      original:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108562/Data/Rectangle_2_djre7d.png",
+      thumbnail:
+        "https://res.cloudinary.com/dwmkmhnqo/image/upload/v1674108561/Data/Rectangle_5_vtn7k1.png",
+    },
+  ];
   return (
     <div className='ShoppingPopUp container' style={{ padding: 10 }}>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        animation={false}
-        // backdrop="static"
-        size='xl'
-      >
+      <Modal show={show} onHide={handleClose} animation={false} size='xl'>
         <Modal.Header closeButton>
           <Modal.Title>Food Name</Modal.Title>
         </Modal.Header>
@@ -24,15 +39,15 @@ const ShoppingPopUp = ({ show, handleClose }) => {
             <div className='row'>
               <div className='col-md-6 col-lg-6'>
                 <div className='view-gallery'>
-                  <div className='view-label-group'>
-                    <label className='view-label new'>new</label>
-                    <label className='view-label off'>-10%</label>
+                  <div class='image_slider'>
+                    <ImageGallery
+                      useTranslate3D={false}
+                      items={images}
+                      showNav={false}
+                      showPlayButton={false}
+                      showFullscreenButton={false}
+                    />
                   </div>
-                  <ul className='preview-slider slider-arrow'>
-                    <li>
-                      <img src={"/Assets/Img/barger.png"} alt='product' />
-                    </li>
-                  </ul>
                 </div>
               </div>
               <div className='col-md-6 col-lg-6'>

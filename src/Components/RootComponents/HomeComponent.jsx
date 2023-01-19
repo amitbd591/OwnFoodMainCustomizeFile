@@ -15,6 +15,7 @@ import FoodNameCategory from "../ChildComponents/FoodNameCategory";
 import Map from "../ChildComponents/Map";
 import Dairy from "../ChildComponents/Dairy";
 import Footer from "../Common/Footer";
+import Circle_2 from "../ChildComponents/Circle_2";
 
 const HomeComponent = () => {
   return (
@@ -28,9 +29,11 @@ const HomeComponent = () => {
       <Recipe_Gallery />
       <OpenAccountInfo />
       <Circle />
+      <Circle_2 />
+
       <OrderFoodCat />
       <FoodCatGallery />
-      <InstantFood />
+      <InstantFood title={"Instant"} />
       <BrowseByKitchen />
       <FoodNameCategory />
       <Dairy />

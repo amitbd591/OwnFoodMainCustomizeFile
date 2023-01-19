@@ -65,7 +65,7 @@ const ClientTop = () => {
             >
               <Slider {...settings}>
                 {Uber_image.map((item) => (
-                  <Link to={"/ShoppingDetails"}>
+                  <Link to={"/Category"}>
                     <div
                       className='sf_brand-wrap slick-slide slick-cloned mt-3'
                       data-slick-index='-5'

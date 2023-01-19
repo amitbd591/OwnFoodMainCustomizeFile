@@ -22,8 +22,8 @@ const OpenAccountInfo = () => {
             <div className='headerText '>
               <div>
                 <h2>
-                  <span className='sf_init_title'>Food Base On</span>{" "}
-                  <span className='sf_text-theme'>Country</span>
+                  <span className='sf_init_title'>How It</span>{" "}
+                  <span className='sf_text-theme'>Works</span>
                 </h2>
               </div>
             </div>

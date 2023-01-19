@@ -1,6 +1,7 @@
 import React from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 const CustomerLogin = () => {
   return (
     <div class='CustomerLogin'>
@@ -60,12 +61,12 @@ const CustomerLogin = () => {
                         Remember me
                       </label>
                     </div>
-                    <a
-                      href='forgot-password-23.html'
+                    <Link
+                      to='/ForgetPassword'
                       class='link-light float-end forgot-password'
                     >
                       Forgot your password?
-                    </a>
+                    </Link>
                   </div>
                   <div class='form-group clearfix mb-0'>
                     <button
@@ -79,7 +80,7 @@ const CustomerLogin = () => {
               </div>
               <p class='text-center'>
                 Don't have an account?
-                <a href='register-23.html'> Register here</a>
+                <Link to='/CustomerRegistration'> Register here</Link>
               </p>
             </div>
           </div>

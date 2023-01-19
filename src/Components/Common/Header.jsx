@@ -5,6 +5,8 @@ import {
   FaBars,
   FaCartPlus,
   FaMapMarkerAlt,
+  FaMinus,
+  FaPlus,
   FaSearch,
   FaUserCheck,
   FaUserCog,
@@ -257,14 +259,14 @@ const Header = () => {
                     </ul>
 
                     <div>
-                      <Link to={"/CustomerLogin"}>
+                      <Link to={"/CustomerRegistration"}>
                         <button type='button' class='btnopen btn-primary'>
                           <i class='fa-solid fa-right-to-bracket me-1'></i>
                           Open Your Account
                         </button>
                       </Link>
 
-                      <Link to={"/CustomerRegistration"}>
+                      <Link to={"/CustomerLogin"}>
                         <button
                           type='button'
                           class='btnSign btn-primary'
@@ -425,7 +427,7 @@ const Header = () => {
                   <div className='cart-action-group'>
                     <div className='product-action'>
                       <button className='action-minus' title='Quantity Minus'>
-                        <i className='icofont-minus'></i>
+                        <FaMinus />
                       </button>
                       <input
                         className='action-input'
@@ -435,7 +437,7 @@ const Header = () => {
                         value='1'
                       />
                       <button className='action-plus' title='Quantity Plus'>
-                        <i className='icofont-plus'></i>
+                        <FaPlus />
                       </button>
                     </div>
                     <h6>$56.98</h6>
@@ -461,7 +463,7 @@ const Header = () => {
                   <div className='cart-action-group'>
                     <div className='product-action'>
                       <button className='action-minus' title='Quantity Minus'>
-                        <i className='icofont-minus'></i>
+                        <FaMinus />
                       </button>
                       <input
                         className='action-input'
@@ -471,7 +473,7 @@ const Header = () => {
                         value='1'
                       />
                       <button className='action-plus' title='Quantity Plus'>
-                        <i className='icofont-plus'></i>
+                        <FaPlus />
                       </button>
                     </div>
                     <h6>$56.98</h6>
@@ -497,7 +499,7 @@ const Header = () => {
                   <div className='cart-action-group'>
                     <div className='product-action'>
                       <button className='action-minus' title='Quantity Minus'>
-                        <i className='icofont-minus'></i>
+                        <FaMinus />
                       </button>
                       <input
                         className='action-input'
@@ -507,7 +509,7 @@ const Header = () => {
                         value='1'
                       />
                       <button className='action-plus' title='Quantity Plus'>
-                        <i className='icofont-plus'></i>
+                        <FaPlus />
                       </button>
                     </div>
                     <h6>$56.98</h6>
@@ -533,7 +535,7 @@ const Header = () => {
                   <div className='cart-action-group'>
                     <div className='product-action'>
                       <button className='action-minus' title='Quantity Minus'>
-                        <i className='icofont-minus'></i>
+                        <FaMinus />
                       </button>
                       <input
                         className='action-input'
@@ -543,7 +545,7 @@ const Header = () => {
                         value='1'
                       />
                       <button className='action-plus' title='Quantity Plus'>
-                        <i className='icofont-plus'></i>
+                        <FaPlus />
                       </button>
                     </div>
                     <h6>$56.98</h6>
@@ -569,7 +571,7 @@ const Header = () => {
                   <div className='cart-action-group'>
                     <div className='product-action'>
                       <button className='action-minus' title='Quantity Minus'>
-                        <i className='icofont-minus'></i>
+                        <FaMinus />
                       </button>
                       <input
                         className='action-input'
@@ -579,7 +581,7 @@ const Header = () => {
                         value='1'
                       />
                       <button className='action-plus' title='Quantity Plus'>
-                        <i className='icofont-plus'></i>
+                        <FaPlus />
                       </button>
                     </div>
                     <h6>$56.98</h6>

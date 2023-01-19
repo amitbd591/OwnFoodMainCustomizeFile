@@ -195,20 +195,54 @@
 .ProductsDetails .review__body .profile__user .imgFile img {
   width: 80px;
   border-radius: 50%;
-  border: 3px solid #333;
+  border: 3px solid #1b6dc1;
 }
 .ProductsDetails .review__body .profile__user .textFile {
+}
+
+.ProductsDetails .review__body .profile__user .textFile .name {
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+}
+.ProductsDetails .review__body .profile__user .textFile .date {
+  font-size: 15px;
+  font-weight: 500;
+  display: block;
+}
+.ProductsDetails .review__body .profile__user .textFile .date span {
+  color: #1b6dc1;
+  padding-right: 10px;
+}
+.ProductsDetails .review__body .reviewIcon {
+  margin-top: 10px;
   display: flex;
+  gap: 5px;
 }
-.ProductsDetails .review__body .profile__user .textFile .name {
-  font-size: 26px;
-  font-weight: 700;
+.ProductsDetails .review__body .reviewIcon svg {
+  color: #feea0a;
 }
-.ProductsDetails .review__body .profile__user .textFile .name {
-  font-size: 22px;
-  font-weight: 700;
+.ProductsDetails .review__body .review__user__text {
+  margin-top: 10px;
 }
-.ProductsDetails .review__body .profile__user .textFile .name {
-  font-size: 22px;
-  font-weight: 700;
+.ProductsDetails .review__body .input__user__replay {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.ProductsDetails .review__body .input__user__replay input {
+  border: 1px solid #ddd;
+  width: 80%;
+  height: 38px;
+  border-radius: 8px;
+}
+.ProductsDetails .review__body .input__user__replay button {
+  padding: 7px 24px;
+  background: #1b6dc1;
+  color: #fff;
+  border-radius: 8px;
+}
+.adminReply {
+  margin-top: 40px;
 }

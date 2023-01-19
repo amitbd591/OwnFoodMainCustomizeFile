@@ -10,6 +10,7 @@
 @import "./ComponentsCss/EarnMoney.css";
 @import "./ComponentsCss/Recipe_Gallery.css";
 @import "./ComponentsCss/Circle.css";
+@import "./ComponentsCss/Circle_2.css";
 @import "./ComponentsCss/ShoppingPopUp.css";
 @import "./ComponentsCss/OrderFoodCat.css";
 @import "./ComponentsCss/OpenAccountInfo.css";
@@ -23,7 +24,7 @@
 @import "./ComponentsCss/Footer.css";
 @import "./ComponentsCss/SellerProfile.css";
 @import "./ComponentsCss/ProductsDetails.css";
-@import "./ComponentsCss/ShoppingDetails.css";
+@import "./ComponentsCss/Category.css";
 @import "./ComponentsCss/CustomerLogin.css";
 @import "./ComponentsCss/CustomerRegistration.css";
 @import "./ComponentsCss/ForgetPassword.css";

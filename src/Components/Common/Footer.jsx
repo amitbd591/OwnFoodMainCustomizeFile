@@ -19,32 +19,35 @@ const Footer = () => {
                   alt='logo'
                 />
               </a>
-              <p className='footer-desc '>
-                Adipisci asperiores ipsum ipsa repellat consequatur repudiandae
-                quisquam assumenda dolor perspiciatis sit ipsum dolor amet.
-              </p>
-              <ul className=' d-flex gap-2 mt-3 justify-content-start ps-0 footer-social '>
-                <li>
-                  <a href='#'>
-                    <FaFacebookF />
-                  </a>
-                </li>
-                <li>
-                  <a href='#'>
-                    <FaTwitter />
-                  </a>
-                </li>
-                <li>
-                  <a href='#'>
-                    <FaLinkedinIn />
-                  </a>
-                </li>
-                <li>
-                  <a href='#'>
-                    <FaInstagram />
-                  </a>
-                </li>
-              </ul>
+              <div className='ps-2 pt-2'>
+                <p className='footer-desc '>
+                  Adipisci asperiores ipsum ipsa repellat consequatur
+                  repudiandae quisquam assumenda dolor perspiciatis sit ipsum
+                  dolor amet.
+                </p>
+                <ul className=' d-flex gap-2 mt-3 justify-content-start ps-0 footer-social '>
+                  <li>
+                    <a href='#'>
+                      <FaFacebookF />
+                    </a>
+                  </li>
+                  <li>
+                    <a href='#'>
+                      <FaTwitter />
+                    </a>
+                  </li>
+                  <li>
+                    <a href='#'>
+                      <FaLinkedinIn />
+                    </a>
+                  </li>
+                  <li>
+                    <a href='#'>
+                      <FaInstagram />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div className='col-sm-6 col-xl-2'>

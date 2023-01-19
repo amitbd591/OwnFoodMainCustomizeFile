@@ -1,5 +1,6 @@
 import React from "react";
 import { HiOutlineMail } from "react-icons/hi";
+import { Link } from "react-router-dom";
 const ForgetPassword = () => {
   return (
     <div class='ForgetPassword'>
@@ -40,7 +41,7 @@ const ForgetPassword = () => {
                 </form>
               </div>
               <p class='text-center'>
-                Already a member?<a href='ForgotPassword.html'> Login here</a>
+                Already a member?<Link to='/CustomerLogin'> Login here</Link>
               </p>
             </div>
           </div>
