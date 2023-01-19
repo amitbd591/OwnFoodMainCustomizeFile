@@ -237,6 +237,7 @@ button {
   -moz-transition: all linear 0.3s;
   -ms-transition: all linear 0.3s;
   -o-transition: all linear 0.3s;
+  cursor: pointer;
 }
 .Header.zip-form {
   background: var(--white);
@@ -246,6 +247,13 @@ button {
   width: 80%;
   height: 45px;
   font-size: 15px;
+}
+.zip-form .search__input {
+  cursor: pointer;
+}
+.zip-form label {
+  padding: 5px 10px;
+  cursor: pointer;
 }
 .Header .zip-form button i {
   width: 45px;
@@ -451,7 +459,7 @@ button {
   display: none !important;
 }
 .slide-pane__overlay {
-  z-index: 10 !important;
+  z-index: 99 !important;
 }
 
 .sidebar {
@@ -500,7 +508,7 @@ button {
 }
 
 .all_food_dropdown {
-  position: absolute;
+  position: relative;
 }
 
 /* Drawer Right CSS */

@@ -184,16 +184,23 @@ const Header = () => {
             </div>
           </div>
 
-          <div className='d-flex justify-content-between  '>
+          <div className=' d-flex justify-content-between  '>
             <span
               className='zip-form ms-1'
               onClick={() => {
                 handleOpen();
               }}
             >
-              <input placeholder=' Search Food Drinks...' disabled />
-              <label htmlFor='searchInput'>
-                <i className='fas fa-search'></i>
+              <label
+                htmlFor='searchInput'
+                className='d-flex gap-3 justify-content-center align-items-center'
+              >
+                <span>Search Food Drinks...</span>
+                <span>
+                  <FaSearch />
+                </span>
+
+                {/* <input placeholder=' Search Food Drinks...' /> */}
               </label>
             </span>
           </div>
@@ -247,13 +254,13 @@ const Header = () => {
 
                       <li className='navbar-item'>
                         <a class='navbar-link ' href='#'>
-                          FAQ
+                          RECIPE
                         </a>
                       </li>
 
                       <li className='navbar-item'>
                         <a class='navbar-link ' href='#'>
-                          DAIRY
+                          DIARY
                         </a>
                       </li>
                     </ul>
@@ -305,7 +312,7 @@ const Header = () => {
           className='slidingpaneLeft'
           isOpen={paneLeft}
           from='left'
-          width='300px'
+          width='320px'
           z-Index='27'
           onRequestClose={() => SetpanLeft(false)}
         >
@@ -314,7 +321,11 @@ const Header = () => {
               <div className='col-md-10'>
                 <a href='https://ownfood.hostdivine.com/'>
                   {" "}
-                  <img src={"/Assets/Img/ownfood.png"} className='img-fluid' />
+                  <img
+                    src={"/Assets/Img/ownfood.png"}
+                    className='img-fluid'
+                    alt=''
+                  />
                 </a>
               </div>
               <div className='col-md-2'>
@@ -347,6 +358,15 @@ const Header = () => {
                   <span>ALL FOOD</span>
                   <i class='fa-sharp fa-solid fa-angle-down'></i>
                 </div>
+                <div className='all_food_dropdown'>
+                  <div className='sidebar-content'>POPLULAR KITCHEN</div>
+                  <div className='sidebar-content'>INSTANT FOOD</div>
+                  <div className='sidebar-content'>PRE-ORDER FOOD</div>
+                  <div className='sidebar-content'>WHICH-ORDER</div>
+                  <div className='sidebar-content'>CATERING FOOD</div>
+                  <div className='sidebar-content'>FIND US IN THIS STATE</div>
+                  <div className='sidebar-content'>ALL CATEGORIES</div>
+                </div>
               </div>
               <hr />
               <div className='sidebar-item'>
@@ -366,16 +386,6 @@ const Header = () => {
                   <span>Dairy</span>
                 </div>
               </div>
-            </div>
-
-            <div className='all_food_dropdown'>
-              <div className='sidebar-content'>POPLULAR KITCHEN</div>
-              <div className='sidebar-content'>INSTANT FOOD</div>
-              <div className='sidebar-content'>PRE-ORDER FOOD</div>
-              <div className='sidebar-content'>WHICH-ORDER</div>
-              <div className='sidebar-content'>CATERING FOOD</div>
-              <div className='sidebar-content'>FIND US IN THIS STATE</div>
-              <div className='sidebar-content'>ALL CATEGORIES</div>
             </div>
           </div>
         </SlidingPane>

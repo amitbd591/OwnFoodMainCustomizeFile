@@ -129,8 +129,8 @@ const InstantFood = ({ title }) => {
       <div className='row'>
         <div className='col'>
           <div className='section-btn-25'>
-            <Link to={"/ShoppingDetails"}>
-              <button>show more</button>
+            <Link to={"/Category"}>
+              <button>Show More</button>
             </Link>
           </div>
         </div>
