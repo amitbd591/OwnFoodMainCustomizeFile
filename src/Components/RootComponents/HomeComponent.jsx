@@ -16,6 +16,9 @@ import Map from "../ChildComponents/Map";
 import Dairy from "../ChildComponents/Dairy";
 import Footer from "../Common/Footer";
 import Circle_2 from "../ChildComponents/Circle_2";
+import HowWeDo from "../ChildComponents/HowWeDo";
+import RecipeBook from "../ChildComponents/RecipeBook";
+import Receipebook_layoutTwo from "../ChildComponents/Receipebook_layoutTwo";
 
 const HomeComponent = () => {
   return (
@@ -28,10 +31,13 @@ const HomeComponent = () => {
       <EarnMoney />
       <Recipe_Gallery />
       <OpenAccountInfo />
-      <Circle />
+      {/* <Circle /> */}
       <Circle_2 />
 
       <OrderFoodCat />
+      <HowWeDo />
+      <RecipeBook />
+      <Receipebook_layoutTwo />
       <FoodCatGallery />
       <InstantFood title={"Instant"} />
       <BrowseByKitchen />

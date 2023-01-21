@@ -66,12 +66,12 @@ p {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-.FoodCatGallery .card_navigate {
+/* .FoodCatGallery .card_navigate {
   margin-bottom: 15px;
-}
+} */
 
 .FoodCatGallery .card_product {
-  padding: 15px;
+  padding: 8px;
 }
 
 .FoodCatGallery .single_product_card {

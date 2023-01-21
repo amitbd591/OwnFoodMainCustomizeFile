@@ -1,0 +1,76 @@
+.HowWeDo {
+  padding: 30px 0;
+}
+.HowWeDo .card-image {
+  height: 80 !important;
+  width: 80 !important;
+}
+.HowWeDo .Card {
+  display: flex;
+  gap: 5px;
+}
+.HowWeDo .card_details {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 0 8px 8px 8px;
+}
+
+.HowWeDo .sf_text-theme {
+  font-family: var(--style-font);
+  font-weight: 700;
+  font-size: larger;
+  color: #1b6dc1;
+}
+.HowWeDo .sf_init_title {
+  font-weight: 700;
+  font-size: larger;
+  color: rgb(7, 7, 7);
+}
+.HowWeDo .Card .before {
+  font-weight: 700;
+  font-size: larger;
+  position: absolute;
+  top: 170px;
+  z-index: 1;
+  color: white;
+  background: #007ae48a;
+
+  width: 100%;
+}
+
+.HowWeDo .Card .before p {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.HowWeDo .Card .after p {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.HowWeDo .Card .after {
+  font-weight: 700;
+  font-size: larger;
+  position: absolute;
+  top: 170px;
+  z-index: 1;
+  color: white;
+  background: #007ae48a;
+
+  width: 100%;
+}
+
+.HowWeDo .Card .after_class {
+  position: relative;
+}
+
+.HowWeDo .Card .before_class {
+  position: relative;
+}
+
+.HowWeDo .card_title {
+  font-family: var(--pfamily);
+  font-weight: 800;
+  font-size: large;
+}

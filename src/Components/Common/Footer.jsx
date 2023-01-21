@@ -7,47 +7,44 @@ import {
 } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className='Footer footer-part bg-dark'>
+    <footer className='Footer footer-part '>
       <div className='container-fluid'>
         <div className='row py-5'>
           <div className='col-sm-6 col-xl-4'>
             <div className='footer-widget'>
               <a className='footer-logo ' href='#'>
                 <img
-                  src='/Assets/Img/Logo.png'
+                  src='/Assets/Img/Logo_footer.png'
                   className='img-fluid'
                   alt='logo'
                 />
               </a>
-              <div className='ps-2 pt-2'>
-                <p className='footer-desc '>
-                  Adipisci asperiores ipsum ipsa repellat consequatur
-                  repudiandae quisquam assumenda dolor perspiciatis sit ipsum
-                  dolor amet.
-                </p>
-                <ul className=' d-flex gap-2 mt-3 justify-content-start ps-0 footer-social '>
-                  <li>
-                    <a href='#'>
-                      <FaFacebookF />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      <FaTwitter />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      <FaLinkedinIn />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      <FaInstagram />
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <p className='footer-desc '>
+                Adipisci asperiores ipsum ipsa repellat consequatur repudiandae
+                quisquam assumenda dolor perspiciatis sit ipsum dolor amet.
+              </p>
+              <ul className=' d-flex gap-2 mt-3 justify-content-start ps-0 footer-social '>
+                <li>
+                  <a href='#'>
+                    <FaFacebookF />
+                  </a>
+                </li>
+                <li>
+                  <a href='#'>
+                    <FaTwitter />
+                  </a>
+                </li>
+                <li>
+                  <a href='#'>
+                    <FaLinkedinIn />
+                  </a>
+                </li>
+                <li>
+                  <a href='#'>
+                    <FaInstagram />
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
           <div className='col-sm-6 col-xl-2'>

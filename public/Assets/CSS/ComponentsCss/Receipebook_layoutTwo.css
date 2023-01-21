@@ -1,0 +1,50 @@
+.Receipebook_layoutTwo .bottom__gallery .leftSide .leftBar {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 20px;
+}
+.Receipebook_layoutTwo .bottom__gallery .leftSide .leftBar .imgFile {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all linear 0.3s;
+}
+
+.Receipebook_layoutTwo .bottom__gallery .leftSide .leftBar .imgFile :hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.Receipebook_layoutTwo .rightSide .leftBar {
+  /* height: 569px; */
+}
+.Receipebook_layoutTwo .rightSide .rightBar.imgFile {
+  margin-top: 10px;
+}
+.Receipebook_layoutTwo .big_imgFileTwo {
+  /* height:569px;
+     */
+  overflow: hidden;
+}
+
+.Receipebook_layoutTwo .leftSide .big_imgFile {
+  /* height:569px; */
+
+  overflow: hidden;
+}
+
+.Receipebook_layoutTwo .center_image {
+  height: 415px;
+  width: 417px;
+}
+
+.Receipebook_layoutTwo .first_image {
+  height: 415px;
+  width: 417px;
+}
+
+.Receipebook_layoutTwo .last_image {
+  height: 415px;
+  width: 417px;
+}

@@ -10,6 +10,27 @@ const Circle_2 = () => {
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
 
+  const color = [
+    {
+      bg: "#e11d48",
+    },
+    {
+      bg: "#d946ef",
+    },
+    {
+      bg: "#f97316",
+    },
+    {
+      bg: "#78350f",
+    },
+    {
+      bg: "#f59e0b",
+    },
+    {
+      bg: "#bef264",
+    },
+  ];
+
   const settings = {
     dots: false,
     infinite: true,
@@ -34,7 +55,7 @@ const Circle_2 = () => {
         <div className=' py-5'>
           <div className='row   '>
             <Slider {...settings}>
-              {[...Array(6)].map((item, index) => (
+              {color.map((item, index) => (
                 <div className='col-4 d-flex align-items-center justify-content-center'>
                   <div className='upper'>
                     <div className='try'></div>
@@ -42,7 +63,10 @@ const Circle_2 = () => {
                     <div className='main'>
                       <div className='name'>Biryani</div>
 
-                      <div className='imguppertwo '>
+                      <div
+                        className='imguppertwo '
+                        style={{ backgroundColor: `${item.bg}` }}
+                      >
                         <h3>My Food</h3>
                       </div>
 
@@ -50,7 +74,10 @@ const Circle_2 = () => {
                         <i></i>
                       </div>
 
-                      <div className='img0 '>
+                      <div
+                        className='img0 '
+                        style={{ backgroundColor: `${item.bg}` }}
+                      >
                         <i class='fa-solid fa-plus fa-2xl plus  '></i>
                       </div>
                       <img

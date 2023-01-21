@@ -8,13 +8,13 @@ const FoodCatGallery = () => {
   return (
     <section className=' FoodCatGallery section mt-5'>
       <div className='container-fluid'>
-        <div className='row'>
+        <div className='row g-3'>
           <div className='col-md-3  '>
             <div className='card'>
               <div className='card-header sf_top_card'>
                 <h3 className='mt-1 sf_top_name'> Top Food Category</h3>
               </div>
-              <div className='row mt-1 card_product'>
+              <div className='row mt-1 g-2  card_product'>
                 {Four_two.map((item, index) => {
                   return (
                     <div
@@ -51,7 +51,7 @@ const FoodCatGallery = () => {
               <div className='card-header sf_top_card'>
                 <h3 className='mt-1 sf_top_name'> Top Food Category</h3>
               </div>
-              <div className='row mt-1 card_product'>
+              <div className='row mt-1  g-2 card_product'>
                 {Four_two.map((item, index) => {
                   return (
                     <div

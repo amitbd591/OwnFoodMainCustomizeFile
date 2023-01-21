@@ -8,20 +8,11 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
-/* .Circle_2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  background-color: rgba(21, 21, 21, 0.704);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  z-index: -1;
-} */
+
 .Circle_2 .upper {
   width: 400px;
   height: 400px;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -104,7 +95,7 @@
 }
 
 .Circle_2 .img0 .plus {
-  margin-left: 28px;
+  margin-left: 24px;
   margin-top: 50%;
 }
 .Circle_2 .img0 {
@@ -112,20 +103,21 @@
   height: 90px;
   border-radius: 50%;
   position: absolute;
-  top: 157px;
+  top: 205px;
   bottom: 0;
   color: white;
-  left: 180px;
+  left: 157px;
   right: 0;
   overflow: hidden;
   z-index: 1;
   margin: auto;
   animation: circle3 20s linear infinite;
-  border: 5px solid #1b6dc1;
+  /* border: 5px solid #1b6dc1; */
   background: #f2f2f2;
 }
 .Circle_2 .img0 i {
-  color: #1b6dc1;
+  font-size: 50px;
+  color: #ffffff;
 }
 
 .Circle_2 .imgupper {
@@ -153,7 +145,7 @@
   color: white;
   left: -62px;
   z-index: 1;
-  background: #f2f2f2;
+  background: #ffffff;
   clip-path: polygon(100% 0, 100% 0, 100% 50%, 100% 100%, 100% 100%, 30% 52%);
 }
 .Circle_2 .imguppertwo {
@@ -167,7 +159,7 @@
   left: 0;
   right: 0;
   border-radius: 50%;
-  background: #1b6dc1;
+  /* background: #1bc17c; */
   display: flex;
   justify-content: center;
   align-items: center;
