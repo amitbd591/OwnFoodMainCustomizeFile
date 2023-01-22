@@ -48,3 +48,44 @@
   height: 415px;
   width: 417px;
 }
+
+.Receipebook_layoutTwo .slick-prev,
+.Receipebook_layoutTwo .slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 9px;
+  z-index: 99;
+  border-radius: 50%;
+  font-size: 80px;
+  transition: all 0.2s linear;
+}
+.Receipebook_layoutTwo:hover .slick-prev,
+.Receipebook_layoutTwo:hover .slick-next {
+  background-color: white;
+  color: var(--primary);
+  box-shadow: var(--primary-bshadow);
+}
+.Receipebook_layoutTwo:hover .slick-prev:hover,
+.Receipebook_layoutTwo:hover .slick-next:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.Receipebook_layoutTwo .slick-prev {
+  left: 0;
+}
+.Receipebook_layoutTwo .slick-next {
+  right: 0;
+}

@@ -36,6 +36,11 @@
 .Footer p {
   color: white;
   font-size: 13px;
+  padding-left: 8px;
+  padding-top: 10px;
+}
+.Footer ul {
+  padding-left: 7px !important;
 }
 .Footer .footer-title {
   color: white;
@@ -54,4 +59,9 @@
 .footer_bottom {
   background: #1b6dc1;
   padding: 5px 10px;
+}
+
+.Footer .bottomhr {
+  color: rgb(255, 255, 255);
+  margin: 0;
 }

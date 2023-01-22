@@ -1,14 +1,26 @@
 import React from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import Slider from "react-slick";
 const Receipebook_layoutTwo = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    nextArrow: <FaArrowRight />,
+    prevArrow: <FaArrowLeft />,
+    autoplaySpeed: 3000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
   return (
-    <Container className='Receipebook_layoutTwo d-flex  mt-5'>
+    <Container className='Receipebook_layoutTwo  mt-5'>
       <div className='top__gallery'>
-        <Row>
-          <Col lg={4} className='rightSide'>
+        {" "}
+        <Slider {...settings}>
+          <div className='rightSide'>
             <div className='rightSide_inner'>
-              <div className='d-flex '>
+              <div className='d-flex justify-content-center'>
                 <div className='leftBar pe-2'>
                   <div className='big_imgFileTwo'>
                     <img
@@ -50,11 +62,11 @@ const Receipebook_layoutTwo = () => {
                 </div>
               </div>
             </div>
-          </Col>
+          </div>
 
-          <Col lg={4} className='leftSide'>
+          <div className='leftSide'>
             <div className='rightSide_inner'>
-              <div className='d-flex '>
+              <div className='d-flex justify-content-center'>
                 <div className='leftBar '>
                   <div className='imgFile'>
                     <img
@@ -66,11 +78,11 @@ const Receipebook_layoutTwo = () => {
                 </div>
               </div>
             </div>
-          </Col>
+          </div>
 
-          <Col lg={4} className='rightSide'>
+          <div className='rightSide'>
             <div className='rightSide_inner'>
-              <div className='d-flex '>
+              <div className='d-flex justify-content-center'>
                 <div className='rightBar '>
                   <div className='imgFile mb-2'>
                     <img
@@ -112,8 +124,23 @@ const Receipebook_layoutTwo = () => {
                 </div>
               </div>
             </div>
-          </Col>
-        </Row>
+          </div>
+          <div className='leftSide'>
+            <div className='rightSide_inner'>
+              <div className='d-flex justify-content-center'>
+                <div className='leftBar '>
+                  <div className='imgFile'>
+                    <img
+                      className='img-fluid center_image '
+                      src={"/Assets/Img/RecipeBook/RecipeBook_1.jpeg"}
+                      alt=''
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Slider>
       </div>
     </Container>
   );

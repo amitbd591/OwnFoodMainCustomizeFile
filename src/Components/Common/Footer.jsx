@@ -160,6 +160,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <hr className='bottomhr' />
       <div className='row footer_bottom'>
         <div className='col-12'>
           <div className=''>

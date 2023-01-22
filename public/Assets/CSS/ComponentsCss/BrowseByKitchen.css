@@ -1,5 +1,5 @@
 .BrowseByKitchen {
-  background-image: url("/Assets/Img/Slider/footer_bg_1.jpg");
+  /* background-image: url("/Assets/Img/Slider/footer_bg_1.jpg"); */
   background-position: 50%;
   background-size: cover;
   z-index: 0;
@@ -14,7 +14,7 @@
   width: 100%;
   height: 100%;
   content: "";
-  background: #3339;
+  background: rgba(255, 255, 255, 0.6);
   z-index: -1;
 }
 
@@ -165,8 +165,8 @@ h4 {
   animation-play-state: paused;
 }
 .BrowseByKitchen .brand-media img {
-  width: 150px;
-  height: 150px;
+  /* width: 150px;
+  height: 150px; */
   border-radius: 50%;
 }
 @media (max-width: 575px) {
@@ -182,7 +182,7 @@ h4 {
   color: #1b6dc1;
 }
 .BrowseByKitchen .sf_init_title {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .BrowseByKitchen .slick-slider {

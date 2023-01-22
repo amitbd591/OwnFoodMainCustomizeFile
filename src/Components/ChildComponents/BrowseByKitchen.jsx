@@ -3,7 +3,48 @@ import Slider from "react-slick";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const BrowseByKitchen = () => {
-  const navigate = useNavigate();
+  const profileKitchenImg = [
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit1.png",
+    },
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit2.png",
+    },
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit3.png",
+    },
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit4.png",
+    },
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit5.png",
+    },
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit6.png",
+    },
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit7.png",
+    },
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit8.png",
+    },
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit9.png",
+    },
+    {
+      name: "Alex",
+      img: "/Assets/Img/profileKitchenImg/profile-kit10.png",
+    },
+  ];
 
   const settings = {
     dots: true,
@@ -42,7 +83,7 @@ const BrowseByKitchen = () => {
               }}
             >
               <Slider {...settings}>
-                {[...Array(7)].map((item, index) => (
+                {profileKitchenImg.map((item, index) => (
                   <Link to={"/SellerProfile"}>
                     <div
                       className='brand-wrap slick-slide slick-cloned mt-3 '
@@ -51,10 +92,7 @@ const BrowseByKitchen = () => {
                       tabIndex='-1'
                     >
                       <div className='brand-media'>
-                        <img
-                          src={`/Assets/Img/brand/0${index + 1}.jpg`}
-                          alt='brand'
-                        />
+                        <img src={item.img} alt='brand' />
                         <div className='brand-overlay'></div>
                       </div>
                       <div className='brand-meta'>
@@ -64,260 +102,6 @@ const BrowseByKitchen = () => {
                     </div>
                   </Link>
                 ))}
-
-                {/* <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='-4'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/02.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>organic foody</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='-3'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/03.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>ecomart limited</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='-2'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/04.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>fresh fortune</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='-1'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/05.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>econature</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-current slick-active mt-3'
-                  data-slick-index='0'
-                  aria-hidden='false'
-                  tabIndex='0'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/06.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>natural greeny</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-active mt-3'
-                  data-slick-index='1'
-                  aria-hidden='false'
-                  tabIndex='0'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/01.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>vegan lover</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-active mt-3'
-                  data-slick-index='2'
-                  aria-hidden='false'
-                  tabIndex='0'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/02.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>organic foody</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-active mt-3'
-                  data-slick-index='3'
-                  aria-hidden='false'
-                  tabIndex='0'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/03.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>ecomart limited</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-active mt-3'
-                  data-slick-index='4'
-                  aria-hidden='false'
-                  tabIndex='0'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/04.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>fresh fortune</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-                <div
-                  className='brand-wrap slick-slide mt-3'
-                  data-slick-index='5'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/05.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>econature</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='6'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/06.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>natural greeny</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='7'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/01.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>vegan lover</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='8'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/02.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>organic foody</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='9'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/03.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>ecomart limited</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='10'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/04.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>fresh fortune</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div>
-
-                <div
-                  className='brand-wrap slick-slide slick-cloned mt-3'
-                  data-slick-index='11'
-                  aria-hidden='true'
-                  tabIndex='-1'
-                >
-                  <div className='brand-media'>
-                    <img src='/Assets/Img/brand/05.jpg' alt='brand' />
-                    <div className='brand-overlay'></div>
-                  </div>
-                  <div className='brand-meta'>
-                    <h4 className='sf_title_color_brand'>econature</h4>
-                    <p>(45 items)</p>
-                  </div>
-                </div> */}
               </Slider>
             </div>
           </div>

@@ -80,3 +80,44 @@ p {
 .FoodCatGallery .single_product_card_navigation {
   margin-bottom: 15px;
 }
+
+.FoodCatGallery .slick-prev,
+.FoodCatGallery .slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 9px;
+  z-index: 1;
+  border-radius: 50%;
+  font-size: 80px;
+  transition: all 0.2s linear;
+}
+.FoodCatGallery:hover .slick-prev,
+.FoodCatGallery:hover .slick-next {
+  background-color: white;
+  color: var(--primary);
+  box-shadow: var(--primary-bshadow);
+}
+.FoodCatGallery:hover .slick-prev:hover,
+.FoodCatGallery:hover .slick-next:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.FoodCatGallery .slick-prev {
+  left: 0;
+}
+.FoodCatGallery .slick-next {
+  right: 0;
+}
