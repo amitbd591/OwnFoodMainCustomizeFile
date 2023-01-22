@@ -13,10 +13,10 @@ const OrderFoodCat = () => {
   const handleShow = () => setShow(true);
   return (
     <section className='OrderFoodCat'>
-      <Container fluid>
+      <Container>
         <div className='row g-2'>
           <div className='col-8   '>
-            <div class='shadow p-2'>
+            <div class='shadow__inner p-2'>
               <header class='py-2'>
                 <h3>Order Foods by Categories</h3>
               </header>
@@ -129,7 +129,7 @@ const OrderFoodCat = () => {
             </div>
           </div>
           <div className='col-4  '>
-            <div class='shadow p-2'>
+            <div class='shadow__inner p-2'>
               <header className='py-2'>
                 {" "}
                 <h3>Buy Categories</h3>

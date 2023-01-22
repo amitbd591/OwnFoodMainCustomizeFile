@@ -18,7 +18,7 @@ const Dairy = () => {
             </div>
           </div>
         </div>
-        <div class='row mt-5'>
+        <div class='row mt-2'>
           {FoodItem.slice(0, 4).map((item) => (
             <div class='col-3'>
               <div class='blog-slider '>

@@ -53,7 +53,7 @@ const BrowseByKitchen = () => {
     nextArrow: <FaArrowRight />,
     prevArrow: <FaArrowLeft />,
     autoplaySpeed: 3000,
-    slidesToShow: 6,
+    slidesToShow: 7,
     slidesToScroll: 3,
   };
   return (
@@ -66,7 +66,7 @@ const BrowseByKitchen = () => {
                 <span class='sub-title'></span>
                 <h2 class='sec-title'>
                   <span className='sf_init_title'> Browse by </span>{" "}
-                  <span class=' sf_text-theme'>Kitchen</span>
+                  <span class=' sf_text-theme'>Sealer</span>
                 </h2>
               </div>
             </div>

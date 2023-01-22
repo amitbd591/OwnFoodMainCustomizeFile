@@ -15,6 +15,13 @@ const Receipebook_layoutTwo = () => {
   };
   return (
     <Container className='Receipebook_layoutTwo  mt-5'>
+      <div class='title-area text-center pb-2'>
+        <span class='sub-title'></span>
+        <h2 class='sec-title'>
+          <span className='sf_init_title'> Recipe </span>{" "}
+          <span class=' sf_text-theme'>Book</span>
+        </h2>
+      </div>
       <div className='top__gallery'>
         {" "}
         <Slider {...settings}>

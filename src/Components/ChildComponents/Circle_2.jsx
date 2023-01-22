@@ -52,7 +52,7 @@ const Circle_2 = () => {
             <span class=' sf_text-theme'>Categories</span>
           </h2>
         </div>
-        <div className=' py-5'>
+        <div className='pb-3 '>
           <div className='row   '>
             <Slider {...settings}>
               {color.map((item, index) => (

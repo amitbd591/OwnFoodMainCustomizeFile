@@ -2,6 +2,10 @@
   margin-top: 60px;
   margin-bottom: 40px;
 }
+.OrderFoodCat .shadow__inner {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
 .OrderFoodCat a {
   text-decoration: none;
   display: inline-block;

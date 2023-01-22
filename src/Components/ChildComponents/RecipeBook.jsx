@@ -3,7 +3,7 @@ import { Col, Container, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const RecipeBook = () => {
   return (
-    <div className='Container RecipeBook d-flex justify-content-center '>
+    <Container className=' RecipeBook d-flex justify-content-center '>
       <div className='top__gallery'>
         <Row>
           <Col lg={6} className='rightSide'>
@@ -99,7 +99,7 @@ const RecipeBook = () => {
           </Col>
         </Row>
       </div>
-    </div>
+    </Container>
   );
 };
 

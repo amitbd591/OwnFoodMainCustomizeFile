@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Container } from "react-bootstrap";
 const CountryBaseFoodCategories = () => {
-  const navigate = useNavigate();
   const [flags, setFlags] = useState([]);
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -55,7 +55,7 @@ const CountryBaseFoodCategories = () => {
   };
   return (
     <section className='CountryBaseFoodCategories sf_section brand-part '>
-      <div className='container-fluid'>
+      <Container fluid>
         <div className='headerText '>
           <div>
             <h2>
@@ -102,7 +102,7 @@ const CountryBaseFoodCategories = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

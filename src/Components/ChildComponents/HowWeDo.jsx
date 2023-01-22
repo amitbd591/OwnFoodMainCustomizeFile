@@ -18,8 +18,8 @@ const HowWeDo = () => {
   ];
 
   return (
-    <Container fluid className='HowWeDo '>
-      <div class='title-area text-center'>
+    <Container className='HowWeDo '>
+      <div class='title-area text-center pb-2'>
         <span class='sub-title'></span>
         <h2 class='sec-title'>
           <span className='sf_init_title'> How Do</span>{" "}

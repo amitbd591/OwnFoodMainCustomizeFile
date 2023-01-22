@@ -36,7 +36,7 @@ const HomeComponent = () => {
 
       <OrderFoodCat />
       <HowWeDo />
-      <RecipeBook />
+      {/* <RecipeBook /> */}
       <Receipebook_layoutTwo />
       <FoodCatGallery />
       <InstantFood title={"Instant"} />

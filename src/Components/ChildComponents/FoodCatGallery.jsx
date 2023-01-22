@@ -5,6 +5,7 @@ import { Two_one, Uber_image, Four_two } from "../../Database/ImgData";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
 import Slider from "react-slick";
+import { Container } from "react-bootstrap";
 const FoodCatGallery = () => {
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ const FoodCatGallery = () => {
   };
 
   return (
-    <section className=' FoodCatGallery section mt-5'>
+    <Container className=' FoodCatGallery section mt-5'>
       <div className='container-fluid'>
         <div className='row g-3'>
           <div className='col-md-3  '>
@@ -254,7 +255,7 @@ const FoodCatGallery = () => {
           </div>
         </div>
       </div>
-    </section>
+    </Container>
   );
 };
 

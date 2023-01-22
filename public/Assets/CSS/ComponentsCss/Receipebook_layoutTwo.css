@@ -89,3 +89,15 @@
 .Receipebook_layoutTwo .slick-next {
   right: 0;
 }
+
+.Receipebook_layoutTwo .sf_text-theme {
+  font-family: var(--style-font);
+  font-weight: 700;
+  font-size: larger;
+  color: #1b6dc1;
+}
+.Receipebook_layoutTwo .sf_init_title {
+  font-weight: 700;
+  font-size: larger;
+  color: rgb(7, 7, 7);
+}
