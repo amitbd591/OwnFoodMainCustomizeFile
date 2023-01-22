@@ -4,6 +4,7 @@ import {
   FaFacebookF,
   FaInstagramSquare,
   FaLinkedinIn,
+  FaStar,
   FaTwitter,
 } from "react-icons/fa";
 import ImageGallery from "react-image-gallery";
@@ -64,11 +65,18 @@ const ShoppingPopUp = ({ show, handleClose }) => {
                     </p>
                   </div>
                   <div className='view-rating'>
-                    <i className='active icofont-star'></i>
-                    <i className='active icofont-star'></i>
-                    <i className='active icofont-star'></i>
-                    <i className='active icofont-star'></i>
-                    <i className='icofont-star'></i>
+                    <span>
+                      <FaStar />
+                    </span>
+                    <span>
+                      <FaStar />
+                    </span>
+                    <span>
+                      <FaStar />
+                    </span>
+                    <span>
+                      <FaStar />
+                    </span>
                     <a>(3 reviews)</a>
                   </div>
                   <h3 className='view-price'>

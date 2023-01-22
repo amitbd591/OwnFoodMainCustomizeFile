@@ -252,6 +252,9 @@ button {
   justify-content: flex-start;
   margin-bottom: 15px;
 }
+.modal-dialog .view-rating svg {
+  color: #f6c800;
+}
 .modal-dialog .view-rating i,
 .view-rating a {
   font-size: 15px;
