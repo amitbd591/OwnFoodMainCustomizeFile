@@ -4,6 +4,7 @@ import L from "leaflet";
 
 import Cities from "../../Database/Cities";
 import osmProviders from "../../Database/Osm-providers";
+import { Container } from "react-bootstrap";
 
 const Map = () => {
   const [center, setCenter] = useState({ lat: 23.777176, lng: 90.407608 });
@@ -12,7 +13,7 @@ const Map = () => {
 
   return (
     <section className='Map'>
-      <div className='container-fluid'>
+      <>
         <div className='row' style={{ zIndex: -1 }}>
           <div className='col text-center'>
             <div className='headerText '>
@@ -51,7 +52,7 @@ const Map = () => {
             </div>
           </div>
         </div>
-      </div>
+      </>
     </section>
   );
 };

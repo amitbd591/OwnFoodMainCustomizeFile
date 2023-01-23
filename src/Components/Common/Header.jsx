@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Offcanvas, Row } from "react-bootstrap";
 import {
   FaAngleDown,
+  FaAngleRight,
+  FaArrowLeft,
+  FaArrowRight,
   FaBars,
   FaCartPlus,
   FaMapMarkerAlt,
@@ -34,6 +37,15 @@ import { BsXLg } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { Uber_image } from "../../Database/ImgData";
 const Header = () => {
+  const [show, setShow] = useState(false);
+  const toggleOffcanvas = () => {
+    setShow(!show);
+  };
+  // const [show, setShow] = useState(false);
+
+  const handleCloseSidebar = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
   const [paneLeft, SetpanLeft] = useState(false);
@@ -349,38 +361,26 @@ const Header = () => {
                   <span>EARN MONEY</span>
                 </div>
               </div>
-              <hr />
-              <div
-                className={active ? "sidebar-item active " : "sidebar-item "}
-                onClick={() => setActive(!active)}
-              >
-                <div className='sidebar-title'>
+
+              <div className='sidebar-item'>
+                <div className='sidebar-title' onClick={handleShow}>
                   <span>ALL FOOD</span>
-                  <i class='fa-sharp fa-solid fa-angle-down'></i>
-                </div>
-                <div className='all_food_dropdown'>
-                  <div className='sidebar-content'>POPLULAR KITCHEN</div>
-                  <div className='sidebar-content'>INSTANT FOOD</div>
-                  <div className='sidebar-content'>PRE-ORDER FOOD</div>
-                  <div className='sidebar-content'>WHICH-ORDER</div>
-                  <div className='sidebar-content'>CATERING FOOD</div>
-                  <div className='sidebar-content'>FIND US IN THIS STATE</div>
-                  <div className='sidebar-content'>ALL CATEGORIES</div>
+                  <FaAngleRight size={25} />
                 </div>
               </div>
-              <hr />
+
               <div className='sidebar-item'>
                 <div className='sidebar-title'>
                   <span>CATERING</span>
                 </div>
               </div>
-              <hr />
+
               <div className='sidebar-item'>
                 <div className='sidebar-title'>
                   <span>FAQ</span>
                 </div>
               </div>
-              <hr />
+
               <div className='sidebar-item'>
                 <div className='sidebar-title'>
                   <span>Dairy</span>
@@ -390,6 +390,67 @@ const Header = () => {
           </div>
         </SlidingPane>
       </div>
+
+      <Offcanvas
+        show={show}
+        toggleOffcanvas={toggleOffcanvas}
+        onHide={handleCloseSidebar}
+        style={{ width: 319 }}
+      >
+        <Offcanvas.Header>
+          <Offcanvas.Title>
+            <div className='d-flex align-items-center ms-4'>
+              <div onClick={toggleOffcanvas}>
+                {" "}
+                <FaArrowLeft />
+              </div>
+              <div className='ms-5'>
+                {" "}
+                <h4>Main Menu</h4>
+              </div>
+            </div>
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <div className='secoundTitle'> ALL FOOD</div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>POPLULAR KITCHEN</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>INSTANT FOOD</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>PRE-ORDER FOOD</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>WISH-ORDER</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>WISH-ORDER</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>WISH-ORDER</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>WISH-ORDER</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>WISH-ORDER</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>WISH-ORDER</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>WISH-ORDER</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>WISH-ORDER</div>
+          </div>
+          <div className='sidebar-item'>
+            <div className='sidebar-title'>WISH-ORDER</div>
+          </div>
+        </Offcanvas.Body>
+      </Offcanvas>
 
       {/* ================== drawer Right / Right Sidebar ================== */}
       <div>

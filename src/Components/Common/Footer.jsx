@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import {
   FaFacebookF,
   FaInstagram,
@@ -8,7 +9,7 @@ import {
 const Footer = () => {
   return (
     <footer className='Footer footer-part '>
-      <div className='container-fluid'>
+      <Container>
         <div className='row py-5'>
           <div className='col-sm-6 col-xl-4'>
             <div className='footer-widget'>
@@ -159,7 +160,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
       <hr className='bottomhr' />
       <div className='row footer_bottom'>
         <div className='col-12'>

@@ -1,11 +1,12 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import { FaCalendarAlt, FaComments } from "react-icons/fa";
 import { FoodItem } from "../../Database/ImgData";
 
 const Dairy = () => {
   return (
     <section class='Dairy section blog-part'>
-      <div class='container-fluid'>
+      <Container>
         <div class='row'>
           <div class='col-12'>
             <div className='headerText '>
@@ -70,7 +71,7 @@ const Dairy = () => {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
       <div class='row'>
         <div class='col-lg-12 text-center'>
           <div class='section-btn-25'>

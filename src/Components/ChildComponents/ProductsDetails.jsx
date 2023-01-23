@@ -128,7 +128,7 @@ const ProductsDetails = () => {
                       <span>
                         <FaHeart />
                       </span>
-                      <span>add to wish</span>
+                      <span>Add To Favorite</span>
                     </button>
                   </div>
                 </div>

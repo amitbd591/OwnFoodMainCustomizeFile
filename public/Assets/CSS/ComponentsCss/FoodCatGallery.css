@@ -47,7 +47,8 @@ p {
   float: right;
   font-family: --pfamily;
   font-weight: 700;
-  margin-top: -15px;
+  margin-top: -9px;
+  padding-bottom: 4px;
 }
 .FoodCatGallery .sf_top_card {
   background-color: #ffffff;

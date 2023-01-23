@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { Link, useNavigate } from "react-router-dom";
 import { Uber_image } from "../../Database/ImgData";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Container } from "react-bootstrap";
 const ClientTop = () => {
   const navigate = useNavigate();
 
@@ -15,44 +16,12 @@ const ClientTop = () => {
     nextArrow: <FaArrowRight />,
     prevArrow: <FaArrowLeft />,
     autoplaySpeed: 3000,
-    slidesToShow: 10,
+    slidesToShow: 9,
     slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
   return (
     <section className='ClientTop sf_section brand-part '>
-      <div className='container-fluid'>
+      <Container>
         <div className='brand-slider slider-arrow slick-initialized slick-slider'>
           <div className='slick-list draggable '>
             <div
@@ -65,28 +34,30 @@ const ClientTop = () => {
             >
               <Slider {...settings}>
                 {Uber_image.map((item) => (
-                  <Link to={"/Category"}>
-                    <div
-                      className='sf_brand-wrap slick-slide slick-cloned mt-3'
-                      data-slick-index='-5'
-                      aria-hidden='true'
-                      tabIndex='-1'
-                      style={{ width: 224 }}
-                    >
-                      <div className='sf_brand-media'>
-                        <img src={item.item_image} alt='brand' />
+                  <div className='d-flex justify-content-center'>
+                    <Link to={"/Category"} className='d-inline'>
+                      <div
+                        className='sf_brand-wrap slick-slide slick-cloned mt-3'
+                        data-slick-index='-5'
+                        aria-hidden='true'
+                        tabIndex='-1'
+                        style={{ width: 224 }}
+                      >
+                        <div className='sf_brand-media'>
+                          <img src={item.item_image} alt='brand' />
+                        </div>
+                        <div className='brand-meta'>
+                          <h4>vegan lover</h4>
+                        </div>
                       </div>
-                      <div className='brand-meta'>
-                        <h4>vegan lover</h4>
-                      </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
                 ))}
               </Slider>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

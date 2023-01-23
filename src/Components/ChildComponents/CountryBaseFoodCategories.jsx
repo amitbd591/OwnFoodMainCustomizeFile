@@ -19,7 +19,7 @@ const CountryBaseFoodCategories = () => {
     nextArrow: <FaArrowRight />,
     prevArrow: <FaArrowLeft />,
     autoplaySpeed: 3000,
-    slidesToShow: 10,
+    slidesToShow: 9,
     slidesToScroll: 1,
     responsive: [
       {
@@ -55,7 +55,7 @@ const CountryBaseFoodCategories = () => {
   };
   return (
     <section className='CountryBaseFoodCategories sf_section brand-part '>
-      <Container fluid>
+      <Container>
         <div className='headerText '>
           <div>
             <h2>

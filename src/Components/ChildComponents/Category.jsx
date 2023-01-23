@@ -477,7 +477,7 @@ const Category = () => {
                               title='Add to Wishlist'
                             >
                               <i class='fas fa-heart'></i>
-                              <span>add to wish</span>
+                              <span>Add To Favorite</span>
                             </button>
                           </div>
                         </div>

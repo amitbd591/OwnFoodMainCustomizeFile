@@ -5,6 +5,7 @@ import { AiFillHeart, AiOutlineShopping } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
 import { FoodItem } from "../../Database/ImgData";
+import { Container } from "react-bootstrap";
 
 const InstantFood = ({ title }) => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const InstantFood = ({ title }) => {
     slidesToScroll: 1,
   };
   return (
-    <section
+    <Container
       className='InstantFood home-index-slider slider-arrow
       '
     >
@@ -135,7 +136,7 @@ const InstantFood = ({ title }) => {
           </div>
         </div>
       </div>
-    </section>
+    </Container>
   );
 };
 

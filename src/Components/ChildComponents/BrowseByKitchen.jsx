@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Container } from "react-bootstrap";
 const BrowseByKitchen = () => {
   const profileKitchenImg = [
     {
@@ -53,12 +54,12 @@ const BrowseByKitchen = () => {
     nextArrow: <FaArrowRight />,
     prevArrow: <FaArrowLeft />,
     autoplaySpeed: 3000,
-    slidesToShow: 7,
+    slidesToShow: 6,
     slidesToScroll: 3,
   };
   return (
     <section className='BrowseByKitchen section  bg-img shadow-lg'>
-      <div className='container-fluid  bg-transparent_color'>
+      <Container className='  bg-transparent_color'>
         <div className='row '>
           <div className='col-12'>
             <div className='section-heading'>
@@ -106,7 +107,7 @@ const BrowseByKitchen = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

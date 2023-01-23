@@ -3,6 +3,7 @@ import ShoppingPopUp from "../Common/ShoppingPopUp";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Container } from "react-bootstrap";
 const Circle_2 = () => {
   const [show, setShow] = useState(false);
 
@@ -43,8 +44,8 @@ const Circle_2 = () => {
   };
 
   return (
-    <section className=' Circle_2'>
-      <div className='container-fluid wrap_Upper  shadow-lg '>
+    <section className=' Circle_2 shadow-lg'>
+      <Container className=' wrap_Upper   '>
         <div className='title-area text-center '>
           <span className='sf_sub-title '></span>
           <h2 className='sec-title'>
@@ -136,7 +137,7 @@ const Circle_2 = () => {
             </Slider>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

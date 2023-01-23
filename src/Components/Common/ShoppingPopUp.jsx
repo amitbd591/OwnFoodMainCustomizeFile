@@ -169,7 +169,7 @@ const ShoppingPopUp = ({ show, handleClose }) => {
                       title='Add Your Wishlist'
                     >
                       <i className='icofont-heart'></i>
-                      <span>add to wish</span>
+                      <span>Add To Favorite</span>
                     </a>
                     <a
                       className='view-compare'

@@ -386,20 +386,21 @@ button {
 }
 .OrderFoodCat .img_animation {
   transition: all linear 0.3s;
+  height: 188px;
 }
 /*! CSS Used from: https://ownfood.hostdivine.com/static/css/main.5667a3ca.css */
 .OrderFoodCat .see_more_1 {
   float: right;
   font-family: --pfamily;
   font-weight: 700;
-  margin-top: 30px;
+  margin-top: 0;
   margin-right: 12px;
 }
 .OrderFoodCat .see_more_2 {
   float: right;
   font-family: --pfamily;
   font-weight: 700;
-  margin-top: -15px;
+  margin-top: -11px;
   margin-right: 30px;
 }
 
