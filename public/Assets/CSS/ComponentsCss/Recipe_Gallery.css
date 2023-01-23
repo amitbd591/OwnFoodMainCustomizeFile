@@ -185,10 +185,13 @@
 
 .Recipe_Gallery .top__gallery .rightSide .rightSide_inner {
   background: #fff;
-  padding: 10px;
+  padding: 7px 7px;
+  border-radius: 0;
+  overflow: hidden;
 }
 .Recipe_Gallery .top__gallery .rightSide .rightSide_inner .leftBar .imgFile {
   position: relative;
+  overflow: hidden;
 }
 .Recipe_Gallery .top__gallery .rightSide .rightSide_inner .leftBar img {
   max-height: 564px;
@@ -258,7 +261,7 @@
 }
 .Recipe_Gallery .top__gallery .rightSide .rightBar {
   width: 189px;
-  height: 564px;
+  /* height: 564px; */
   overflow: hidden;
   position: relative;
 }

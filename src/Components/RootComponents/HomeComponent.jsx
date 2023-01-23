@@ -19,6 +19,7 @@ import Circle_2 from "../ChildComponents/Circle_2";
 import HowWeDo from "../ChildComponents/HowWeDo";
 import RecipeBook from "../ChildComponents/RecipeBook";
 import Receipebook_layoutTwo from "../ChildComponents/Receipebook_layoutTwo";
+import CenterSlider from "../ChildComponents/CenterSlider";
 
 const HomeComponent = () => {
   return (
@@ -42,6 +43,7 @@ const HomeComponent = () => {
       <InstantFood title={"Instant"} />
       <BrowseByKitchen />
       <FoodNameCategory />
+      <CenterSlider />
       <Dairy />
       <Map />
       <Footer />

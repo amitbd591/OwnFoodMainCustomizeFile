@@ -20,7 +20,8 @@ const Recipe_Gallery = () => {
                         <div className='imgFile'>
                           <div>
                             <img
-                              className='img-fluid'
+                              className=''
+                              style={{ height: "331px", width: "645px" }}
                               src={"/Assets/Img/Recipe/imgHub_1_1.png"}
                               alt=''
                             />
@@ -46,7 +47,8 @@ const Recipe_Gallery = () => {
                       <div className='imgFile fastImg'>
                         <div>
                           <img
-                            className='img-fluid'
+                            className=''
+                            style={{ height: "143px", width: "210px" }}
                             src={"/Assets/Img/Recipe/imgHub_1_2.png"}
                             alt=''
                           />
@@ -62,7 +64,8 @@ const Recipe_Gallery = () => {
                       <div className='imgFile secondImg'>
                         <div>
                           <img
-                            className='img-fluid'
+                            className=''
+                            style={{ height: "143px", width: "210px" }}
                             src={"/Assets/Img/Recipe/imgHub_1_3.png"}
                             alt=''
                           />
@@ -78,7 +81,8 @@ const Recipe_Gallery = () => {
                       <div className='imgFile thirdImg'>
                         <div>
                           <img
-                            className='img-fluid'
+                            className=''
+                            style={{ height: "143px", width: "210px" }}
                             src={"/Assets/Img/Recipe/imgHub_1_4.png"}
                             alt=''
                           />
@@ -101,14 +105,19 @@ const Recipe_Gallery = () => {
                 <div className='header_text'>
                   <h2>Japanese Dish</h2>
                 </div>
-                <div className='d-flex justify-content-between'>
+                <div className=''>
                   <Row className='g-2'>
                     <Col xs={8}>
                       <div className='leftBar'>
                         <div className='imgFile'>
                           <div>
                             <img
-                              className='img-fluid'
+                              className=''
+                              style={{
+                                height: "481px",
+                                width: "460px",
+                                overflow: "hidden",
+                              }}
                               src={"/Assets/Img/Recipe/imgHub_2_4.png"}
                               alt=''
                             />
@@ -135,7 +144,12 @@ const Recipe_Gallery = () => {
                             <div className='imgFile firstImg'>
                               <div>
                                 <img
-                                  className='img-fluidp'
+                                  className=''
+                                  style={{
+                                    height: "157px",
+                                    width: "190px",
+                                    overflow: "hidden",
+                                  }}
                                   src={"/Assets/Img/Recipe/imgHub_2_2.png"}
                                   alt=''
                                 />
@@ -153,7 +167,12 @@ const Recipe_Gallery = () => {
                             <div className='imgFile secondImg'>
                               <div>
                                 <img
-                                  className='img-fluidp'
+                                  className=''
+                                  style={{
+                                    height: "157px",
+                                    width: "190px",
+                                    overflow: "hidden",
+                                  }}
                                   src={"/Assets/Img/Recipe/imgHub_2_3.png"}
                                   alt=''
                                 />
@@ -171,7 +190,12 @@ const Recipe_Gallery = () => {
                             <div className='imgFile thirdImg'>
                               <div>
                                 <img
-                                  className='img-fluidp'
+                                  className=''
+                                  style={{
+                                    height: "157px",
+                                    width: "190px",
+                                    overflow: "hidden",
+                                  }}
                                   src={"/Assets/Img/Recipe/imgHub_2_1.png"}
                                   alt=''
                                 />
@@ -207,7 +231,8 @@ const Recipe_Gallery = () => {
                     <div className='imgFile  firstImg'>
                       <div>
                         <img
-                          className='img-fluid'
+                          className=''
+                          style={{ height: "290" }}
                           src={"/Assets/Img/Recipe/imgHub_4_4.png"}
                           alt=''
                         />
@@ -228,7 +253,8 @@ const Recipe_Gallery = () => {
                     <div className='imgFile  secondImg'>
                       <div>
                         <img
-                          className='img-fluid'
+                          className=''
+                          style={{ height: "290" }}
                           src={"/Assets/Img/Recipe/imgHub_4_5.png"}
                           alt=''
                         />
@@ -252,7 +278,8 @@ const Recipe_Gallery = () => {
                       <div>
                         <div></div>
                         <img
-                          className='img-fluid'
+                          className=''
+                          style={{ height: "193" }}
                           src={"/Assets/Img/Recipe/imgHub_4_1.png"}
                           alt=''
                         />
@@ -268,7 +295,8 @@ const Recipe_Gallery = () => {
                     <div className='imgFile secondImg'>
                       <div>
                         <img
-                          className='img-fluid'
+                          className=''
+                          style={{ height: "193" }}
                           src={"/Assets/Img/Recipe/imgHub_4_2.png"}
                           alt=''
                         />
@@ -285,7 +313,8 @@ const Recipe_Gallery = () => {
                     <div className='imgFile thirdImg'>
                       <div>
                         <img
-                          className='img-fluid'
+                          className=''
+                          style={{ height: "193" }}
                           src={"/Assets/Img/Recipe/imgHub_4_3.png"}
                           alt=''
                         />
@@ -311,7 +340,8 @@ const Recipe_Gallery = () => {
                   <div className='imgFile firstImg'>
                     <div>
                       <img
-                        className='img-fluid '
+                        className=' '
+                        style={{ height: "450px", overflow: "hidden" }}
                         src={"/Assets/Img/Recipe/imgHub_3_4.png"}
                         alt=''
                       />
@@ -333,7 +363,8 @@ const Recipe_Gallery = () => {
                   <div className='imgFile secondImg'>
                     <div>
                       <img
-                        className='img-fluid'
+                        className=''
+                        style={{ height: "450px", overflow: "hidden" }}
                         src={"/Assets/Img/Recipe/imgHub_3_5.png"}
                         alt=''
                       />
@@ -357,7 +388,8 @@ const Recipe_Gallery = () => {
                   <div className='imgFile firstImg'>
                     <div>
                       <img
-                        className='img-fluid'
+                        className=''
+                        style={{ height: "120px", width: "210px" }}
                         src={"/Assets/Img/Recipe/imgHub_3_1.png"}
                         alt=''
                       />
@@ -373,7 +405,8 @@ const Recipe_Gallery = () => {
                   <div className='imgFile secondImg'>
                     <div>
                       <img
-                        className='img-fluid'
+                        className=''
+                        style={{ height: "120px", width: "210px" }}
                         src={"/Assets/Img/Recipe/imgHub_3_2.png"}
                         alt=''
                       />
@@ -390,7 +423,8 @@ const Recipe_Gallery = () => {
                   <div className='imgFile thirdImg'>
                     <div>
                       <img
-                        className='img-fluid'
+                        className=''
+                        style={{ height: "120px", width: "210px" }}
                         src={"/Assets/Img/Recipe/imgHub_3_3.png"}
                         alt=''
                       />
