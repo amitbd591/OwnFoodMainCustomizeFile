@@ -15,7 +15,7 @@ const Receipebook_layoutTwo = () => {
   };
   return (
     <Container className='Receipebook_layoutTwo  mt-5'>
-      <div class='title-area text-center pb-2'>
+      <div class='title-area text-center pb-3'>
         <span class='sub-title'></span>
         <h2 class='sec-title'>
           <span className='sf_init_title'> Recipe </span>{" "}

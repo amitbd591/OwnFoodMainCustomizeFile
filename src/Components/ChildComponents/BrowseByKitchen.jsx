@@ -66,7 +66,7 @@ const BrowseByKitchen = () => {
                 <span class='sub-title'></span>
                 <h2 class='sec-title'>
                   <span className='sf_init_title'> Browse by </span>{" "}
-                  <span class=' sf_text-theme'>Sealer</span>
+                  <span class=' sf_text-theme'>Seller</span>
                 </h2>
               </div>
             </div>
