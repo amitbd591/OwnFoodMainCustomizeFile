@@ -22,7 +22,7 @@ const FoodCatGallery = () => {
   };
 
   return (
-    <Container className=' FoodCatGallery section mt-5'>
+    <Container className=' FoodCatGallery section'>
       <div className='container-fluid'>
         <div className='row g-3'>
           <div className='col-md-3  '>
@@ -102,7 +102,7 @@ const FoodCatGallery = () => {
 
           <div className='col-md-3  '>
             <Slider {...settings}>
-              <div className='card '>
+              <div className='card single__inner__left'>
                 <div className='card-header sf_top_card'>
                   <h3 className='mt-1 sf_top_name'> Top Food Category</h3>
                 </div>
@@ -120,6 +120,12 @@ const FoodCatGallery = () => {
                       {Two_one[0].item_name}
                     </p>
                   </div>
+                  <div className='profileImg'>
+                    <img
+                      src='/Assets/Img/profileKitchenImg/profile-kit1.png'
+                      alt=''
+                    />
+                  </div>
                 </div>
                 <div className='col-md-12'>
                   <Link
@@ -131,7 +137,7 @@ const FoodCatGallery = () => {
                   </Link>
                 </div>
               </div>
-              <div className='card '>
+              <div className='card single__inner__left'>
                 <div className='card-header sf_top_card'>
                   <h3 className='mt-1 sf_top_name'> Top Food Category</h3>
                 </div>
@@ -149,6 +155,12 @@ const FoodCatGallery = () => {
                       {Two_one[0].item_name}
                     </p>
                   </div>
+                  <div className='profileImg'>
+                    <img
+                      src='/Assets/Img/profileKitchenImg/profile-kit2.png'
+                      alt=''
+                    />
+                  </div>
                 </div>
                 <div className='col-md-12'>
                   <Link
@@ -160,7 +172,7 @@ const FoodCatGallery = () => {
                   </Link>
                 </div>
               </div>
-              <div className='card '>
+              <div className='card single__inner__left'>
                 <div className='card-header sf_top_card'>
                   <h3 className='mt-1 sf_top_name'> Top Food Category</h3>
                 </div>
@@ -178,6 +190,12 @@ const FoodCatGallery = () => {
                       {Two_one[0].item_name}
                     </p>
                   </div>
+                  <div className='profileImg'>
+                    <img
+                      src='/Assets/Img/profileKitchenImg/profile-kit3.png'
+                      alt=''
+                    />
+                  </div>
                 </div>
                 <div className='col-md-12'>
                   <Link
@@ -189,7 +207,7 @@ const FoodCatGallery = () => {
                   </Link>
                 </div>
               </div>
-              <div className='card '>
+              <div className='card single__inner__left'>
                 <div className='card-header sf_top_card'>
                   <h3 className='mt-1 sf_top_name'> Top Food Category</h3>
                 </div>
@@ -206,6 +224,12 @@ const FoodCatGallery = () => {
                     <p className='mt-3' style={{ fontWeight: "bold" }}>
                       {Two_one[0].item_name}
                     </p>
+                  </div>
+                  <div className='profileImg'>
+                    <img
+                      src='/Assets/Img/profileKitchenImg/profile-kit4.png'
+                      alt=''
+                    />
                   </div>
                 </div>
                 <div className='col-md-12'>

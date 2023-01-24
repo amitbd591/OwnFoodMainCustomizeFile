@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Container } from "react-bootstrap";
+import Tooltip from "rc-tooltip";
+import "rc-tooltip/assets/bootstrap.css";
 const Circle_2 = () => {
   const [show, setShow] = useState(false);
 
@@ -45,7 +47,7 @@ const Circle_2 = () => {
 
   return (
     <section className=' Circle_2 shadow-lg'>
-      <Container className=' wrap_Upper   '>
+      <Container className=' wrap_Upper'>
         <div className='title-area text-center '>
           <span className='sf_sub-title '></span>
           <h2 className='sec-title'>
@@ -53,6 +55,7 @@ const Circle_2 = () => {
             <span class=' sf_text-theme'>Categories</span>
           </h2>
         </div>
+
         <div className='pb-3 '>
           <div className='row   '>
             <Slider {...settings}>
@@ -81,7 +84,69 @@ const Circle_2 = () => {
                       >
                         <i class='fa-solid fa-plus fa-2xl plus  '></i>
                       </div>
-                      <img
+
+                      <Tooltip placement='top' overlay={"Custom Text"}>
+                        <img
+                          className='img1 img-fluid'
+                          alt=''
+                          src={"/Assets/Img/cuisine-1.jpg"}
+                          onClick={() => {
+                            setShow(true);
+                          }}
+                        />
+                      </Tooltip>
+                      <Tooltip placement='top' overlay={"Custom Text"}>
+                        <img
+                          className='img2 img-fluid'
+                          alt=''
+                          src={"/Assets/Img/cuisine-2.jpg"}
+                          onClick={() => {
+                            setShow(true);
+                          }}
+                        />
+                      </Tooltip>
+                      <Tooltip placement='top' overlay={"Custom Text"}>
+                        <img
+                          className='img3 img-fluid'
+                          alt=''
+                          src={"/Assets/Img/cuisine-3.jpg"}
+                          onClick={() => {
+                            setShow(true);
+                          }}
+                        />
+                      </Tooltip>
+                      <Tooltip placement='top' overlay={"Custom Text"}>
+                        <img
+                          className='img4 img-fluid'
+                          alt=''
+                          src={"/Assets/Img/cuisine-4.jpg"}
+                          onClick={() => {
+                            setShow(true);
+                          }}
+                        />
+                      </Tooltip>
+                      <Tooltip placement='top' overlay={"Custom Text"}>
+                        <img
+                          className='img5 img-fluid'
+                          alt=''
+                          src={"/Assets/Img/cuisine-5.jpg"}
+                          onClick={() => {
+                            setShow(true);
+                          }}
+                        />
+                      </Tooltip>
+                      <Tooltip placement='top' overlay={"Custom Text"}>
+                        <img
+                          className='img6 img-fluid'
+                          alt=''
+                          src={"/Assets/Img/cuisine-6.jpg"}
+                          onClick={() => {
+                            setShow(true);
+                          }}
+                        />
+                      </Tooltip>
+
+                      {/* <img
                         className='img1 img-fluid'
                         src={"/Assets/Img/cuisine-2.jpg"}
                         onClick={() => {
@@ -123,7 +188,7 @@ const Circle_2 = () => {
                         onClick={() => {
                           setShow(true);
                         }}
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>

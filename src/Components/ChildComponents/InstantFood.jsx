@@ -129,9 +129,11 @@ const InstantFood = ({ title }) => {
 
       <div className='row'>
         <div className='col'>
-          <div className='section-btn-25'>
+          <div className='d-flex justify-content-center'>
             <Link to={"/Category"}>
-              <button>Show More</button>
+              <div className='custom__btn'>
+                <button>Show More</button>
+              </div>
             </Link>
           </div>
         </div>

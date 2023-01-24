@@ -1,5 +1,5 @@
 .Dairy {
-  padding: 30px 0;
+  padding: 20px 0;
 }
 .Dairy .headerText {
   display: flex;
@@ -110,6 +110,45 @@
 
 .Dairy .blog-btn:hover i {
   margin-left: 5px;
+}
+
+.Dairy .custom__btn button {
+  padding: 15px 48px;
+  border: 2px solid #1b6dc1;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: #1b6dc1;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.Dairy .custom__btn button::before {
+  content: "";
+  width: 0;
+  height: 400%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #1b6dc1;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.Dairy .custom__btn button:hover::before {
+  width: 105%;
+}
+
+.Dairy .custom__btn button:hover {
+  color: #fff;
 }
 
 @media (max-width: 575px) {

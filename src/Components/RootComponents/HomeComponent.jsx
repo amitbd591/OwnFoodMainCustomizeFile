@@ -31,7 +31,7 @@ const HomeComponent = () => {
       <CountryBaseFoodCategories />
       <EarnMoney />
       <Recipe_Gallery />
-      <OpenAccountInfo />
+      {/* <OpenAccountInfo /> */}
       {/* <Circle /> */}
       <Circle_2 />
 

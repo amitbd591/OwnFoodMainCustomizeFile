@@ -1,19 +1,19 @@
 .Recipe_Gallery {
   background: #ededed4d;
-  padding-top: 30px;
+  padding-top: 20px;
   padding-bottom: 60px;
 }
 
 /* Top Gallery */
 .Recipe_Gallery .top__gallery {
-  height: 650px;
+  height: auto;
   overflow: hidden;
   padding: 10px;
 }
 .Recipe_Gallery .top__gallery .leftSide .leftSide_inner {
   background: #fff;
   padding: 7px 7px;
-  border-radius: 0;
+  border-radius: 6px;
   overflow: hidden;
 }
 
@@ -186,7 +186,7 @@
 .Recipe_Gallery .top__gallery .rightSide .rightSide_inner {
   background: #fff;
   padding: 7px 7px;
-  border-radius: 0;
+  border-radius: 6px;
   overflow: hidden;
 }
 .Recipe_Gallery .top__gallery .rightSide .rightSide_inner .leftBar .imgFile {
@@ -337,8 +337,8 @@
 
 /* Bottom Gallery */
 .Recipe_Gallery .bottom__gallery {
-  margin-top: 30px;
-  height: 650px;
+  margin-top: 20px;
+  height: auto;
   overflow: hidden;
   padding: 10px;
 }

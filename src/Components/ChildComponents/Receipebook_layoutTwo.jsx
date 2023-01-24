@@ -14,7 +14,7 @@ const Receipebook_layoutTwo = () => {
     slidesToScroll: 1,
   };
   return (
-    <Container className='Receipebook_layoutTwo  mt-5'>
+    <Container className='Receipebook_layoutTwo'>
       <div class='title-area text-center pb-3'>
         <span class='sub-title'></span>
         <h2 class='sec-title'>

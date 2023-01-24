@@ -4,8 +4,8 @@
   background-size: cover;
   z-index: 0;
   position: relative;
-  margin: 30px 0;
-  padding: 30px 0;
+  margin: 20px 0;
+  padding: 20px 0;
 }
 .BrowseByKitchen::after {
   position: absolute;
@@ -64,7 +64,7 @@ h4 {
 }
 .BrowseByKitchen .section-heading {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 @media (max-width: 767px) {
   .BrowseByKitchen .section {
@@ -302,7 +302,8 @@ h4 {
 }
 
 .BrowseByKitchen .sf_title_color_brand {
-  color: #fff !important;
+  color: #333 !important;
+  padding-top: 20px;
 }
 
 .BrowseByKitchen .brand-meta p {

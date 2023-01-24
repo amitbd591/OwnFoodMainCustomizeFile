@@ -5,12 +5,14 @@ import {
   FaHeart,
   FaLinkedinIn,
   FaPlayCircle,
+  FaRegStar,
   FaStar,
   FaTwitter,
 } from "react-icons/fa";
 import ImageGallery from "react-image-gallery";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import Stack from "react-bootstrap/Stack";
 const ProductsDetails = () => {
   const images = [
     {
@@ -328,6 +330,92 @@ const ProductsDetails = () => {
               </div>
             </Col>
           </Row>
+          <br />
+          <br />
+          <hr />
+          <br />
+          {/* Write Your Reviews */}
+          <div className='writeYourReview'>
+            <Row>
+              <Col>
+                <div className='writeYourReview__inner'>
+                  <div className='header__text'>
+                    <h2>Write Your Review</h2>
+                  </div>
+                  <div className='reviewIcon d-flex gap-1 align-content-center'>
+                    <div className=' d-flex gap-1 '>
+                      <span>
+                        <FaRegStar />
+                      </span>
+                      <span>
+                        <FaRegStar />
+                      </span>
+                      <span>
+                        <FaRegStar />
+                      </span>
+                      <span>
+                        <FaRegStar />
+                      </span>
+                      <span>
+                        <FaRegStar />
+                      </span>
+                    </div>
+                    <div className='reviewText'>
+                      <span>(0.0)</span>
+                    </div>
+                  </div>
+                  <div className='reviewInputData'>
+                    <Row>
+                      <Col xs={4}>
+                        <div className='inputInner'>
+                          <label htmlFor='name' className='d-block'>
+                            Name:
+                          </label>
+                          <input type='text' className='d-block' />
+                        </div>
+                      </Col>
+                      <Col xs={4}>
+                        <div className='inputInner'>
+                          <label htmlFor='name' className='d-block'>
+                            Email:
+                          </label>
+                          <input type='email' className='d-block' />
+                        </div>
+                      </Col>
+                      <Col xs={4}>
+                        <div className='inputInner'>
+                          <label htmlFor='name' className='d-block'>
+                            Phone Number:
+                          </label>
+                          <input type='text' className='d-block' />
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col xs={12}>
+                        <div className='inputInner mt-4'>
+                          <label htmlFor='name' className='d-block'>
+                            Message:
+                          </label>
+                          <textarea
+                            id='txtid'
+                            name='txtname'
+                            rows='4'
+                            cols='50'
+                            maxlength='200'
+                            className='d-block'
+                          ></textarea>
+                        </div>
+                        <div className='submit'>
+                          <button>Submit</button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </div>
         </Container>
       </section>
     </div>

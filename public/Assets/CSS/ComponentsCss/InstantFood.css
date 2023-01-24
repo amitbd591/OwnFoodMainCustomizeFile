@@ -1,5 +1,5 @@
 .InstantFood {
-  padding: 30px 0px;
+  padding: 20px 0px;
 }
 
 .InstantFood .headerText {
@@ -143,12 +143,11 @@ label {
   color: var(--heading);
 }
 
-.InstantFood button {
+/* .InstantFood button {
   border: none;
   outline: none;
   background: none;
-  /* background: rgba(148, 140, 140, 0.612); */
-}
+} */
 
 .InstantFood button:focus {
   outline: none;
@@ -530,15 +529,46 @@ label {
   font-family: var(--style-font);
   color: #1b6dc1;
 }
-.InstantFood .section-btn-25 {
+/* .InstantFood .custom__btn {
   display: flex;
   justify-content: center;
+} */
+
+.InstantFood .custom__btn button {
+  padding: 15px 48px;
+  border: 2px solid #1b6dc1;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: #1b6dc1;
+  border-radius: 5px;
+  font-weight: 600;
 }
-.InstantFood .section-btn-25 button {
-  display: flex;
-  justify-content: center;
-  background: rgb(27, 109, 193);
-  padding: 8px 15px;
-  border-radius: 10px;
+
+.InstantFood .custom__btn button::before {
+  content: "";
+  width: 0;
+  height: 400%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #1b6dc1;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.InstantFood .custom__btn button:hover::before {
+  width: 105%;
+}
+
+.InstantFood .custom__btn button:hover {
   color: #fff;
 }

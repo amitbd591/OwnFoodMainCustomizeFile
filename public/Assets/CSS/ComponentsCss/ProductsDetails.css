@@ -246,6 +246,77 @@
   color: #fff;
   border-radius: 8px;
 }
-.adminReply {
+.ProductsDetails .adminReply {
   margin-top: 40px;
+}
+
+.ProductsDetails .writeYourReview {
+  margin-top: 10px;
+}
+.ProductsDetails .writeYourReview .reviewText {
+  margin-top: 3px;
+}
+.ProductsDetails .writeYourReview .reviewInputData {
+  margin-top: 15px;
+}
+.ProductsDetails .writeYourReview .reviewInputData .inputInner input {
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  margin-top: 6px;
+  color: #333;
+  padding: 10px;
+}
+.ProductsDetails .writeYourReview .reviewInputData .inputInner textarea {
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  margin-top: 6px;
+  color: #333;
+  padding: 10px;
+}
+.ProductsDetails .writeYourReview .reviewInputData .submit {
+  margin-top: 18px;
+  display: inline-block;
+}
+
+.ProductsDetails .reviewInputData button {
+  padding: 15px 48px;
+  border: 2px solid #1b6dc1;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: #1b6dc1;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.ProductsDetails .reviewInputData button::before {
+  content: "";
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #1b6dc1;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.ProductsDetails .reviewInputData button:hover::before {
+  width: 105%;
+}
+
+.ProductsDetails .reviewInputData button:hover {
+  color: #fff;
 }

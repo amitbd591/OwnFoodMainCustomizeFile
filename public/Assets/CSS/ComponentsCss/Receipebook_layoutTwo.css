@@ -1,3 +1,6 @@
+.Receipebook_layoutTwo {
+  padding: 20px 0;
+}
 .Receipebook_layoutTwo .bottom__gallery .leftSide .leftBar {
   display: grid;
   grid-template-columns: 1fr;

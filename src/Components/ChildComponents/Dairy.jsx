@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { FaCalendarAlt, FaComments } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { FoodItem } from "../../Database/ImgData";
 
 const Dairy = () => {
@@ -74,10 +75,17 @@ const Dairy = () => {
       </Container>
       <div class='row'>
         <div class='col-lg-12 text-center'>
-          <div class='section-btn-25'>
+          {/* <div class='section-btn-25'>
             <a href='' class='btn btn-primary'>
               <span>view all blog</span>
             </a>
+          </div> */}
+          <div className='d-flex justify-content-center'>
+            <Link to={"/"}>
+              <div className='custom__btn'>
+                <button>View All Dairy</button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
