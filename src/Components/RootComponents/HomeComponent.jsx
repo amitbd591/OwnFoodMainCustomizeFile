@@ -20,6 +20,7 @@ import HowWeDo from "../ChildComponents/HowWeDo";
 import RecipeBook from "../ChildComponents/RecipeBook";
 import Receipebook_layoutTwo from "../ChildComponents/Receipebook_layoutTwo";
 import CenterSlider from "../ChildComponents/CenterSlider";
+import ProfileFoodGallery from "../ChildComponents/ProfileFoodGallery";
 
 const HomeComponent = () => {
   return (
@@ -44,6 +45,7 @@ const HomeComponent = () => {
       <BrowseByKitchen />
       <FoodNameCategory />
       <CenterSlider />
+      <ProfileFoodGallery />
       <Dairy />
       <Map />
       <Footer />

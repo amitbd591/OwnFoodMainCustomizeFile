@@ -1,0 +1,69 @@
+.ProfileFoodGallery {
+  padding: 20px 0;
+}
+.ProfileFoodGallery .inner__body {
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.ProfileFoodGallery .sf_init_title {
+  font-weight: 700;
+  font-size: larger;
+  color: #333;
+}
+.ProfileFoodGallery .sf_text-theme {
+  font-family: var(--style-font);
+  color: #1b6dc1;
+  font-weight: 700;
+  font-size: larger;
+}
+.ProfileFoodGallery .inner__body.Purple {
+  background: #9333ea;
+}
+.ProfileFoodGallery .inner__body.Fuchsia {
+  background: #16a34a;
+}
+.ProfileFoodGallery .inner__body.Pink {
+  background: #db2777;
+}
+.ProfileFoodGallery .inner__body.Emerald {
+  background: #ea580c;
+}
+.ProfileFoodGallery .inner__body .img__file {
+  position: relative;
+  border-radius: 7px;
+}
+.ProfileFoodGallery .inner__body .img__file > img {
+  border-radius: 7px;
+}
+.ProfileFoodGallery .inner__body .img__file .overlay__img {
+  position: absolute;
+  left: 14px;
+  bottom: -23px;
+  width: 55px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+.ProfileFoodGallery .inner__body .text__file {
+  padding: 20px 8px;
+  margin-top: 14px;
+}
+.ProfileFoodGallery .inner__body .text__file h2 {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+}
+.ProfileFoodGallery .inner__body .text__file .name {
+  font-size: 15px;
+  color: #ddd;
+}
+.ProfileFoodGallery .inner__body .text__file .intro {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+}
+.ProfileFoodGallery .inner__body .text__file .price {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+}

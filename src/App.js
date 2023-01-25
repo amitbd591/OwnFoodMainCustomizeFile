@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ScrollToTop from "react-scroll-to-top";
 import HomePage from "./Pages/HomePage";
 import ProductsDetailsPage from "./Pages/ProductsDetailsPage";
 import SellerProfilePage from "./Pages/SellerProfilePage";
@@ -7,10 +8,12 @@ import CustomerLoginPage from "./Pages/CustomerLoginPage";
 import CustomerRegistrationPage from "./Pages/CustomerRegistrationPage";
 import ForgetPasswordPage from "./Pages/ForgetPasswordPage";
 import CategoryPage from "./Pages/CategoryPage";
+import FaqPage from "./Pages/FaqPage";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop smooth color='#6f00ff' />
       <Routes>
         <Route exact path='/' element={<HomePage />} />
         <Route
@@ -20,6 +23,7 @@ function App() {
         />
         <Route exact path='/SellerProfile' element={<SellerProfilePage />} />
         <Route exact path='/Category' element={<CategoryPage />} />
+        <Route exact path='/Faq' element={<FaqPage />} />
         <Route
           exact
           path='/CountryCategory'

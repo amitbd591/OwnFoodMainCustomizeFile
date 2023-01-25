@@ -476,6 +476,7 @@ button {
   font-weight: 600;
   cursor: pointer;
   justify-content: space-between;
+  color: #333;
 }
 .sidebar-title:hover {
   background-color: #1b6dc1;

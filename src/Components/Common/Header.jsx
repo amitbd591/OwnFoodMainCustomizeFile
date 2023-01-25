@@ -376,9 +376,11 @@ const Header = () => {
               </div>
 
               <div className='sidebar-item'>
-                <div className='sidebar-title'>
-                  <span>FAQ</span>
-                </div>
+                <Link to={"/Faq"} className='d-block'>
+                  <div className='sidebar-title'>
+                    <span>FAQ</span>
+                  </div>
+                </Link>
               </div>
 
               <div className='sidebar-item'>

@@ -21,7 +21,7 @@ const Recipe_Gallery = () => {
                           <div>
                             <img
                               className=''
-                              style={{ height: "331px", width: "645px" }}
+                              style={{ height: "331px", width: "670px" }}
                               src={"/Assets/Img/Recipe/imgHub_1_1.png"}
                               alt=''
                             />
@@ -147,7 +147,7 @@ const Recipe_Gallery = () => {
                                   className=''
                                   style={{
                                     height: "157px",
-                                    width: "190px",
+                                    width: "100%",
                                     overflow: "hidden",
                                   }}
                                   src={"/Assets/Img/Recipe/imgHub_2_2.png"}
@@ -170,7 +170,7 @@ const Recipe_Gallery = () => {
                                   className=''
                                   style={{
                                     height: "157px",
-                                    width: "190px",
+                                    width: "100%",
                                     overflow: "hidden",
                                   }}
                                   src={"/Assets/Img/Recipe/imgHub_2_3.png"}
@@ -193,7 +193,7 @@ const Recipe_Gallery = () => {
                                   className=''
                                   style={{
                                     height: "157px",
-                                    width: "190px",
+                                    width: "100%",
                                     overflow: "hidden",
                                   }}
                                   src={"/Assets/Img/Recipe/imgHub_2_1.png"}
