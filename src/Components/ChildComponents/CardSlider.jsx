@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import ProductCardData from "../../Database/ProductCardData";
+import { getBannersAPI } from "../../API/BannersAPI";
+import { useSelector } from "react-redux";
 
 const CardSlider = () => {
+  useEffect(() => {
+    getBannersAPI().then((res) => {
+      if (res === true) {
+      }
+    });
+  }, []);
+
+  let BannerList = useSelector((state) => state.banner.allBannerList);
+  console.log(BannerList);
+
   const PreviousBtn = (props) => {
     console.log(props);
     const { className, onClick } = props;
@@ -53,17 +65,26 @@ const CardSlider = () => {
               prevArrow={<PreviousBtn />}
               nextArrow={<NextBtn />}
             >
-              {ProductCardData.map((item, index) => (
+              {BannerList.map((item, index) => (
                 <div className='cardSlider_body' key={index}>
                   <div
-                    className={item.bgColor + " cardSlider_body_inner d-flex"}
+                    className={
+                      item.bannerBackgroundColor +
+                      " cardSlider_body_inner d-flex"
+                    }
                   >
                     <div className='textFile '>
-                      <h4>{item.title}</h4>
-                      <Link to={"/"}>{item.btn}</Link>
+                      <h4>{item.bannerTitle}</h4>
+                      <Link to={`/${item.bannerButtonURL}`}>
+                        {item.bannerButtonLabel}
+                      </Link>
                     </div>
                     <div className='imgFile '>
-                      <img className='img-fluid' src={item.img} alt='' />
+                      <img
+                        className='img-fluid'
+                        src={item.bannerImage}
+                        alt=''
+                      />
                     </div>
                   </div>
                 </div>

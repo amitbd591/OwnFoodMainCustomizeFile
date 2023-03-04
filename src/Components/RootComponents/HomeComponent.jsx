@@ -29,7 +29,7 @@ const HomeComponent = () => {
       <div className='Space__For__Header'></div>
       <ClientTop />
       <CardSlider />
-      <CountryBaseFoodCategories />
+      {/* <CountryBaseFoodCategories /> */}
       <EarnMoney />
       <Recipe_Gallery />
       {/* <OpenAccountInfo /> */}
