@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ClientTop from "../ChildComponents/ClientTop";
 import CardSlider from "../ChildComponents/CardSlider";
 import Header from "../Common/Header";
@@ -21,8 +21,16 @@ import RecipeBook from "../ChildComponents/RecipeBook";
 import Receipebook_layoutTwo from "../ChildComponents/Receipebook_layoutTwo";
 import CenterSlider from "../ChildComponents/CenterSlider";
 import ProfileFoodGallery from "../ChildComponents/ProfileFoodGallery";
+import { getHomePageSections } from "../../API/HomePageSectionAPI";
+import { useSelector } from "react-redux";
 
 const HomeComponent = () => {
+  useEffect(() => {
+    getHomePageSections();
+  }, []);
+
+  let HomePageList = useSelector((state) => state.homePage.homePageList);
+  console.log(HomePageList);
   return (
     <section>
       <Header />
@@ -31,7 +39,7 @@ const HomeComponent = () => {
       <CardSlider />
       {/* <CountryBaseFoodCategories /> */}
       <EarnMoney />
-      <Recipe_Gallery />
+      <Recipe_Gallery data={HomePageList} />
       {/* <OpenAccountInfo /> */}
       {/* <Circle /> */}
       <Circle_2 />

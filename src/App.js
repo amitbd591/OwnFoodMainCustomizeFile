@@ -9,10 +9,11 @@ import CustomerRegistrationPage from "./Pages/CustomerRegistrationPage";
 import ForgetPasswordPage from "./Pages/ForgetPasswordPage";
 import CategoryPage from "./Pages/CategoryPage";
 import FaqPage from "./Pages/FaqPage";
-
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <BrowserRouter>
+      <Toaster />
       <ScrollToTop smooth color='#6f00ff' />
       <Routes>
         <Route exact path='/' element={<HomePage />} />

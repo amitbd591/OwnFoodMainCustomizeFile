@@ -17,7 +17,6 @@ const CardSlider = () => {
   }, []);
 
   let BannerList = useSelector((state) => state.banner.allBannerList);
-  console.log(BannerList);
 
   const PreviousBtn = (props) => {
     console.log(props);

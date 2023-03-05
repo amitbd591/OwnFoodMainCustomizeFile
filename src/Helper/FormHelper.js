@@ -17,11 +17,11 @@ class FormHelper {
   }
   ErrorToast(msg) {
     toast.error(msg, {
-      position: "top-center",
+      position: "bottom-center",
     });
   }
   SuccessToast(msg) {
-    toast.success(msg, { position: "top-center" });
+    toast.success(msg, { position: "bottom-center" });
   }
   getBase64(file) {
     return new Promise((resolve, reject) => {
