@@ -30,7 +30,7 @@ const HomeComponent = () => {
   }, []);
 
   let HomePageList = useSelector((state) => state.homePage.homePageList);
-  console.log(HomePageList);
+
   return (
     <section>
       <Header />

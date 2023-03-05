@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { createUsersAPI } from "../../API/UsersAPI";
+import { ErrorToast, IsEmail, IsEmpty } from "../../Helper/FormHelper";
 const CustomerRegistration = () => {
+  const [isChecked, setisChecked] = useState(false);
+  let fullNameRef,
+    emailRef,
+    passRef = useRef();
+  let navigate = useNavigate();
+
+  const termsControl = (e) => {
+    setisChecked(e.target.checked);
+  };
+
+  const RegistrationSubmit = async (event) => {
+    event.preventDefault();
+    let userFullName = fullNameRef.value;
+    let email = emailRef.value;
+    let userPassword = passRef.value;
+
+    if (IsEmpty(userFullName)) {
+      ErrorToast("Name Required !");
+    } else if (IsEmpty(userPassword)) {
+      ErrorToast("Password Required !");
+    } else if (IsEmail(email)) {
+      ErrorToast("Email Required!");
+    } else if (isChecked === false) {
+      ErrorToast("please Agree Terms Of Service!");
+    } else {
+      let result = await createUsersAPI(userFullName, email, userPassword);
+      if (result) {
+        navigate("/CustomerLogin");
+      }
+    }
+  };
   return (
     <div class='CustomerRegistration'>
       <div class='container-fluid'>
@@ -19,6 +52,7 @@ const CustomerRegistration = () => {
                     </label>
                     <div class='form-box'>
                       <input
+                        ref={(input) => (fullNameRef = input)}
                         name='name'
                         type='text'
                         class='form-control'
@@ -37,6 +71,7 @@ const CustomerRegistration = () => {
                     </label>
                     <div class='form-box'>
                       <input
+                        ref={(input) => (emailRef = input)}
                         name='email'
                         type='email'
                         class='form-control'
@@ -56,6 +91,7 @@ const CustomerRegistration = () => {
                     </label>
                     <div class='form-box'>
                       <input
+                        ref={(input) => (passRef = input)}
                         name='password'
                         type='password'
                         class='form-control'
@@ -73,6 +109,7 @@ const CustomerRegistration = () => {
                     <div class='clearfix float-start'>
                       <div class='form-check'>
                         <input
+                          onClick={(e) => termsControl(e)}
                           class='form-check-input'
                           type='checkbox'
                           id='rememberme'
@@ -85,6 +122,7 @@ const CustomerRegistration = () => {
                   </div>
                   <div class='form-group clearfix mb-0'>
                     <button
+                      onClick={RegistrationSubmit}
                       type='submit'
                       class='btn btn-primary btn-lg btn-theme'
                     >

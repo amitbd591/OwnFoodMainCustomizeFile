@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUsersAPI } from "../../API/UsersAPI";
+import { ErrorToast, IsEmail, IsEmpty } from "../../Helper/FormHelper";
 const CustomerLogin = () => {
+  let emailRef,
+    passRef = useRef();
+  let navigate = useNavigate();
+
+  const LoginSubmit = async (event) => {
+    event.preventDefault();
+    let email = emailRef.value;
+    let userPassword = passRef.value;
+
+    if (IsEmpty(userPassword)) {
+      ErrorToast("Password Required !");
+    } else if (IsEmail(email)) {
+      ErrorToast("Email Required!");
+    } else {
+      let result = await loginUsersAPI(email, userPassword);
+      if (result) {
+        navigate("/CustomerLogin");
+      }
+    }
+  };
+
   return (
     <div class='CustomerLogin'>
       <div class='container-fluid'>
@@ -18,6 +41,7 @@ const CustomerLogin = () => {
                     </label>
                     <div class='form-box'>
                       <input
+                        ref={(input) => (emailRef = input)}
                         name='email'
                         type='email'
                         class='form-control'
@@ -36,6 +60,7 @@ const CustomerLogin = () => {
                     </label>
                     <div class='form-box'>
                       <input
+                        ref={(input) => (passRef = input)}
                         name='password'
                         type='password'
                         class='form-control'
@@ -70,6 +95,7 @@ const CustomerLogin = () => {
                   </div>
                   <div class='form-group clearfix mb-0'>
                     <button
+                      onClick={LoginSubmit}
                       type='submit'
                       class='btn btn-primary btn-lg btn-theme'
                     >

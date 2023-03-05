@@ -1,222 +1,228 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const Recipe_Gallery = () => {
+const Recipe_Gallery = (HomePageList) => {
+  const Style1 = HomePageList.data.filter(
+    (item) => item.sectionStyle === "Style1"
+  );
+
   return (
     <section className='Recipe_Gallery section '>
       <Container>
         {/* Top Gallery */}
         <div className='top__gallery'>
-          <Row>
-            <Col lg={6} className='leftSide'>
-              <div className='leftSide_inner'>
-                <div className='header_text'>
-                  <h2>Indian Dishes</h2>
-                </div>
-                <Row>
-                  <Col xs={12}>
-                    <div className='topBar'>
-                      <Link to={"/ShoppingDetails"}>
-                        <div className='imgFile'>
-                          <div>
-                            <img
-                              className=''
-                              style={{ height: "331px", width: "670px" }}
-                              src={"/Assets/Img/Recipe/imgHub_1_1.png"}
-                              alt=''
-                            />
-                          </div>
-                          <div className='overlay__text'>
-                            <div className='inner__body'>
-                              <div>
-                                <h3>Butter Chicken</h3>
-                                <p>
-                                  Lorem ipsum dolor, sit amet consectetur
-                                  adipisicing elit. Harum repellat dignissimos
-                                  repellendus, esse iusto voluptas.
-                                </p>
+          {Style1.map((item, index) => (
+            <Row key={index}>
+              <Col lg={6} className='leftSide'>
+                <div className='leftSide_inner'>
+                  <div className='header_text'>
+                    <h2>Indian Dishes</h2>
+                  </div>
+                  <Row>
+                    <Col xs={12}>
+                      <div className='topBar'>
+                        <Link to={"/ShoppingDetails"}>
+                          <div className='imgFile'>
+                            <div>
+                              <img
+                                className=''
+                                style={{ height: "331px", width: "670px" }}
+                                src={"/Assets/Img/Recipe/imgHub_1_1.png"}
+                                alt=''
+                              />
+                            </div>
+                            <div className='overlay__text'>
+                              <div className='inner__body'>
+                                <div>
+                                  <h3>Butter Chicken</h3>
+                                  <p>
+                                    Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Harum repellat dignissimos
+                                    repellendus, esse iusto voluptas.
+                                  </p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </div>
-                  </Col>
-                  <Col xs={12}>
-                    <div className='buttonBar d-flex justify-content-between'>
-                      <div className='imgFile fastImg'>
-                        <div>
-                          <img
-                            className=''
-                            style={{ height: "143px", width: "210px" }}
-                            src={"/Assets/Img/Recipe/imgHub_1_2.png"}
-                            alt=''
-                          />
-                        </div>
-                        <div className='overlay__text'>
-                          <div className='inner__body'>
-                            <div>
-                              <h3>Chana Masala</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className='imgFile secondImg'>
-                        <div>
-                          <img
-                            className=''
-                            style={{ height: "143px", width: "210px" }}
-                            src={"/Assets/Img/Recipe/imgHub_1_3.png"}
-                            alt=''
-                          />
-                        </div>
-                        <div className='overlay__text'>
-                          <div className='inner__body'>
-                            <div>
-                              <h3>Fish Curry</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className='imgFile thirdImg'>
-                        <div>
-                          <img
-                            className=''
-                            style={{ height: "143px", width: "210px" }}
-                            src={"/Assets/Img/Recipe/imgHub_1_4.png"}
-                            alt=''
-                          />
-                        </div>
-                        <div className='overlay__text'>
-                          <div className='inner__body'>
-                            <div>
-                              <h3>Chicken Tikka Masala</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-            </Col>
-            <Col lg={6} className='rightSide'>
-              <div className='rightSide_inner'>
-                <div className='header_text'>
-                  <h2>Japanese Dish</h2>
-                </div>
-                <div className=''>
-                  <Row className='g-2'>
-                    <Col xs={8}>
-                      <div className='leftBar'>
-                        <div className='imgFile'>
-                          <div>
-                            <img
-                              className=''
-                              style={{
-                                height: "481px",
-                                width: "460px",
-                                overflow: "hidden",
-                              }}
-                              src={"/Assets/Img/Recipe/imgHub_2_4.png"}
-                              alt=''
-                            />
-                          </div>
-                          <div className='overlay__text'>
-                            <div className='inner__body'>
-                              <div>
-                                <h3>Ramen</h3>
-                                <p>
-                                  Lorem ipsum dolor, sit amet consectetur
-                                  adipisicing elit. Harum repellat dignissimos
-                                  repellendus, esse iusto voluptas.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        </Link>
                       </div>
                     </Col>
-                    <Col xs={4}>
-                      <div className='rightBar '>
-                        <Row>
-                          <Col xs={12}>
-                            <div className='imgFile firstImg'>
+                    <Col xs={12}>
+                      <div className='buttonBar d-flex justify-content-between'>
+                        <div className='imgFile fastImg'>
+                          <div>
+                            <img
+                              className=''
+                              style={{ height: "143px", width: "210px" }}
+                              src={"/Assets/Img/Recipe/imgHub_1_2.png"}
+                              alt=''
+                            />
+                          </div>
+                          <div className='overlay__text'>
+                            <div className='inner__body'>
                               <div>
-                                <img
-                                  className=''
-                                  style={{
-                                    height: "157px",
-                                    width: "100%",
-                                    overflow: "hidden",
-                                  }}
-                                  src={"/Assets/Img/Recipe/imgHub_2_2.png"}
-                                  alt=''
-                                />
-                              </div>
-                              <div className='overlay__text'>
-                                <div className='inner__body'>
-                                  <div>
-                                    <h3>Tempura</h3>
-                                  </div>
-                                </div>
+                                <h3>Chana Masala</h3>
                               </div>
                             </div>
-                          </Col>
-                          <Col xs={12}>
-                            <div className='imgFile secondImg'>
+                          </div>
+                        </div>
+                        <div className='imgFile secondImg'>
+                          <div>
+                            <img
+                              className=''
+                              style={{ height: "143px", width: "210px" }}
+                              src={"/Assets/Img/Recipe/imgHub_1_3.png"}
+                              alt=''
+                            />
+                          </div>
+                          <div className='overlay__text'>
+                            <div className='inner__body'>
                               <div>
-                                <img
-                                  className=''
-                                  style={{
-                                    height: "157px",
-                                    width: "100%",
-                                    overflow: "hidden",
-                                  }}
-                                  src={"/Assets/Img/Recipe/imgHub_2_3.png"}
-                                  alt=''
-                                />
-                              </div>
-                              <div className='overlay__text'>
-                                <div className='inner__body'>
-                                  <div>
-                                    <h3>Kushiyaki </h3>
-                                  </div>
-                                </div>
+                                <h3>Fish Curry</h3>
                               </div>
                             </div>
-                          </Col>
-                          <Col xs={12}>
-                            <div className='imgFile thirdImg'>
+                          </div>
+                        </div>
+                        <div className='imgFile thirdImg'>
+                          <div>
+                            <img
+                              className=''
+                              style={{ height: "143px", width: "210px" }}
+                              src={"/Assets/Img/Recipe/imgHub_1_4.png"}
+                              alt=''
+                            />
+                          </div>
+                          <div className='overlay__text'>
+                            <div className='inner__body'>
                               <div>
-                                <img
-                                  className=''
-                                  style={{
-                                    height: "157px",
-                                    width: "100%",
-                                    overflow: "hidden",
-                                  }}
-                                  src={"/Assets/Img/Recipe/imgHub_2_1.png"}
-                                  alt=''
-                                />
-                              </div>
-                              <div className='overlay__text'>
-                                <div className='inner__body'>
-                                  <div>
-                                    <h3>Takoyaki</h3>
-                                  </div>
-                                </div>
+                                <h3>Chicken Tikka Masala</h3>
                               </div>
                             </div>
-                          </Col>
-                        </Row>
+                          </div>
+                        </div>
                       </div>
                     </Col>
                   </Row>
                 </div>
-              </div>
-            </Col>
-          </Row>
+              </Col>
+              <Col lg={6} className='rightSide'>
+                <div className='rightSide_inner'>
+                  <div className='header_text'>
+                    <h2>Japanese Dish</h2>
+                  </div>
+                  <div className=''>
+                    <Row className='g-2'>
+                      <Col xs={8}>
+                        <div className='leftBar'>
+                          <div className='imgFile'>
+                            <div>
+                              <img
+                                className=''
+                                style={{
+                                  height: "481px",
+                                  width: "460px",
+                                  overflow: "hidden",
+                                }}
+                                src={"/Assets/Img/Recipe/imgHub_2_4.png"}
+                                alt=''
+                              />
+                            </div>
+                            <div className='overlay__text'>
+                              <div className='inner__body'>
+                                <div>
+                                  <h3>Ramen</h3>
+                                  <p>
+                                    Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Harum repellat dignissimos
+                                    repellendus, esse iusto voluptas.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col xs={4}>
+                        <div className='rightBar '>
+                          <Row>
+                            <Col xs={12}>
+                              <div className='imgFile firstImg'>
+                                <div>
+                                  <img
+                                    className=''
+                                    style={{
+                                      height: "157px",
+                                      width: "100%",
+                                      overflow: "hidden",
+                                    }}
+                                    src={"/Assets/Img/Recipe/imgHub_2_2.png"}
+                                    alt=''
+                                  />
+                                </div>
+                                <div className='overlay__text'>
+                                  <div className='inner__body'>
+                                    <div>
+                                      <h3>Tempura</h3>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </Col>
+                            <Col xs={12}>
+                              <div className='imgFile secondImg'>
+                                <div>
+                                  <img
+                                    className=''
+                                    style={{
+                                      height: "157px",
+                                      width: "100%",
+                                      overflow: "hidden",
+                                    }}
+                                    src={"/Assets/Img/Recipe/imgHub_2_3.png"}
+                                    alt=''
+                                  />
+                                </div>
+                                <div className='overlay__text'>
+                                  <div className='inner__body'>
+                                    <div>
+                                      <h3>Kushiyaki </h3>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </Col>
+                            <Col xs={12}>
+                              <div className='imgFile thirdImg'>
+                                <div>
+                                  <img
+                                    className=''
+                                    style={{
+                                      height: "157px",
+                                      width: "100%",
+                                      overflow: "hidden",
+                                    }}
+                                    src={"/Assets/Img/Recipe/imgHub_2_1.png"}
+                                    alt=''
+                                  />
+                                </div>
+                                <div className='overlay__text'>
+                                  <div className='inner__body'>
+                                    <div>
+                                      <h3>Takoyaki</h3>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </Col>
+                          </Row>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          ))}
         </div>
         {/* Bottom Gallery */}
         <div className='bottom__gallery'>

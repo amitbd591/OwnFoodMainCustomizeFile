@@ -1,12 +1,18 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Slider from "react-slick";
 
 import { Link, useNavigate } from "react-router-dom";
 import { Uber_image } from "../../Database/ImgData";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Container } from "react-bootstrap";
+import { GetAllCategoryAPI } from "../../API/CategoryAPI";
+import { useSelector } from "react-redux";
 const ClientTop = () => {
-  const navigate = useNavigate();
+  useEffect(() => {
+    GetAllCategoryAPI();
+  }, []);
+
+  let AllCategoryList = useSelector((state) => state.category.allCategoryList);
 
   const settings = {
     // dots: true,
@@ -33,8 +39,8 @@ const ClientTop = () => {
               }}
             >
               <Slider {...settings}>
-                {Uber_image.map((item) => (
-                  <div className='d-flex justify-content-center'>
+                {AllCategoryList.map((item, index) => (
+                  <div className='d-flex justify-content-center' key={index}>
                     <Link to={"/Category"} className='d-inline'>
                       <div
                         className='sf_brand-wrap slick-slide slick-cloned mt-3'
@@ -44,10 +50,10 @@ const ClientTop = () => {
                         style={{ width: 224 }}
                       >
                         <div className='sf_brand-media'>
-                          <img src={item.item_image} alt='brand' />
+                          <img src={item?.categoryImage} alt='brand' />
                         </div>
                         <div className='brand-meta'>
-                          <h4>vegan lover</h4>
+                          <h4>{item?.categoryName}</h4>
                         </div>
                       </div>
                     </Link>
