@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BaseURL } from "../Helper/config";
 import { ErrorToast, SuccessToast } from "../Helper/FormHelper";
-import { setToken, setUserDetails } from "../Helper/SessionHelper";
+import { setEmail, setToken, setUserDetails } from "../Helper/SessionHelper";
 import { setBannerList } from "../Redux/State-slice/BannerSlice";
 import store from "../Redux/Store/Store";
 
@@ -53,6 +53,34 @@ export const loginUsersAPI = async (email, userPassword) => {
     }
   } catch (e) {
     ErrorToast("Something went wrong! loginUsersAPI -2");
+    return false;
+  }
+};
+
+//! =================== Step One Recovery Verify Email ===================
+
+// Step One Recovery Verify Email
+export const RecoveryVerifyEmail = async (email) => {
+  try {
+    let URL = BaseURL + "/forget-password-verify-email/" + email;
+    let res = await axios.post(URL);
+    if (res.status === 200) {
+      if (res.data["status"] === "Fail") {
+        ErrorToast("No User Found");
+        return false;
+      } else {
+        setEmail(email);
+        SuccessToast(
+          "A 6 Digit verification code has been sent to your email address. "
+        );
+        return true;
+      }
+    } else {
+      ErrorToast("Something wrong RecoveryVerifyEmailAPI-1");
+      return false;
+    }
+  } catch (e) {
+    ErrorToast("Something wrong RecoveryVerifyEmailAPI-2");
     return false;
   }
 };

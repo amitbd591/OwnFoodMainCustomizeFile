@@ -1,9 +1,9 @@
 class SessionHelper {
-  setToken(token) {
-    localStorage.setItem("token", token);
+  setToken(Token) {
+    localStorage.setItem("Token", Token);
   }
   getToken() {
-    return localStorage.getItem("token");
+    return localStorage.getItem("Token");
   }
   setUserDetails(UserDetails) {
     localStorage.setItem("UserDetails", JSON.stringify(UserDetails));

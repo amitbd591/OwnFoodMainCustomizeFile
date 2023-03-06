@@ -10,8 +10,6 @@ const Circle_2 = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const navigate = useNavigate();
 
   const color = [
     {

@@ -1,7 +1,25 @@
 import React from "react";
+import { useRef } from "react";
 import { HiOutlineMail } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { RecoveryVerifyEmail } from "../../API/UsersAPI";
+import { ErrorToast, IsEmail } from "../../Helper/FormHelper";
 const ForgetPassword = () => {
+  let emailRef = useRef();
+  let navigate = useNavigate();
+
+  const VerifyEmail = async (e) => {
+    e.preventDefault();
+    let email = emailRef.value;
+    if (IsEmail(email)) {
+      ErrorToast("Valid email address required");
+    } else {
+      let result = await RecoveryVerifyEmail(email);
+      if (result) {
+        navigate("/VerifyOTPService");
+      }
+    }
+  };
   return (
     <div class='ForgetPassword'>
       <div class='container-fluid'>
@@ -17,6 +35,7 @@ const ForgetPassword = () => {
                     </label>
                     <div class='form-box'>
                       <input
+                        ref={(input) => (emailRef = input)}
                         name='email'
                         type='email'
                         class='form-control'
@@ -32,6 +51,7 @@ const ForgetPassword = () => {
                   </div>
                   <div class='form-group mb-0'>
                     <button
+                      onClick={VerifyEmail}
                       type='submit'
                       class='btn btn-primary btn-lg btn-theme'
                     >

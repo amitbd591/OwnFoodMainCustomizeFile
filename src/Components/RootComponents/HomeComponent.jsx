@@ -44,7 +44,7 @@ const HomeComponent = () => {
       {/* <Circle /> */}
       <Circle_2 />
 
-      <OrderFoodCat />
+      <OrderFoodCat data={HomePageList} />
       <HowWeDo />
       {/* <RecipeBook /> */}
       <Receipebook_layoutTwo />

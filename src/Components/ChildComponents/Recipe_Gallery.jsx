@@ -5,18 +5,28 @@ const Recipe_Gallery = (HomePageList) => {
   const Style1 = HomePageList.data.filter(
     (item) => item.sectionStyle === "Style1"
   );
+  const Style2 = HomePageList.data.filter(
+    (item) => item.sectionStyle === "Style2"
+  );
+
+  let Style1_orderBy = Style1.sort(function (a, b) {
+    return a.orderBy - b.orderBy;
+  });
+  let Style2_orderBy = Style2.sort(function (a, b) {
+    return a.orderBy - b.orderBy;
+  });
 
   return (
     <section className='Recipe_Gallery section '>
       <Container>
         {/* Top Gallery */}
         <div className='top__gallery'>
-          {Style1.map((item, index) => (
+          {Style1_orderBy.map((item, index) => (
             <Row key={index}>
               <Col lg={6} className='leftSide'>
                 <div className='leftSide_inner'>
                   <div className='header_text'>
-                    <h2>Indian Dishes</h2>
+                    <h2>{item?.sectionTitle1}</h2>
                   </div>
                   <Row>
                     <Col xs={12}>
@@ -108,7 +118,7 @@ const Recipe_Gallery = (HomePageList) => {
               <Col lg={6} className='rightSide'>
                 <div className='rightSide_inner'>
                   <div className='header_text'>
-                    <h2>Japanese Dish</h2>
+                    <h2>{item?.sectionTitle2}</h2>
                   </div>
                   <div className=''>
                     <Row className='g-2'>
@@ -226,23 +236,134 @@ const Recipe_Gallery = (HomePageList) => {
         </div>
         {/* Bottom Gallery */}
         <div className='bottom__gallery'>
-          <Row>
-            <Col lg={6} className='leftSide'>
-              <div className='leftSide__inner'>
-                <div className='header_text'>
-                  <h2>Thailand Foods</h2>
+          {Style2_orderBy.map((item, index) => (
+            <Row key={index}>
+              <Col lg={6} className='leftSide'>
+                <div className='leftSide__inner'>
+                  <div className='header_text'>
+                    <h2>{item?.sectionTitle1}</h2>
+                  </div>
+                  <div className='d-flex'>
+                    <div className='leftBar  pe-2'>
+                      <div className='imgFile  firstImg'>
+                        <div>
+                          <img
+                            className=''
+                            style={{ height: "290" }}
+                            src={"/Assets/Img/Recipe/imgHub_4_4.png"}
+                            alt=''
+                          />
+                        </div>
+                        <div className='overlay__text'>
+                          <div className='inner__body'>
+                            <div>
+                              <h3>Tom Yum Goong</h3>
+                              <p>
+                                Lorem ipsum dolor, sit amet consectetur
+                                adipisicing elit. Harum repellat dignissimos
+                                repellendus, esse iusto voluptas.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='imgFile  secondImg'>
+                        <div>
+                          <img
+                            className=''
+                            style={{ height: "290" }}
+                            src={"/Assets/Img/Recipe/imgHub_4_5.png"}
+                            alt=''
+                          />
+                        </div>
+                        <div className='overlay__text'>
+                          <div className='inner__body'>
+                            <div>
+                              <h3>Tom Kha Gai</h3>
+                              <p>
+                                Lorem ipsum dolor, sit amet consectetur
+                                adipisicing elit. Harum repellat dignissimos
+                                repellendus, esse iusto voluptas.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='rightBar'>
+                      <div className='imgFile firstImg'>
+                        <div>
+                          <div></div>
+                          <img
+                            className=''
+                            style={{ height: "193" }}
+                            src={"/Assets/Img/Recipe/imgHub_4_1.png"}
+                            alt=''
+                          />
+                        </div>
+                        <div className='overlay__text'>
+                          <div className='inner__body'>
+                            <div>
+                              <h3>Green Papaya Salad</h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='imgFile secondImg'>
+                        <div>
+                          <img
+                            className=''
+                            style={{ height: "193" }}
+                            src={"/Assets/Img/Recipe/imgHub_4_2.png"}
+                            alt=''
+                          />
+                        </div>
+
+                        <div className='overlay__text'>
+                          <div className='inner__body'>
+                            <div>
+                              <h3>Spicy Salad</h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='imgFile thirdImg'>
+                        <div>
+                          <img
+                            className=''
+                            style={{ height: "193" }}
+                            src={"/Assets/Img/Recipe/imgHub_4_3.png"}
+                            alt=''
+                          />
+                        </div>
+                        <div className='overlay__text'>
+                          <div className='inner__body'>
+                            <div>
+                              <h3>Khao Pad</h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className='d-flex'>
-                  <div className='leftBar  pe-2'>
-                    <div className='imgFile  firstImg'>
+              </Col>
+              <Col lg={6} className='rightSide'>
+                <div className='rightSide__inner'>
+                  <div className='header_text'>
+                    <h2>{item?.sectionTitle2}</h2>
+                  </div>
+                  <div className='topBar'>
+                    <div className='imgFile firstImg'>
                       <div>
                         <img
-                          className=''
-                          style={{ height: "290" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_4.png"}
+                          className=' '
+                          style={{ height: "450px", overflow: "hidden" }}
+                          src={"/Assets/Img/Recipe/imgHub_3_4.png"}
                           alt=''
                         />
                       </div>
+
                       <div className='overlay__text'>
                         <div className='inner__body'>
                           <div>
@@ -256,19 +377,20 @@ const Recipe_Gallery = (HomePageList) => {
                         </div>
                       </div>
                     </div>
-                    <div className='imgFile  secondImg'>
+                    <div className='imgFile secondImg'>
                       <div>
                         <img
                           className=''
-                          style={{ height: "290" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_5.png"}
+                          style={{ height: "450px", overflow: "hidden" }}
+                          src={"/Assets/Img/Recipe/imgHub_3_5.png"}
                           alt=''
                         />
                       </div>
+
                       <div className='overlay__text'>
                         <div className='inner__body'>
                           <div>
-                            <h3>Tom Kha Gai</h3>
+                            <h3>Tom Yum Goong</h3>
                             <p>
                               Lorem ipsum dolor, sit amet consectetur
                               adipisicing elit. Harum repellat dignissimos
@@ -279,21 +401,20 @@ const Recipe_Gallery = (HomePageList) => {
                       </div>
                     </div>
                   </div>
-                  <div className='rightBar'>
+                  <div className='bottomBar '>
                     <div className='imgFile firstImg'>
                       <div>
-                        <div></div>
                         <img
                           className=''
-                          style={{ height: "193" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_1.png"}
+                          style={{ height: "120px", width: "210px" }}
+                          src={"/Assets/Img/Recipe/imgHub_3_1.png"}
                           alt=''
                         />
                       </div>
                       <div className='overlay__text'>
                         <div className='inner__body'>
                           <div>
-                            <h3>Green Papaya Salad</h3>
+                            <h3>Tom Yum Goong</h3>
                           </div>
                         </div>
                       </div>
@@ -302,8 +423,8 @@ const Recipe_Gallery = (HomePageList) => {
                       <div>
                         <img
                           className=''
-                          style={{ height: "193" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_2.png"}
+                          style={{ height: "120px", width: "210px" }}
+                          src={"/Assets/Img/Recipe/imgHub_3_2.png"}
                           alt=''
                         />
                       </div>
@@ -311,7 +432,7 @@ const Recipe_Gallery = (HomePageList) => {
                       <div className='overlay__text'>
                         <div className='inner__body'>
                           <div>
-                            <h3>Spicy Salad</h3>
+                            <h3>Tom Yum Goong</h3>
                           </div>
                         </div>
                       </div>
@@ -320,133 +441,24 @@ const Recipe_Gallery = (HomePageList) => {
                       <div>
                         <img
                           className=''
-                          style={{ height: "193" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_3.png"}
+                          style={{ height: "120px", width: "210px" }}
+                          src={"/Assets/Img/Recipe/imgHub_3_3.png"}
                           alt=''
                         />
                       </div>
                       <div className='overlay__text'>
                         <div className='inner__body'>
                           <div>
-                            <h3>Khao Pad</h3>
+                            <h3>Tom Yum Goong</h3>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </Col>
-            <Col lg={6} className='rightSide'>
-              <div className='rightSide__inner'>
-                <div className='header_text'>
-                  <h2>Gooey Country Ribs</h2>
-                </div>
-                <div className='topBar'>
-                  <div className='imgFile firstImg'>
-                    <div>
-                      <img
-                        className=' '
-                        style={{ height: "450px", overflow: "hidden" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_4.png"}
-                        alt=''
-                      />
-                    </div>
-
-                    <div className='overlay__text'>
-                      <div className='inner__body'>
-                        <div>
-                          <h3>Tom Yum Goong</h3>
-                          <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Harum repellat dignissimos repellendus, esse
-                            iusto voluptas.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='imgFile secondImg'>
-                    <div>
-                      <img
-                        className=''
-                        style={{ height: "450px", overflow: "hidden" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_5.png"}
-                        alt=''
-                      />
-                    </div>
-
-                    <div className='overlay__text'>
-                      <div className='inner__body'>
-                        <div>
-                          <h3>Tom Yum Goong</h3>
-                          <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Harum repellat dignissimos repellendus, esse
-                            iusto voluptas.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className='bottomBar '>
-                  <div className='imgFile firstImg'>
-                    <div>
-                      <img
-                        className=''
-                        style={{ height: "120px", width: "210px" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_1.png"}
-                        alt=''
-                      />
-                    </div>
-                    <div className='overlay__text'>
-                      <div className='inner__body'>
-                        <div>
-                          <h3>Tom Yum Goong</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='imgFile secondImg'>
-                    <div>
-                      <img
-                        className=''
-                        style={{ height: "120px", width: "210px" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_2.png"}
-                        alt=''
-                      />
-                    </div>
-
-                    <div className='overlay__text'>
-                      <div className='inner__body'>
-                        <div>
-                          <h3>Tom Yum Goong</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='imgFile thirdImg'>
-                    <div>
-                      <img
-                        className=''
-                        style={{ height: "120px", width: "210px" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_3.png"}
-                        alt=''
-                      />
-                    </div>
-                    <div className='overlay__text'>
-                      <div className='inner__body'>
-                        <div>
-                          <h3>Tom Yum Goong</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </Row>
+              </Col>
+            </Row>
+          ))}
         </div>
       </Container>
     </section>
