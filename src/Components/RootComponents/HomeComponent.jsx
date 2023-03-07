@@ -23,6 +23,8 @@ import CenterSlider from "../ChildComponents/CenterSlider";
 import ProfileFoodGallery from "../ChildComponents/ProfileFoodGallery";
 import { getHomePageSections } from "../../API/HomePageSectionAPI";
 import { useSelector } from "react-redux";
+import HomePageStyleOne from "../ChildComponents/HomePageStyleOne";
+import HomePageStyleTwo from "../ChildComponents/HomePageStyleTwo";
 
 const HomeComponent = () => {
   useEffect(() => {
@@ -30,6 +32,39 @@ const HomeComponent = () => {
   }, []);
 
   let HomePageList = useSelector((state) => state.homePage.homePageList);
+
+  for (let i = 0; i < HomePageList.length; i++) {
+    if (HomePageList[i]?.sectionStyle === "Style1") {
+      var Style1 = true;
+    }
+    if (HomePageList[i]?.sectionStyle === "Style2") {
+      var Style2 = true;
+    }
+    if (HomePageList[i]?.sectionStyle === "Style3") {
+      var Style3 = true;
+    }
+    if (HomePageList[i]?.sectionStyle === "Style4") {
+      var Style4 = true;
+    }
+    if (HomePageList[i]?.sectionStyle === "Style5") {
+      var Style5 = true;
+    }
+    if (HomePageList[i]?.sectionStyle === "Style6") {
+      var Style6 = true;
+    }
+    if (HomePageList[i]?.sectionStyle === "Style7") {
+      var Style7 = true;
+    }
+    if (HomePageList[i]?.sectionStyle === "Style8") {
+      var Style8 = true;
+    }
+    if (HomePageList[i]?.sectionStyle === "Style9") {
+      var Style9 = true;
+    }
+    if (HomePageList[i]?.sectionStyle === "Style10") {
+      var Style10 = true;
+    }
+  }
 
   return (
     <section>
@@ -39,16 +74,29 @@ const HomeComponent = () => {
       <CardSlider />
       {/* <CountryBaseFoodCategories /> */}
       <EarnMoney />
-      <Recipe_Gallery data={HomePageList} />
+
+      {/* <Recipe_Gallery data={HomePageList} /> */}
       {/* <OpenAccountInfo /> */}
       {/* <Circle /> */}
+
+      {/* {HomePageList?.data.map((item, index) => {})} */}
+
+      {Style1 === true ? <HomePageStyleOne data={HomePageList} /> : null}
+      {Style2 === true ? <HomePageStyleTwo /> : null}
+
+      <HomePageStyleTwo />
       <Circle_2 />
 
-      <OrderFoodCat data={HomePageList} />
-      <HowWeDo />
+      {Style4 === true ? <OrderFoodCat data={HomePageList} /> : null}
+      {/* <OrderFoodCat /> */}
+
+      {Style5 === true ? <HowWeDo data={HomePageList} /> : null}
+      {/* <HowWeDo /> */}
       {/* <RecipeBook /> */}
       <Receipebook_layoutTwo />
-      <FoodCatGallery />
+
+      {Style6 === true ? <FoodCatGallery /> : null}
+      {/* <FoodCatGallery /> */}
       <InstantFood title={"Instant"} />
       <BrowseByKitchen />
       <FoodNameCategory />

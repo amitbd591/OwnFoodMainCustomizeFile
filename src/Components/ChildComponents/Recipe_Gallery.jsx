@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { GetFoodByCategoryAPI } from "../../API/CategoryAPI";
 const Recipe_Gallery = (HomePageList) => {
   const Style1 = HomePageList.data.filter(
     (item) => item.sectionStyle === "Style1"
@@ -15,6 +16,10 @@ const Recipe_Gallery = (HomePageList) => {
   let Style2_orderBy = Style2.sort(function (a, b) {
     return a.orderBy - b.orderBy;
   });
+  console.log(Style1);
+  useEffect(() => {
+    GetFoodByCategoryAPI();
+  }, []);
 
   return (
     <section className='Recipe_Gallery section '>

@@ -1,7 +1,11 @@
 import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-const HowWeDo = () => {
+const HowWeDo = (HomePageList) => {
+  const Style7 = HomePageList.data.filter(
+    (item) => item.sectionStyle === "Style7"
+  );
+
   const data = [
     {
       image_before: "/Assets/Img/howWeDo_1.jpeg",
@@ -26,44 +30,112 @@ const HowWeDo = () => {
           <span class=' sf_text-theme'>We Do</span>
         </h2>
       </div>
-      <Row className='mt-2'>
-        {data.map((item, index) => {
-          return (
-            <Col lg={4}>
-              <div className='card_details'>
-                <Card.Title className='d-flex justify-content-center mt-2 mb-2 card_title'>
-                  Recipe Name
-                </Card.Title>
-                <Card.Body className='Card'>
-                  <div className='before_class'>
-                    <img
-                      src={item.image_before}
-                      className='img-fluid card-image'
-                    />
-                    <div className='d-flex justify-content-center span-class-before'>
-                      <span className='before'>
-                        <p>Before</p>{" "}
-                      </span>
-                    </div>
+      {Style7.map((item, index) => (
+        <Row className='mt-2' key={index}>
+          <Col lg={4} key={index}>
+            <div className='card_details'>
+              <Card.Title className='d-flex justify-content-center mt-2 mb-2 card_title'>
+                {item?.sectionTitle1}
+              </Card.Title>
+              <Card.Body className='Card'>
+                <div className='before_class'>
+                  <img
+                    src={data[0]?.image_before}
+                    alt=''
+                    className='img-fluid card-image'
+                  />
+                  <div className='d-flex justify-content-center span-class-before'>
+                    <span className='before'>
+                      <p>Before</p>{" "}
+                    </span>
                   </div>
-                  <div className='after_class'>
-                    <img
-                      src={item.image_after}
-                      className='img-fluid card-image'
-                    />
-                    <div className='span-class-after'>
-                      <span className='after '>
-                        {" "}
-                        <p>After</p>{" "}
-                      </span>
-                    </div>
+                </div>
+                <div className='after_class'>
+                  <img
+                    src={data[0]?.image_after}
+                    alt=''
+                    className='img-fluid card-image'
+                  />
+                  <div className='span-class-after'>
+                    <span className='after '>
+                      {" "}
+                      <p>After</p>{" "}
+                    </span>
                   </div>
-                </Card.Body>
-              </div>
-            </Col>
-          );
-        })}
-      </Row>
+                </div>
+              </Card.Body>
+            </div>
+          </Col>
+          <Col lg={4} key={index}>
+            <div className='card_details'>
+              <Card.Title className='d-flex justify-content-center mt-2 mb-2 card_title'>
+                {item?.sectionTitle2}
+              </Card.Title>
+              <Card.Body className='Card'>
+                <div className='before_class'>
+                  <img
+                    src={data[1]?.image_before}
+                    alt=''
+                    className='img-fluid card-image'
+                  />
+                  <div className='d-flex justify-content-center span-class-before'>
+                    <span className='before'>
+                      <p>Before</p>{" "}
+                    </span>
+                  </div>
+                </div>
+                <div className='after_class'>
+                  <img
+                    src={data[1]?.image_after}
+                    alt=''
+                    className='img-fluid card-image'
+                  />
+                  <div className='span-class-after'>
+                    <span className='after '>
+                      {" "}
+                      <p>After</p>{" "}
+                    </span>
+                  </div>
+                </div>
+              </Card.Body>
+            </div>
+          </Col>
+          <Col lg={4} key={index}>
+            <div className='card_details'>
+              <Card.Title className='d-flex justify-content-center mt-2 mb-2 card_title'>
+                {item?.sectionTitle3}
+              </Card.Title>
+              <Card.Body className='Card'>
+                <div className='before_class'>
+                  <img
+                    src={data[2]?.image_before}
+                    alt=''
+                    className='img-fluid card-image'
+                  />
+                  <div className='d-flex justify-content-center span-class-before'>
+                    <span className='before'>
+                      <p>Before</p>{" "}
+                    </span>
+                  </div>
+                </div>
+                <div className='after_class'>
+                  <img
+                    src={data[2]?.image_after}
+                    alt=''
+                    className='img-fluid card-image'
+                  />
+                  <div className='span-class-after'>
+                    <span className='after '>
+                      {" "}
+                      <p>After</p>{" "}
+                    </span>
+                  </div>
+                </div>
+              </Card.Body>
+            </div>
+          </Col>
+        </Row>
+      ))}
     </Container>
   );
 };

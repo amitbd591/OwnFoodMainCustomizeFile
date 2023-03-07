@@ -11,8 +11,6 @@ const OrderFoodCat = (HomePageList) => {
   );
   const navigate = useNavigate();
 
-  console.log(Style4);
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   return (

@@ -44,7 +44,7 @@ const Circle_2 = () => {
   };
 
   return (
-    <section className=' Circle_2 shadow-lg'>
+    <section className=' Circle_2 shadow-lg pt-3'>
       <Container className=' wrap_Upper'>
         <div className='title-area text-center '>
           <span className='sf_sub-title '></span>

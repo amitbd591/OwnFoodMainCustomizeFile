@@ -1,10 +1,13 @@
 import axios from "axios";
 import { BaseURL } from "../Helper/config";
 import { ErrorToast } from "../Helper/FormHelper";
-import { setCategoryList } from "../Redux/State-slice/CategorySlice";
+import {
+  setCategoryList,
+  setFoodByCategoryList,
+} from "../Redux/State-slice/CategorySlice";
 import store from "../Redux/Store/Store";
 
-// get-banners API
+// get category API
 
 export const GetAllCategoryAPI = async () => {
   try {
@@ -20,6 +23,26 @@ export const GetAllCategoryAPI = async () => {
     }
   } catch (e) {
     ErrorToast("Something wrong! GetAllCategoryAPI -2");
+    return false;
+  }
+};
+
+// get category API
+
+export const GetFoodByCategoryAPI = async (catID) => {
+  try {
+    let URL = BaseURL + "/get-food-by-category/" + catID;
+    let res = await axios.get(URL);
+
+    if (res.status === 200 && res.data["status"] === "Success") {
+      store.dispatch(setFoodByCategoryList(res.data.data));
+      return true;
+    } else {
+      ErrorToast("Something wrong! GetFoodByCategoryAPI -1");
+      return false;
+    }
+  } catch (e) {
+    ErrorToast("Something wrong! GetFoodByCategoryAPI -2");
     return false;
   }
 };
