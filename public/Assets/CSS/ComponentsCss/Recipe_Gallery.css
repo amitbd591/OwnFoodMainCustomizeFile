@@ -372,6 +372,7 @@
 }
 .Recipe_Gallery .bottom__gallery .leftSide .leftBar img {
   height: 290px;
+  width: 100%;
 }
 
 .Recipe_Gallery .bottom__gallery .leftSide .leftBar .overlay__text {

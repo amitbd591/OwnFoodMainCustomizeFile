@@ -10,7 +10,8 @@ const HomePageStyleOne = (data) => {
   const Style1 = data?.data?.filter((item) => item.sectionStyle === "Style1");
 
   let style1_catId_1 = Style1[0]?.sectionCategories1[0]?.value;
-  let style1_catId_2 = Style1[1]?.sectionCategories1[2]?.value;
+  let style1_catId_2 = Style1[0]?.sectionCategories2[0]?.value;
+  // debugger;
 
   useEffect(() => {
     // For Style1 section Left Data
@@ -39,7 +40,7 @@ const HomePageStyleOne = (data) => {
             <Col lg={6} className='leftSide'>
               <div className='leftSide_inner'>
                 <div className='header_text'>
-                  <h2>{Style1[0]?.sectionTitle1}</h2>
+                  <h2>{Style1.length > 0 ? Style1[0]?.sectionTitle1 : null}</h2>
                 </div>
                 <Row>
                   <Col xs={12}>
@@ -187,7 +188,8 @@ const HomePageStyleOne = (data) => {
             <Col lg={6} className='rightSide'>
               <div className='rightSide_inner'>
                 <div className='header_text'>
-                  <h2>{Style1[1]?.sectionTitle2}</h2>
+                  {/* <h2>{Style1[1]?.sectionTitle2}</h2> */}
+                  <h2>{Style1.length > 0 ? Style1[0]?.sectionTitle2 : null}</h2>
                 </div>
                 <div className=''>
                   <Row className='g-2'>

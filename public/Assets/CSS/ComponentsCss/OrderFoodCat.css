@@ -218,7 +218,8 @@ button {
   font-size: 18px;
   color: var(--gray-chalk);
 }
-.OrderFoodCat .product-image img {
+
+.OrderFoodCat .product-image {
   width: 100%;
 }
 .OrderFoodCat .product-widget {
@@ -387,6 +388,11 @@ button {
 .OrderFoodCat .img_animation {
   transition: all linear 0.3s;
   height: 188px;
+  width: 100%;
+}
+.OrderFoodCat .img_animation img {
+  object-fit: cover;
+  height: 100%;
 }
 /*! CSS Used from: https://ownfood.hostdivine.com/static/css/main.5667a3ca.css */
 .OrderFoodCat .see_more_1 {
@@ -486,6 +492,9 @@ button {
   transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .OrderFoodCat .img_animation :hover {
   -webkit-transform: scale(1.1);

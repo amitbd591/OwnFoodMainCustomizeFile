@@ -79,23 +79,21 @@ const HomeComponent = () => {
       {/* <OpenAccountInfo /> */}
       {/* <Circle /> */}
 
-      {/* {HomePageList?.data.map((item, index) => {})} */}
-
       {Style1 === true ? <HomePageStyleOne data={HomePageList} /> : null}
       {Style2 === true ? <HomePageStyleTwo data={HomePageList} /> : null}
 
-      <HomePageStyleTwo />
+      {/* <HomePageStyleTwo /> */}
       <Circle_2 />
 
       {Style4 === true ? <OrderFoodCat data={HomePageList} /> : null}
       {/* <OrderFoodCat /> */}
 
-      {Style5 === true ? <HowWeDo data={HomePageList} /> : null}
+      {/* {Style5 === true ? <HowWeDo data={HomePageList} /> : null} */}
       {/* <HowWeDo /> */}
       {/* <RecipeBook /> */}
       <Receipebook_layoutTwo />
 
-      {Style6 === true ? <FoodCatGallery /> : null}
+      {Style5 === true ? <FoodCatGallery data={HomePageList} /> : null}
       {/* <FoodCatGallery /> */}
       <InstantFood title={"Instant"} />
       <BrowseByKitchen />

@@ -10,30 +10,28 @@ const HomePageStyleTwo = (data) => {
   const [style1RightData, setStyle1RightData] = useState([]);
   const Style2 = data?.data?.filter((item) => item.sectionStyle === "Style2");
 
-  // let style2_catId_1 = Style2[0]?.sectionCategories1[0]?.value;
-  // let style2_catId_2 = Style2[1]?.sectionCategories1[2]?.value;
+  let style2_catId_1 = Style2[0]?.sectionCategories1[0]?.value;
+  let style2_catId_2 = Style2[0]?.sectionCategories2[0]?.value;
 
-  // useEffect(() => {
-  //   // For Style1 section Left Data
-  //   axios
-  //     .get(BaseURL + "/get-food-by-category/" + style2_catId_1)
-  //     .then((res) => {
-  //       setStyleLeft2Data(res.data.data);
-  //     });
+  useEffect(() => {
+    // For Style1 section Left Data
+    axios
+      .get(BaseURL + "/get-food-by-category/" + style2_catId_1)
+      .then((res) => {
+        setStyleLeft2Data(res.data.data);
+      });
 
-  //   // For Style2 section Right Data
-  //   axios
-  //     .get(BaseURL + "/get-food-by-category/" + style2_catId_2)
-  //     .then((res) => {
-  //       setStyle1RightData(res.data.data);
-  //     });
-  // }, []);
+    // For Style2 section Right Data
+    axios
+      .get(BaseURL + "/get-food-by-category/" + style2_catId_2)
+      .then((res) => {
+        setStyle1RightData(res.data.data);
+      });
+  }, []);
 
-  // let newStyle1LeftData = style1LeftData[0]?.data;
-  // let newStyle1RightData = style1RightData[0]?.data;
-
-  console.log(Style2);
-
+  let newStyle2LeftData = style1LeftData[0]?.data;
+  let newStyle1RightData = style1RightData[0]?.data;
+  // debugger;
   return (
     <section className='Recipe_Gallery section pt-2 pb-5'>
       <Container>
@@ -42,7 +40,8 @@ const HomePageStyleTwo = (data) => {
             <Col lg={6} className='leftSide'>
               <div className='leftSide__inner'>
                 <div className='header_text'>
-                  <h2>{"item?.sectionTitle1"}</h2>
+                  {/* <h2>{"item?.sectionTitle1"}</h2> */}
+                  <h2>{Style2.length > 0 ? Style2[0]?.sectionTitle1 : null}</h2>
                 </div>
                 <div className='d-flex'>
                   <div className='leftBar  pe-2'>
@@ -50,19 +49,27 @@ const HomePageStyleTwo = (data) => {
                       <div>
                         <img
                           className=''
-                          style={{ height: "290" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_4.png"}
+                          style={{ height: "290", objectFit: "cover" }}
+                          src={
+                            newStyle2LeftData === undefined
+                              ? null
+                              : newStyle2LeftData[0]?.foodImage
+                          }
                           alt=''
                         />
                       </div>
                       <div className='overlay__text'>
                         <div className='inner__body'>
                           <div>
-                            <h3>Tom Yum Goong</h3>
+                            <h3>
+                              {newStyle2LeftData === undefined
+                                ? null
+                                : newStyle2LeftData[0]?.foodName}
+                            </h3>
                             <p>
-                              Lorem ipsum dolor, sit amet consectetur
-                              adipisicing elit. Harum repellat dignissimos
-                              repellendus, esse iusto voluptas.
+                              {newStyle2LeftData === undefined
+                                ? null
+                                : newStyle2LeftData[0]?.foodAdditionalInfo}
                             </p>
                           </div>
                         </div>
@@ -72,19 +79,27 @@ const HomePageStyleTwo = (data) => {
                       <div>
                         <img
                           className=''
-                          style={{ height: "290" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_5.png"}
+                          style={{ height: "290", objectFit: "cover" }}
+                          src={
+                            newStyle2LeftData === undefined
+                              ? null
+                              : newStyle2LeftData[1]?.foodImage
+                          }
                           alt=''
                         />
                       </div>
                       <div className='overlay__text'>
                         <div className='inner__body'>
                           <div>
-                            <h3>Tom Kha Gai</h3>
+                            <h3>
+                              {newStyle2LeftData === undefined
+                                ? null
+                                : newStyle2LeftData[1]?.foodName}
+                            </h3>
                             <p>
-                              Lorem ipsum dolor, sit amet consectetur
-                              adipisicing elit. Harum repellat dignissimos
-                              repellendus, esse iusto voluptas.
+                              {newStyle2LeftData === undefined
+                                ? null
+                                : newStyle2LeftData[1]?.foodAdditionalInfo}
                             </p>
                           </div>
                         </div>
@@ -97,8 +112,12 @@ const HomePageStyleTwo = (data) => {
                         <div></div>
                         <img
                           className=''
-                          style={{ height: "193" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_1.png"}
+                          style={{ height: "193", objectFit: "cover" }}
+                          src={
+                            newStyle2LeftData === undefined
+                              ? null
+                              : newStyle2LeftData[2]?.foodImage
+                          }
                           alt=''
                         />
                       </div>
@@ -114,8 +133,12 @@ const HomePageStyleTwo = (data) => {
                       <div>
                         <img
                           className=''
-                          style={{ height: "193" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_2.png"}
+                          style={{ height: "193", objectFit: "cover" }}
+                          src={
+                            newStyle2LeftData === undefined
+                              ? null
+                              : newStyle2LeftData[3]?.foodImage
+                          }
                           alt=''
                         />
                       </div>
@@ -132,8 +155,12 @@ const HomePageStyleTwo = (data) => {
                       <div>
                         <img
                           className=''
-                          style={{ height: "193" }}
-                          src={"/Assets/Img/Recipe/imgHub_4_3.png"}
+                          style={{ height: "193", objectFit: "cover" }}
+                          src={
+                            newStyle2LeftData === undefined
+                              ? null
+                              : newStyle2LeftData[4]?.foodImage
+                          }
                           alt=''
                         />
                       </div>
@@ -152,15 +179,23 @@ const HomePageStyleTwo = (data) => {
             <Col lg={6} className='rightSide'>
               <div className='rightSide__inner'>
                 <div className='header_text'>
-                  <h2>{"item?.sectionTitle2"}</h2>
+                  <h2>{Style2.length > 0 ? Style2[0]?.sectionTitle2 : null}</h2>
                 </div>
                 <div className='topBar'>
                   <div className='imgFile firstImg'>
                     <div>
                       <img
                         className=' '
-                        style={{ height: "450px", overflow: "hidden" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_4.png"}
+                        style={{
+                          height: "450px",
+                          overflow: "hidden",
+                          objectFit: "cover",
+                        }}
+                        src={
+                          newStyle1RightData === undefined
+                            ? null
+                            : newStyle1RightData[0]?.foodImage
+                        }
                         alt=''
                       />
                     </div>
@@ -182,8 +217,16 @@ const HomePageStyleTwo = (data) => {
                     <div>
                       <img
                         className=''
-                        style={{ height: "450px", overflow: "hidden" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_5.png"}
+                        style={{
+                          height: "450px",
+                          overflow: "hidden",
+                          objectFit: "cover",
+                        }}
+                        src={
+                          newStyle1RightData === undefined
+                            ? null
+                            : newStyle1RightData[1]?.foodImage
+                        }
                         alt=''
                       />
                     </div>
@@ -207,8 +250,16 @@ const HomePageStyleTwo = (data) => {
                     <div>
                       <img
                         className=''
-                        style={{ height: "120px", width: "210px" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_1.png"}
+                        style={{
+                          height: "120px",
+                          width: "210px",
+                          objectFit: "cover",
+                        }}
+                        src={
+                          newStyle1RightData === undefined
+                            ? null
+                            : newStyle1RightData[2]?.foodImage
+                        }
                         alt=''
                       />
                     </div>
@@ -224,8 +275,16 @@ const HomePageStyleTwo = (data) => {
                     <div>
                       <img
                         className=''
-                        style={{ height: "120px", width: "210px" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_2.png"}
+                        style={{
+                          height: "120px",
+                          width: "210px",
+                          objectFit: "cover",
+                        }}
+                        src={
+                          newStyle1RightData === undefined
+                            ? null
+                            : newStyle1RightData[3]?.foodImage
+                        }
                         alt=''
                       />
                     </div>
@@ -242,8 +301,16 @@ const HomePageStyleTwo = (data) => {
                     <div>
                       <img
                         className=''
-                        style={{ height: "120px", width: "210px" }}
-                        src={"/Assets/Img/Recipe/imgHub_3_3.png"}
+                        style={{
+                          height: "120px",
+                          width: "210px",
+                          objectFit: "cover",
+                        }}
+                        src={
+                          newStyle1RightData === undefined
+                            ? null
+                            : newStyle1RightData[4]?.foodImage
+                        }
                         alt=''
                       />
                     </div>
