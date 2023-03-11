@@ -1,23 +1,36 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { GetFoodByCategoryAPI } from "../../API/CategoryAPI";
+import { BaseURL } from "../../Helper/config";
 
 const HomePageStyleOne = (data) => {
-  const Style1 = data?.data.filter((item) => item.sectionStyle === "Style1");
-  console.log(Style1[0]?.sectionCategories1[0]?.value);
-  let catId = Style1[0]?.sectionCategories1[0]?.value;
+  const [style1LeftData, setStyleLeft2Data] = useState([]);
+  const [style1RightData, setStyle1RightData] = useState([]);
+  const Style1 = data?.data?.filter((item) => item.sectionStyle === "Style1");
+
+  let style1_catId_1 = Style1[0]?.sectionCategories1[0]?.value;
+  let style1_catId_2 = Style1[1]?.sectionCategories1[2]?.value;
 
   useEffect(() => {
-    GetFoodByCategoryAPI(catId);
+    // For Style1 section Left Data
+    axios
+      .get(BaseURL + "/get-food-by-category/" + style1_catId_1)
+      .then((res) => {
+        setStyleLeft2Data(res.data.data);
+      });
+
+    // For Style2 section Right Data
+    axios
+      .get(BaseURL + "/get-food-by-category/" + style1_catId_2)
+      .then((res) => {
+        setStyle1RightData(res.data.data);
+      });
   }, []);
 
-  let allFoodByCategoryList = useSelector(
-    (state) => state.category.allFoodByCategoryList
-  );
-  let myNewData = allFoodByCategoryList[0]?.data;
-  console.log(myNewData[0]?.foodImage);
+  let newStyle1LeftData = style1LeftData[0]?.data;
+  let newStyle1RightData = style1RightData[0]?.data;
+
   return (
     <section className='Recipe_Gallery section py-2 '>
       <div className='top__gallery'>
@@ -36,24 +49,40 @@ const HomePageStyleOne = (data) => {
                           <div>
                             <img
                               className=''
-                              style={{ height: "331px", width: "670px" }}
+                              style={{
+                                height: "340px",
+                                width: "670px",
+                                objectFit: "cover",
+                              }}
                               src={
-                                myNewData === []
-                                  ? myNewData[0]?.foodImage
-                                  : null
+                                newStyle1LeftData === undefined
+                                  ? null
+                                  : newStyle1LeftData[0]?.foodImage
                               }
                               alt=''
                             />
                           </div>
-                          <div className='overlay__text'>
+                          <div
+                            className='overlay__text'
+                            style={{
+                              height: "340px",
+                            }}
+                          >
                             <div className='inner__body'>
-                              <div>
-                                {/* <h3>{myNewData[0]?.foodName}</h3> */}
-                                <p>
-                                  Lorem ipsum dolor, sit amet consectetur
-                                  adipisicing elit. Harum repellat dignissimos
-                                  repellendus, esse iusto voluptas.
-                                </p>
+                              <div className='d-flex justify-content-center'>
+                                <div>
+                                  <h3>
+                                    {newStyle1LeftData === undefined
+                                      ? null
+                                      : newStyle1LeftData[0]?.foodName}
+                                  </h3>
+                                  <p>
+                                    {newStyle1LeftData === undefined
+                                      ? null
+                                      : newStyle1LeftData[0]
+                                          ?.foodAdditionalInfo}
+                                  </p>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -67,15 +96,27 @@ const HomePageStyleOne = (data) => {
                         <div>
                           <img
                             className=''
-                            style={{ height: "143px", width: "210px" }}
-                            src={"/Assets/Img/Recipe/imgHub_1_2.png"}
+                            style={{
+                              height: "143px",
+                              width: "210px",
+                              objectFit: "cover",
+                            }}
+                            src={
+                              newStyle1LeftData === undefined
+                                ? null
+                                : newStyle1LeftData[1]?.foodImage
+                            }
                             alt=''
                           />
                         </div>
                         <div className='overlay__text'>
                           <div className='inner__body'>
                             <div>
-                              <h3>Chana Masala</h3>
+                              <h3>
+                                {newStyle1LeftData === undefined
+                                  ? null
+                                  : newStyle1LeftData[1]?.foodName}
+                              </h3>
                             </div>
                           </div>
                         </div>
@@ -84,15 +125,27 @@ const HomePageStyleOne = (data) => {
                         <div>
                           <img
                             className=''
-                            style={{ height: "143px", width: "210px" }}
-                            src={"/Assets/Img/Recipe/imgHub_1_3.png"}
+                            style={{
+                              height: "143px",
+                              width: "210px",
+                              objectFit: "cover",
+                            }}
+                            src={
+                              newStyle1LeftData === undefined
+                                ? null
+                                : newStyle1LeftData[2]?.foodImage
+                            }
                             alt=''
                           />
                         </div>
                         <div className='overlay__text'>
                           <div className='inner__body'>
                             <div>
-                              <h3>Fish Curry</h3>
+                              <h3>
+                                {newStyle1LeftData === undefined
+                                  ? null
+                                  : newStyle1LeftData[2]?.foodName}
+                              </h3>
                             </div>
                           </div>
                         </div>
@@ -101,15 +154,27 @@ const HomePageStyleOne = (data) => {
                         <div>
                           <img
                             className=''
-                            style={{ height: "143px", width: "210px" }}
-                            src={"/Assets/Img/Recipe/imgHub_1_4.png"}
+                            style={{
+                              height: "143px",
+                              width: "210px",
+                              objectFit: "cover",
+                            }}
+                            src={
+                              newStyle1LeftData === undefined
+                                ? null
+                                : newStyle1LeftData[3]?.foodImage
+                            }
                             alt=''
                           />
                         </div>
                         <div className='overlay__text'>
                           <div className='inner__body'>
                             <div>
-                              <h3>Chicken Tikka Masala</h3>
+                              <h3>
+                                {newStyle1LeftData === undefined
+                                  ? null
+                                  : newStyle1LeftData[3]?.foodName}
+                              </h3>
                             </div>
                           </div>
                         </div>
@@ -122,7 +187,7 @@ const HomePageStyleOne = (data) => {
             <Col lg={6} className='rightSide'>
               <div className='rightSide_inner'>
                 <div className='header_text'>
-                  <h2>{"item?.sectionTitle2"}</h2>
+                  <h2>{Style1[1]?.sectionTitle2}</h2>
                 </div>
                 <div className=''>
                   <Row className='g-2'>
@@ -136,19 +201,28 @@ const HomePageStyleOne = (data) => {
                                 height: "481px",
                                 width: "460px",
                                 overflow: "hidden",
+                                objectFit: "cover",
                               }}
-                              src={"/Assets/Img/Recipe/imgHub_2_4.png"}
+                              src={
+                                newStyle1RightData === undefined
+                                  ? null
+                                  : newStyle1RightData[0]?.foodImage
+                              }
                               alt=''
                             />
                           </div>
                           <div className='overlay__text'>
                             <div className='inner__body'>
                               <div>
-                                <h3>Ramen</h3>
+                                <h3>
+                                  {newStyle1RightData === undefined
+                                    ? null
+                                    : newStyle1RightData[0]?.foodName}
+                                </h3>
                                 <p>
-                                  Lorem ipsum dolor, sit amet consectetur
-                                  adipisicing elit. Harum repellat dignissimos
-                                  repellendus, esse iusto voluptas.
+                                  {newStyle1RightData === undefined
+                                    ? null
+                                    : newStyle1RightData[0]?.foodAdditionalInfo}
                                 </p>
                               </div>
                             </div>
@@ -168,15 +242,24 @@ const HomePageStyleOne = (data) => {
                                     height: "157px",
                                     width: "100%",
                                     overflow: "hidden",
+                                    objectFit: "cover",
                                   }}
-                                  src={"/Assets/Img/Recipe/imgHub_2_2.png"}
+                                  src={
+                                    newStyle1RightData === undefined
+                                      ? null
+                                      : newStyle1RightData[1]?.foodImage
+                                  }
                                   alt=''
                                 />
                               </div>
                               <div className='overlay__text'>
                                 <div className='inner__body'>
                                   <div>
-                                    <h3>Tempura</h3>
+                                    <h3>
+                                      {newStyle1RightData === undefined
+                                        ? null
+                                        : newStyle1RightData[1]?.foodName}
+                                    </h3>
                                   </div>
                                 </div>
                               </div>
@@ -191,15 +274,24 @@ const HomePageStyleOne = (data) => {
                                     height: "157px",
                                     width: "100%",
                                     overflow: "hidden",
+                                    objectFit: "cover",
                                   }}
-                                  src={"/Assets/Img/Recipe/imgHub_2_3.png"}
+                                  src={
+                                    newStyle1RightData === undefined
+                                      ? null
+                                      : newStyle1RightData[2]?.foodImage
+                                  }
                                   alt=''
                                 />
                               </div>
                               <div className='overlay__text'>
                                 <div className='inner__body'>
                                   <div>
-                                    <h3>Kushiyaki </h3>
+                                    <h3>
+                                      {newStyle1RightData === undefined
+                                        ? null
+                                        : newStyle1RightData[2]?.foodName}
+                                    </h3>
                                   </div>
                                 </div>
                               </div>
@@ -214,15 +306,24 @@ const HomePageStyleOne = (data) => {
                                     height: "157px",
                                     width: "100%",
                                     overflow: "hidden",
+                                    objectFit: "cover",
                                   }}
-                                  src={"/Assets/Img/Recipe/imgHub_2_1.png"}
+                                  src={
+                                    newStyle1RightData === undefined
+                                      ? null
+                                      : newStyle1RightData[3]?.foodImage
+                                  }
                                   alt=''
                                 />
                               </div>
                               <div className='overlay__text'>
                                 <div className='inner__body'>
                                   <div>
-                                    <h3>Takoyaki</h3>
+                                    <h3>
+                                      {newStyle1RightData === undefined
+                                        ? null
+                                        : newStyle1RightData[3]?.foodName}
+                                    </h3>
                                   </div>
                                 </div>
                               </div>

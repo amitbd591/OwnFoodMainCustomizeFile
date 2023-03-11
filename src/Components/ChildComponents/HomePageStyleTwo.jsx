@@ -1,10 +1,38 @@
+import axios from "axios";
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { BaseURL } from "../../Helper/config";
 
-const HomePageStyleTwo = () => {
-  //   const Style1 = HomePageList?.data.filter(
-  //     (item) => item.sectionStyle === "Style1"
-  //   );
+const HomePageStyleTwo = (data) => {
+  const [style1LeftData, setStyleLeft2Data] = useState([]);
+  const [style1RightData, setStyle1RightData] = useState([]);
+  const Style2 = data?.data?.filter((item) => item.sectionStyle === "Style2");
+
+  // let style2_catId_1 = Style2[0]?.sectionCategories1[0]?.value;
+  // let style2_catId_2 = Style2[1]?.sectionCategories1[2]?.value;
+
+  // useEffect(() => {
+  //   // For Style1 section Left Data
+  //   axios
+  //     .get(BaseURL + "/get-food-by-category/" + style2_catId_1)
+  //     .then((res) => {
+  //       setStyleLeft2Data(res.data.data);
+  //     });
+
+  //   // For Style2 section Right Data
+  //   axios
+  //     .get(BaseURL + "/get-food-by-category/" + style2_catId_2)
+  //     .then((res) => {
+  //       setStyle1RightData(res.data.data);
+  //     });
+  // }, []);
+
+  // let newStyle1LeftData = style1LeftData[0]?.data;
+  // let newStyle1RightData = style1RightData[0]?.data;
+
+  console.log(Style2);
 
   return (
     <section className='Recipe_Gallery section pt-2 pb-5'>

@@ -82,7 +82,7 @@ const HomeComponent = () => {
       {/* {HomePageList?.data.map((item, index) => {})} */}
 
       {Style1 === true ? <HomePageStyleOne data={HomePageList} /> : null}
-      {Style2 === true ? <HomePageStyleTwo /> : null}
+      {Style2 === true ? <HomePageStyleTwo data={HomePageList} /> : null}
 
       <HomePageStyleTwo />
       <Circle_2 />

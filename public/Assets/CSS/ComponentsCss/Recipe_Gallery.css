@@ -37,12 +37,13 @@
 .Recipe_Gallery .topBar {
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 .Recipe_Gallery .top__gallery .leftSide .topBar .imgFile {
   /* border-radius: 8px; */
   overflow: hidden;
   transition: all linear 0.3s;
-  position: relative;
+  /* position: relative; */
   z-index: 0;
 }
 .Recipe_Gallery .top__gallery .leftSide .topBar .overlay__text {
