@@ -16,12 +16,12 @@ const FoodCatGallery = (data) => {
   const [style5_three_Data, setStyle5_three_Data] = useState([]);
   const [style5_four_Data, setStyle5_four_Data] = useState([]);
 
-  const Style5 = data?.data?.filter((item) => item.sectionStyle === "Style5");
+  // const Style5 = data?.data?.filter((item) => item.sectionStyle === "Style5");
 
-  let style5_catId_1 = Style5[0]?.sectionCategories1[0]?.value;
-  let style5_catId_2 = Style5[0]?.sectionCategories2[0]?.value;
-  let style5_catId_3 = Style5[0]?.sectionCategories3[0]?.value;
-  let style5_catId_4 = Style5[0]?.sectionCategories4[0]?.value;
+  let style5_catId_1 = data?.data?.sectionCategories1[0]?.value;
+  let style5_catId_2 = data?.data?.sectionCategories2[0]?.value;
+  let style5_catId_3 = data?.data?.sectionCategories3[0]?.value;
+  let style5_catId_4 = data?.data?.sectionCategories4[0]?.value;
 
   useEffect(() => {
     // For Style1 section Left Data
@@ -57,12 +57,12 @@ const FoodCatGallery = (data) => {
   let newStyle5_two_Data = style5_two_Data[0]?.data;
   let newStyle5_three_Data = style5_three_Data[0]?.data;
   let newStyle5_four_Data = style5_four_Data[0]?.data;
-
+  // debugger;
   const settings = {
     infinite: true,
     speed: 500,
 
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
     slidesToShow: 1,
     nextArrow: <FaArrowRight />,
@@ -79,27 +79,35 @@ const FoodCatGallery = (data) => {
               <div className='card-header sf_top_card'>
                 <h3 className='mt-1 sf_top_name'>
                   {" "}
-                  {Style5.length > 0 ? Style5[0]?.sectionTitle1 : null}
+                  {data?.data?.sectionTitle1}
                 </h3>
               </div>
               <div className='row mt-1 g-2  card_product'>
-                {Four_two.map((item, index) => {
-                  return (
-                    <div
-                      className='col-md-6 card_navigate '
-                      onClick={() => {
-                        navigate("productdetails");
-                      }}
-                    >
-                      <div className='img_animation'>
-                        <img src={item.item_image} className='img-fluid ' />
-                      </div>
-                      <p className='text-center' style={{ fontWeight: "bold" }}>
-                        {item.item_name}
-                      </p>
-                    </div>
-                  );
-                })}
+                {newStyle5_one_Data === undefined ? null : (
+                  <>
+                    {newStyle5_one_Data.slice(0, 4).map((item, index) => {
+                      return (
+                        <div
+                          className='col-md-6 card_navigate '
+                          onClick={() => {
+                            navigate("productdetails");
+                          }}
+                          key={index}
+                        >
+                          <div className='img_animation'>
+                            <img src={item?.foodImage} className='img-fluid ' />
+                          </div>
+                          <p
+                            className='text-center'
+                            style={{ fontWeight: "bold" }}
+                          >
+                            {item?.foodName}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </>
+                )}
               </div>
 
               <div className='col-md-12'>
@@ -118,28 +126,40 @@ const FoodCatGallery = (data) => {
             <div className='card'>
               <div className='card-header sf_top_card'>
                 <h3 className='mt-1 sf_top_name'>
-                  {Style5.length > 0 ? Style5[0]?.sectionTitle2 : null}
+                  {data?.data?.sectionTitle2}
                 </h3>
               </div>
               <div className='row mt-1  g-2 card_product'>
-                {Four_two.map((item, index) => {
-                  return (
-                    <div
-                      className='col-md-6  card_navigate'
-                      onClick={() => {
-                        navigate("productdetails");
-                      }}
-                    >
-                      <div className='img_animation'>
-                        <img src={item.item_image} className='img-fluid ' />
-                      </div>
-                      <p className='text-center' style={{ fontWeight: "bold" }}>
-                        {" "}
-                        {item.item_name}
-                      </p>
-                    </div>
-                  );
-                })}
+                {newStyle5_one_Data === undefined ? null : (
+                  <>
+                    {newStyle5_two_Data.slice(0, 4).map((item, index) => {
+                      return (
+                        <div
+                          className='col-md-6  card_navigate'
+                          onClick={() => {
+                            navigate("productdetails");
+                          }}
+                          key={index}
+                        >
+                          <div className='img_animation'>
+                            <img
+                              src={item?.foodImage}
+                              className='img-fluid '
+                              alt=''
+                            />
+                          </div>
+                          <p
+                            className='text-center'
+                            style={{ fontWeight: "bold" }}
+                          >
+                            {" "}
+                            {item?.foodName}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </>
+                )}
               </div>
 
               <div className='col-md-12'>
@@ -155,151 +175,53 @@ const FoodCatGallery = (data) => {
           </div>
 
           <div className='col-md-3  '>
-            <Slider {...settings}>
-              <div className='card single__inner__left'>
-                <div className='card-header sf_top_card'>
-                  <h3 className='mt-1 sf_top_name'>
-                    {" "}
-                    {Style5.length > 0 ? Style5[0]?.sectionTitle3 : null}
-                  </h3>
-                </div>
-                <div className='row mt-1 single_product_card'>
-                  <div
-                    className='single_product_card_navigation'
-                    onClick={() => {
-                      navigate("productdetails");
-                    }}
-                  >
-                    <div className='img_animation'>
-                      <img src={Two_one[0].item_image} className='img-fluid' />
+            {newStyle5_three_Data === undefined ? null : (
+              <>
+                <Slider {...settings}>
+                  {newStyle5_three_Data.map((item, index) => (
+                    <div className='card single__inner__left' key={index}>
+                      <div className='card-header sf_top_card'>
+                        <h3 className='mt-1 sf_top_name'>
+                          {" "}
+                          {data?.data?.sectionTitle3}
+                        </h3>
+                      </div>
+                      <div className='row mt-1 single_product_card'>
+                        <div
+                          className='single_product_card_navigation'
+                          onClick={() => {
+                            navigate("productdetails");
+                          }}
+                        >
+                          <div className='img_animation leftSide'>
+                            <img
+                              src={item?.foodImage}
+                              className='img-fluid'
+                              alt=''
+                            />
+                          </div>
+                          <p className='mt-3' style={{ fontWeight: "bold" }}>
+                            {item?.sellerName}
+                          </p>
+                        </div>
+                        <div className='profileImg'>
+                          <img src={item?.sellerImage} alt='' />
+                        </div>
+                      </div>
+                      <div className='col-md-12'>
+                        <Link
+                          to={"/ShoppingDetails"}
+                          className='see_more'
+                          style={{ marginRight: 15 }}
+                        >
+                          See more
+                        </Link>
+                      </div>
                     </div>
-                    <p className='mt-3' style={{ fontWeight: "bold" }}>
-                      {Two_one[0].item_name}
-                    </p>
-                  </div>
-                  <div className='profileImg'>
-                    <img
-                      src='/Assets/Img/profileKitchenImg/profile-kit1.png'
-                      alt=''
-                    />
-                  </div>
-                </div>
-                <div className='col-md-12'>
-                  <Link
-                    to={"/ShoppingDetails"}
-                    className='see_more'
-                    style={{ marginRight: 15 }}
-                  >
-                    See more
-                  </Link>
-                </div>
-              </div>
-              <div className='card single__inner__left'>
-                <div className='card-header sf_top_card'>
-                  <h3 className='mt-1 sf_top_name'> Top Food Category</h3>
-                </div>
-                <div className='row mt-1 single_product_card'>
-                  <div
-                    className='single_product_card_navigation'
-                    onClick={() => {
-                      navigate("productdetails");
-                    }}
-                  >
-                    <div className='img_animation'>
-                      <img src={Two_one[0].item_image} className='img-fluid' />
-                    </div>
-                    <p className='mt-3' style={{ fontWeight: "bold" }}>
-                      {Two_one[0].item_name}
-                    </p>
-                  </div>
-                  <div className='profileImg'>
-                    <img
-                      src='/Assets/Img/profileKitchenImg/profile-kit2.png'
-                      alt=''
-                    />
-                  </div>
-                </div>
-                <div className='col-md-12'>
-                  <Link
-                    to={"/ShoppingDetails"}
-                    className='see_more'
-                    style={{ marginRight: 15 }}
-                  >
-                    See more
-                  </Link>
-                </div>
-              </div>
-              <div className='card single__inner__left'>
-                <div className='card-header sf_top_card'>
-                  <h3 className='mt-1 sf_top_name'> Top Food Category</h3>
-                </div>
-                <div className='row mt-1 single_product_card'>
-                  <div
-                    className='single_product_card_navigation'
-                    onClick={() => {
-                      navigate("productdetails");
-                    }}
-                  >
-                    <div className='img_animation'>
-                      <img src={Two_one[0].item_image} className='img-fluid' />
-                    </div>
-                    <p className='mt-3' style={{ fontWeight: "bold" }}>
-                      {Two_one[0].item_name}
-                    </p>
-                  </div>
-                  <div className='profileImg'>
-                    <img
-                      src='/Assets/Img/profileKitchenImg/profile-kit3.png'
-                      alt=''
-                    />
-                  </div>
-                </div>
-                <div className='col-md-12'>
-                  <Link
-                    to={"/ShoppingDetails"}
-                    className='see_more'
-                    style={{ marginRight: 15 }}
-                  >
-                    See more
-                  </Link>
-                </div>
-              </div>
-              <div className='card single__inner__left'>
-                <div className='card-header sf_top_card'>
-                  <h3 className='mt-1 sf_top_name'> Top Food Category</h3>
-                </div>
-                <div className='row mt-1 single_product_card'>
-                  <div
-                    className='single_product_card_navigation'
-                    onClick={() => {
-                      navigate("productdetails");
-                    }}
-                  >
-                    <div className='img_animation'>
-                      <img src={Two_one[0].item_image} className='img-fluid' />
-                    </div>
-                    <p className='mt-3' style={{ fontWeight: "bold" }}>
-                      {Two_one[0].item_name}
-                    </p>
-                  </div>
-                  <div className='profileImg'>
-                    <img
-                      src='/Assets/Img/profileKitchenImg/profile-kit4.png'
-                      alt=''
-                    />
-                  </div>
-                </div>
-                <div className='col-md-12'>
-                  <Link
-                    to={"/ShoppingDetails"}
-                    className='see_more'
-                    style={{ marginRight: 15 }}
-                  >
-                    See more
-                  </Link>
-                </div>
-              </div>
-            </Slider>
+                  ))}
+                </Slider>
+              </>
+            )}
           </div>
 
           <div className='col-md-3  '>
@@ -314,12 +236,22 @@ const FoodCatGallery = (data) => {
                     navigate("productdetails");
                   }}
                 >
-                  <div className='img_animation'>
-                    <img src={Two_one[1].item_image} className='img-fluid' />
+                  <div className='img_animation rightSide'>
+                    <img
+                      src={
+                        newStyle5_four_Data === undefined
+                          ? null
+                          : newStyle5_four_Data[0]?.foodImage
+                      }
+                      className='img-fluid'
+                      alt=''
+                    />
                   </div>
 
                   <p className='mt-3' style={{ fontWeight: "bold" }}>
-                    {Two_one[1].item_name}
+                    {newStyle5_four_Data === undefined
+                      ? null
+                      : newStyle5_four_Data[0]?.foodName}
                   </p>
                 </div>
               </div>

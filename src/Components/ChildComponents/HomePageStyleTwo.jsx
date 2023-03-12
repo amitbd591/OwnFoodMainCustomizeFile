@@ -8,10 +8,10 @@ import { BaseURL } from "../../Helper/config";
 const HomePageStyleTwo = (data) => {
   const [style1LeftData, setStyleLeft2Data] = useState([]);
   const [style1RightData, setStyle1RightData] = useState([]);
-  const Style2 = data?.data?.filter((item) => item.sectionStyle === "Style2");
+  // const Style2 = data?.data?.filter((item) => item.sectionStyle === "Style2");
 
-  let style2_catId_1 = Style2[0]?.sectionCategories1[0]?.value;
-  let style2_catId_2 = Style2[0]?.sectionCategories2[0]?.value;
+  let style2_catId_1 = data?.data?.sectionCategories1[0]?.value;
+  let style2_catId_2 = data?.data?.sectionCategories2[0]?.value;
 
   useEffect(() => {
     // For Style1 section Left Data
@@ -41,7 +41,7 @@ const HomePageStyleTwo = (data) => {
               <div className='leftSide__inner'>
                 <div className='header_text'>
                   {/* <h2>{"item?.sectionTitle1"}</h2> */}
-                  <h2>{Style2.length > 0 ? Style2[0]?.sectionTitle1 : null}</h2>
+                  <h2>{data?.data?.sectionTitle1} </h2>
                 </div>
                 <div className='d-flex'>
                   <div className='leftBar  pe-2'>
@@ -179,7 +179,7 @@ const HomePageStyleTwo = (data) => {
             <Col lg={6} className='rightSide'>
               <div className='rightSide__inner'>
                 <div className='header_text'>
-                  <h2>{Style2.length > 0 ? Style2[0]?.sectionTitle2 : null}</h2>
+                  <h2>{data?.data?.sectionTitle2} </h2>
                 </div>
                 <div className='topBar'>
                   <div className='imgFile firstImg'>

@@ -7,10 +7,9 @@ import { BaseURL } from "../../Helper/config";
 const HomePageStyleOne = (data) => {
   const [style1LeftData, setStyleLeft2Data] = useState([]);
   const [style1RightData, setStyle1RightData] = useState([]);
-  const Style1 = data?.data?.filter((item) => item.sectionStyle === "Style1");
 
-  let style1_catId_1 = Style1[0]?.sectionCategories1[0]?.value;
-  let style1_catId_2 = Style1[0]?.sectionCategories2[0]?.value;
+  let style1_catId_1 = data?.data?.sectionCategories1[0]?.value;
+  let style1_catId_2 = data?.data?.sectionCategories2[0]?.value;
   // debugger;
 
   useEffect(() => {
@@ -40,7 +39,8 @@ const HomePageStyleOne = (data) => {
             <Col lg={6} className='leftSide'>
               <div className='leftSide_inner'>
                 <div className='header_text'>
-                  <h2>{Style1.length > 0 ? Style1[0]?.sectionTitle1 : null}</h2>
+                  {/* <h2>{data.length > 0 ? data[0]?.sectionTitle1 : null}</h2> */}
+                  <h2>{data?.data?.sectionTitle1} </h2>
                 </div>
                 <Row>
                   <Col xs={12}>
@@ -188,8 +188,7 @@ const HomePageStyleOne = (data) => {
             <Col lg={6} className='rightSide'>
               <div className='rightSide_inner'>
                 <div className='header_text'>
-                  {/* <h2>{Style1[1]?.sectionTitle2}</h2> */}
-                  <h2>{Style1.length > 0 ? Style1[0]?.sectionTitle2 : null}</h2>
+                  <h2>{data?.data?.sectionTitle2} </h2>
                 </div>
                 <div className=''>
                   <Row className='g-2'>

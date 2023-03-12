@@ -14,10 +14,10 @@ const OrderFoodCat = (data) => {
   const [style4LeftData, setStyle4LeftData] = useState([]);
   const [style4RightData, setStyle4RightData] = useState([]);
 
-  const Style4 = data?.data?.filter((item) => item.sectionStyle === "Style4");
+  // const Style4 = data?.data?.filter((item) => item.sectionStyle === "Style4");
 
-  let style4_catId_1 = Style4[0]?.sectionCategories1[0]?.value;
-  let style4_catId_2 = Style4[0]?.sectionCategories2[0]?.value;
+  let style4_catId_1 = data?.data?.sectionCategories1[0]?.value;
+  let style4_catId_2 = data?.data?.sectionCategories2[0]?.value;
 
   useEffect(() => {
     // For Style1 section Left Data
@@ -37,9 +37,8 @@ const OrderFoodCat = (data) => {
 
   let newStyle1LeftData = style4LeftData[0]?.data;
   let newStyle1RightData = style4RightData[0]?.data;
+  console.log(newStyle1RightData);
   // debugger;
-
-  console.log(newStyle1LeftData);
 
   return (
     <section className='OrderFoodCat'>
@@ -47,8 +46,8 @@ const OrderFoodCat = (data) => {
         <div className='row g-2'>
           <div className='col-8   '>
             <div class='shadow__inner p-2'>
-              <header class='py-2'>
-                <h2>{Style4.length > 0 ? Style4[0]?.sectionTitle1 : null}</h2>
+              <header class='py-2 header_text'>
+                <h2>{data?.data?.sectionTitle1}</h2>
               </header>
 
               <div class='card-bod  show-hide-content'>
@@ -169,12 +168,14 @@ const OrderFoodCat = (data) => {
             <div class='shadow__inner p-2'>
               <header className='py-2'>
                 {" "}
-                <h2>{Style4.length > 0 ? Style4[0]?.sectionTitle2 : null}</h2>
+                <h2>{data?.data?.sectionTitle2}</h2>
               </header>
               <span></span>
               <div class='card-body searchform show-hide-content'>
                 <div className='row g-1'>
-                  {newStyle1RightData === undefined ? null : (
+                  {newStyle1RightData === undefined ? (
+                    <></>
+                  ) : (
                     <>
                       {newStyle1RightData.slice(0, 4).map((item, index) => (
                         <div className='col-6  ' key={index}>

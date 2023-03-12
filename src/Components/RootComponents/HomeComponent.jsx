@@ -66,6 +66,45 @@ const HomeComponent = () => {
     }
   }
 
+  // return (
+  //   <section>
+  //     <Header />
+  //     <div className='Space__For__Header'></div>
+  //     <ClientTop />
+  //     <CardSlider />
+  //     {/* <CountryBaseFoodCategories /> */}
+  //     <EarnMoney />
+
+  //     {/* <Recipe_Gallery data={HomePageList} /> */}
+  //     {/* <OpenAccountInfo /> */}
+  //     {/* <Circle /> */}
+
+  //     {Style1 === true ? <HomePageStyleOne data={HomePageList} /> : null}
+  //     {Style2 === true ? <HomePageStyleTwo data={HomePageList} /> : null}
+
+  //     {/* <HomePageStyleTwo /> */}
+  //     <Circle_2 />
+
+  //     {Style4 === true ? <OrderFoodCat data={HomePageList} /> : null}
+  //     {/* <OrderFoodCat /> */}
+
+  //     {/* {Style5 === true ? <HowWeDo data={HomePageList} /> : null} */}
+  //     {/* <HowWeDo /> */}
+  //     {/* <RecipeBook /> */}
+  //     <Receipebook_layoutTwo />
+
+  //     {Style5 === true ? <FoodCatGallery data={HomePageList} /> : null}
+  //     {/* <FoodCatGallery /> */}
+  //     <InstantFood title={"Instant"} />
+  //     <BrowseByKitchen />
+  //     <FoodNameCategory />
+  //     <CenterSlider />
+  //     <ProfileFoodGallery />
+  //     <Dairy />
+  //     <Map />
+  //     <Footer />
+  //   </section>
+  // );
   return (
     <section>
       <Header />
@@ -79,22 +118,29 @@ const HomeComponent = () => {
       {/* <OpenAccountInfo /> */}
       {/* <Circle /> */}
 
-      {Style1 === true ? <HomePageStyleOne data={HomePageList} /> : null}
-      {Style2 === true ? <HomePageStyleTwo data={HomePageList} /> : null}
+      {HomePageList.map((item, index) => {
+        if (item.sectionStyle === "Style1") {
+          return <HomePageStyleOne key={index} data={item} />;
+        }
+        if (item.sectionStyle === "Style2") {
+          return <HomePageStyleTwo key={index} data={item} />;
+        }
+        if (item.sectionStyle === "Style3") {
+          return <Circle_2 key={index} data={item} />;
+        }
+        if (item.sectionStyle === "Style4") {
+          return <OrderFoodCat key={index} data={item} />;
+        }
+        if (item.sectionStyle === "Style5") {
+          return <FoodCatGallery key={index} data={item} />;
+        }
+        if (item.sectionStyle === "Style6") {
+          return <></>;
+        }
 
-      {/* <HomePageStyleTwo /> */}
-      <Circle_2 />
+        return <></>;
+      })}
 
-      {Style4 === true ? <OrderFoodCat data={HomePageList} /> : null}
-      {/* <OrderFoodCat /> */}
-
-      {/* {Style5 === true ? <HowWeDo data={HomePageList} /> : null} */}
-      {/* <HowWeDo /> */}
-      {/* <RecipeBook /> */}
-      <Receipebook_layoutTwo />
-
-      {Style5 === true ? <FoodCatGallery data={HomePageList} /> : null}
-      {/* <FoodCatGallery /> */}
       <InstantFood title={"Instant"} />
       <BrowseByKitchen />
       <FoodNameCategory />

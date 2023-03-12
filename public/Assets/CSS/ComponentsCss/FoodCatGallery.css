@@ -39,8 +39,26 @@ p {
   }
 }
 .FoodCatGallery .img_animation {
+  width: 100%;
+  height: 130px;
   overflow: hidden;
   transition: all linear 0.3s;
+}
+.FoodCatGallery .img_animation.leftSide {
+  height: 242px;
+}
+.FoodCatGallery .img_animation.leftSide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.FoodCatGallery .img_animation.rightSide {
+  height: 265px;
+}
+.FoodCatGallery .img_animation.rightSide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 /*! CSS Used from: https://ownfood.hostdivine.com/static/css/main.5667a3ca.css */
 .FoodCatGallery .see_more {
@@ -52,17 +70,23 @@ p {
 }
 .FoodCatGallery .single__inner__left {
   position: relative;
+  height: 430px;
 }
 .FoodCatGallery .single__inner__left .profileImg {
   position: absolute;
-  left: 0;
-  bottom: 30px;
+  bottom: 40px;
   display: flex;
   justify-content: center;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .FoodCatGallery .single__inner__left .profileImg img {
-  border: 5px solid #fff;
-  border-radius: 50%;
+  object-fit: cover;
 }
 .FoodCatGallery .sf_top_card {
   background-color: #ffffff;
@@ -76,6 +100,9 @@ p {
   transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .FoodCatGallery .img_animation :hover {
   -webkit-transform: scale(1.1);

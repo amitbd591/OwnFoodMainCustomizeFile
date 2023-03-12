@@ -465,6 +465,7 @@
 }
 .Recipe_Gallery .bottom__gallery .leftSide .rightBar img {
   height: 185px;
+  width: 100%;
 }
 
 /* === */

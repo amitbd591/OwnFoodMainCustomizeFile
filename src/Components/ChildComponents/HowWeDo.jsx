@@ -2,10 +2,6 @@ import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 const HowWeDo = (HomePageList) => {
-  const Style7 = HomePageList.data.filter(
-    (item) => item.sectionStyle === "Style7"
-  );
-
   const data = [
     {
       image_before: "/Assets/Img/howWeDo_1.jpeg",
@@ -30,7 +26,7 @@ const HowWeDo = (HomePageList) => {
           <span class=' sf_text-theme'>We Do</span>
         </h2>
       </div>
-      {Style7.map((item, index) => (
+      {data.map((item, index) => (
         <Row className='mt-2' key={index}>
           <Col lg={4} key={index}>
             <div className='card_details'>
