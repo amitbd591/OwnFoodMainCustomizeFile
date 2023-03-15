@@ -1,10 +1,23 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { FaCalendarAlt, FaComments } from "react-icons/fa";
+import Moment from "react-moment";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getAllFoodDiaryAPI } from "../../API/FoodDiaryAPI";
 import { FoodItem } from "../../Database/ImgData";
+import { BaseURL } from "../../Helper/config";
 
-const Dairy = () => {
+const Dairy = ({ data }) => {
+  useEffect(() => {
+    getAllFoodDiaryAPI();
+  }, []);
+
+  let allFoodDiaryList = useSelector(
+    (state) => state.foodDiary.allFoodDiaryList
+  );
+  console.log(allFoodDiaryList);
   return (
     <section class='Dairy section blog-part'>
       <Container>
@@ -21,14 +34,14 @@ const Dairy = () => {
           </div>
         </div>
         <div class='row mt-2'>
-          {FoodItem.slice(0, 4).map((item) => (
+          {allFoodDiaryList.slice(0, 4).map((item) => (
             <div class='col-3'>
               <div class='blog-slider '>
                 <div class='blog-card  shadow p-3 mb-5 bg-body rounded'>
                   <div class='blog-media'>
                     <a class='blog-img' href='#' tabIndex='-1'>
                       <img
-                        src={item.item_image}
+                        src={item?.blogImage}
                         className='img-fluid'
                         alt='blog'
                       />
@@ -37,16 +50,17 @@ const Dairy = () => {
                   <div class='blog-content p-1'>
                     <div className='blog-meta d-flex align-items-center mt-3 mb-2'>
                       <FaCalendarAlt className='text-primary' />
-                      <span className='ms-2 '>february 02, 2021</span>
+                      <span className='ms-2 '>
+                        <Moment format='YYYY/MM/DD'>{item?.createdDate}</Moment>
+                      </span>
                     </div>
                     <h4 class='blog-title  '>
                       <a href='' tabIndex='-1'>
-                        Instant Food
+                        {item?.blogTitle}
                       </a>
                     </h4>
                     <p class='blog-desc'>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Alias autem recusandae deleniti nam dignissimos sequi ...{" "}
+                      {item?.blogShortDesc.slice(0, 80)} ...
                     </p>
                     <div className='d-flex justify-content-between text-primary'>
                       <a

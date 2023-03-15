@@ -29,9 +29,9 @@ export const GetAllCategoryAPI = async () => {
 
 // get category API
 
-export const GetFoodByCategoryAPI = async (catID) => {
+export const GetFoodByCategoryAPI = async (catID, limit) => {
   try {
-    let URL = BaseURL + "/get-food-by-category/" + catID;
+    let URL = BaseURL + "/get-food-by-category/" + catID + "/" + limit;
     let res = await axios.get(URL);
 
     if (res.status === 200 && res.data["status"] === "Success") {

@@ -51,6 +51,12 @@
 .CardSlider .cardSlider_body .cardSlider_body_inner .imgFile {
   width: 35%;
 }
+.CardSlider .cardSlider_body .cardSlider_body_inner .imgFile img {
+  width: 100%;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
 .CardSlider .slick-prev:before,
 .CardSlider .slick-next:before {

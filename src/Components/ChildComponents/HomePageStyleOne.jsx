@@ -15,14 +15,14 @@ const HomePageStyleOne = (data) => {
   useEffect(() => {
     // For Style1 section Left Data
     axios
-      .get(BaseURL + "/get-food-by-category/" + style1_catId_1)
+      .get(BaseURL + "/get-food-by-category/" + style1_catId_1 + "/" + 5)
       .then((res) => {
         setStyleLeft2Data(res.data.data);
       });
 
     // For Style2 section Right Data
     axios
-      .get(BaseURL + "/get-food-by-category/" + style1_catId_2)
+      .get(BaseURL + "/get-food-by-category/" + style1_catId_2 + "/" + 5)
       .then((res) => {
         setStyle1RightData(res.data.data);
       });

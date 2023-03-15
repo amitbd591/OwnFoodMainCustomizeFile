@@ -145,6 +145,10 @@ h4 {
   position: relative;
   margin-bottom: 15px;
   z-index: 1;
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  padding: 10px;
 }
 .BrowseByKitchen .brand-media::before {
   position: absolute;
@@ -152,8 +156,10 @@ h4 {
   top: 50%;
   left: 50%;
   z-index: -1;
-  width: 175px;
-  height: 175px;
+
+  width: 125px;
+  height: 125px;
+
   border-radius: 50%;
   background: var(--white);
   border: 2px dashed var(--border);
@@ -236,6 +242,9 @@ h4 {
 }
 .BrowseByKitchen .slick-slide img {
   display: block;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
 }
 .BrowseByKitchen .slick-initialized .slick-slide {
   display: block;
@@ -303,7 +312,7 @@ h4 {
 
 .BrowseByKitchen .sf_title_color_brand {
   color: #333 !important;
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 
 .BrowseByKitchen .brand-meta p {

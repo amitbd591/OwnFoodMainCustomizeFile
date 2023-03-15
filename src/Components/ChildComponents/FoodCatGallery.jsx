@@ -26,28 +26,28 @@ const FoodCatGallery = (data) => {
   useEffect(() => {
     // For Style1 section Left Data
     axios
-      .get(BaseURL + "/get-food-by-category/" + style5_catId_1)
+      .get(BaseURL + "/get-food-by-category/" + style5_catId_1 + "/" + 5)
       .then((res) => {
         setStyle5_one_Data(res.data.data);
       });
 
     // For Style2 section Right Data
     axios
-      .get(BaseURL + "/get-food-by-category/" + style5_catId_2)
+      .get(BaseURL + "/get-food-by-category/" + style5_catId_2 + "/" + 5)
       .then((res) => {
         setStyle5_two_Data(res.data.data);
       });
 
     // For Style2 section Right Data
     axios
-      .get(BaseURL + "/get-food-by-category/" + style5_catId_3)
+      .get(BaseURL + "/get-food-by-category/" + style5_catId_3 + "/" + 5)
       .then((res) => {
         setStyle5_three_Data(res.data.data);
       });
 
     // For Style2 section Right Data
     axios
-      .get(BaseURL + "/get-food-by-category/" + style5_catId_4)
+      .get(BaseURL + "/get-food-by-category/" + style5_catId_4 + "/" + 5)
       .then((res) => {
         setStyle5_four_Data(res.data.data);
       });
@@ -83,7 +83,8 @@ const FoodCatGallery = (data) => {
                 </h3>
               </div>
               <div className='row mt-1 g-2  card_product'>
-                {newStyle5_one_Data === undefined ? null : (
+                {newStyle5_one_Data === undefined &&
+                newStyle5_one_Data?.length !== 0 ? null : (
                   <>
                     {newStyle5_one_Data.slice(0, 4).map((item, index) => {
                       return (
@@ -130,7 +131,8 @@ const FoodCatGallery = (data) => {
                 </h3>
               </div>
               <div className='row mt-1  g-2 card_product'>
-                {newStyle5_one_Data === undefined ? null : (
+                {newStyle5_two_Data === undefined &&
+                newStyle5_two_Data?.length !== 0 ? null : (
                   <>
                     {newStyle5_two_Data.slice(0, 4).map((item, index) => {
                       return (

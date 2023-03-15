@@ -22,14 +22,14 @@ const OrderFoodCat = (data) => {
   useEffect(() => {
     // For Style1 section Left Data
     axios
-      .get(BaseURL + "/get-food-by-category/" + style4_catId_1)
+      .get(BaseURL + "/get-food-by-category/" + style4_catId_1 + "/" + 5)
       .then((res) => {
         setStyle4LeftData(res.data.data);
       });
 
     // For Style2 section Right Data
     axios
-      .get(BaseURL + "/get-food-by-category/" + style4_catId_2)
+      .get(BaseURL + "/get-food-by-category/" + style4_catId_2 + "/" + 5)
       .then((res) => {
         setStyle4RightData(res.data.data);
       });
@@ -37,7 +37,7 @@ const OrderFoodCat = (data) => {
 
   let newStyle1LeftData = style4LeftData[0]?.data;
   let newStyle1RightData = style4RightData[0]?.data;
-  console.log(newStyle1RightData);
+
   // debugger;
 
   return (

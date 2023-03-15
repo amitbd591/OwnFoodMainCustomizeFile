@@ -1,52 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Container } from "react-bootstrap";
-const BrowseByKitchen = () => {
-  const profileKitchenImg = [
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit1.png",
-    },
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit2.png",
-    },
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit3.png",
-    },
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit4.png",
-    },
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit5.png",
-    },
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit6.png",
-    },
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit7.png",
-    },
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit8.png",
-    },
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit9.png",
-    },
-    {
-      name: "Alex",
-      img: "/Assets/Img/profileKitchenImg/profile-kit10.png",
-    },
-  ];
+import axios from "axios";
+import { BaseURL } from "../../Helper/config";
+const BrowseByKitchen = ({ data }) => {
+  const [foodData, setFoodData] = useState([]);
+  let y = [];
+  data?.sectionCategories1?.map((x) => y.push(x.value));
+  let postBody = y;
+  useEffect(() => {
+    axios
+      .post(BaseURL + "/get-seller-with-food-details", { _id: postBody })
+      .then((res) => {
+        setFoodData(res.data.data);
+      });
+  }, []);
 
+  console.log(foodData);
   const settings = {
     dots: true,
     infinite: true,
@@ -54,7 +26,7 @@ const BrowseByKitchen = () => {
     nextArrow: <FaArrowRight />,
     prevArrow: <FaArrowLeft />,
     autoplaySpeed: 3000,
-    slidesToShow: 6,
+    slidesToShow: 7,
     slidesToScroll: 3,
   };
   return (
@@ -84,8 +56,8 @@ const BrowseByKitchen = () => {
               }}
             >
               <Slider {...settings}>
-                {profileKitchenImg.map((item, index) => (
-                  <Link to={"/SellerProfile"}>
+                {foodData?.map((item, index) => (
+                  <Link to={"/SellerProfile"} key={index}>
                     <div
                       className='brand-wrap slick-slide slick-cloned mt-3 '
                       data-slick-index='-5'
@@ -93,12 +65,14 @@ const BrowseByKitchen = () => {
                       tabIndex='-1'
                     >
                       <div className='brand-media'>
-                        <img src={item.img} alt='brand' />
+                        <img src={item?.sellerProfilePhoto} alt='brand' />
                         <div className='brand-overlay'></div>
                       </div>
                       <div className='brand-meta'>
-                        <h4 className='sf_title_color_brand'>vegan lover</h4>
-                        <p>(45 items)</p>
+                        <h4 className='sf_title_color_brand'>
+                          {item?.kitchenName}
+                        </h4>
+                        <p className='text-dark'>{item?.foodData[0]?.count}</p>
                       </div>
                     </div>
                   </Link>
