@@ -1,8 +1,9 @@
 import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-const HowWeDo = (HomePageList) => {
-  const data = [
+const HowWeDo = ({ data }) => {
+  console.log(data);
+  const datas = [
     {
       image_before: "/Assets/Img/howWeDo_1.jpeg",
       image_after: "/Assets/Img/howWeDo_2.jpeg",
@@ -26,7 +27,7 @@ const HowWeDo = (HomePageList) => {
           <span class=' sf_text-theme'>We Do</span>
         </h2>
       </div>
-      {data.map((item, index) => (
+      {datas.map((item, index) => (
         <Row className='mt-2' key={index}>
           <Col lg={4} key={index}>
             <div className='card_details'>

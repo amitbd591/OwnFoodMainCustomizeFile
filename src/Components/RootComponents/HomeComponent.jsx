@@ -137,6 +137,10 @@ const HomeComponent = () => {
         if (item.sectionStyle === "Style6") {
           return <BrowseByKitchen key={index} data={item} />;
         }
+
+        if (item.sectionStyle === "Style7") {
+          return <HowWeDo key={index} data={item} />;
+        }
         if (item.sectionStyle === "Style9") {
           return <FoodNameCategory key={index} data={item} />;
         }

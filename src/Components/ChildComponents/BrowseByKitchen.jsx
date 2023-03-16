@@ -18,7 +18,6 @@ const BrowseByKitchen = ({ data }) => {
       });
   }, []);
 
-  console.log(foodData);
   const settings = {
     dots: true,
     infinite: true,

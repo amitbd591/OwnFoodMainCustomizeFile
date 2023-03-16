@@ -17,7 +17,6 @@ const Dairy = ({ data }) => {
   let allFoodDiaryList = useSelector(
     (state) => state.foodDiary.allFoodDiaryList
   );
-  console.log(allFoodDiaryList);
   return (
     <section class='Dairy section blog-part'>
       <Container>
