@@ -7,6 +7,7 @@ import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
 import axios from "axios";
 import { BaseURL } from "../../Helper/config";
+import CircleSingle from "../Elements/CircleSingle";
 const Circle_2 = ({ data }) => {
   const [show, setShow] = useState(false);
 
@@ -70,295 +71,25 @@ const Circle_2 = ({ data }) => {
         </div>
 
         <div className='pb-3 '>
-          <div className='row   '>
+          <div className=''>
             <Slider {...settings}>
-              {catId.map((item, index) => {
+              {catId?.map((item, index) => {
                 if (item?.circleCategoryID?.length !== 0) {
                   return (
-                    <div
-                      className='col-4 d-flex align-items-center justify-content-center'
-                      key={index}
-                    >
-                      <div className='upper'>
-                        <div className='try'></div>
-
-                        <div className='main'>
-                          <div className='name'>Biryani</div>
-
-                          <div
-                            className='imguppertwo '
-                            style={{ backgroundColor: `${item.bg}` }}
-                          >
-                            <h3>{item?.circleType}</h3>
-                          </div>
-
-                          <div className='imgupperone '>
-                            <i></i>
-                          </div>
-
-                          <div
-                            className='img0 '
-                            style={{ backgroundColor: `${item.bg}` }}
-                          >
-                            <i class='fa-solid fa-plus fa-2xl plus  '></i>
-                          </div>
-
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img1 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-1.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img2 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-2.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img3 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-3.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img4 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-4.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img5 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-5.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img6 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-6.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                        </div>
-                      </div>
-                    </div>
+                    <CircleSingle key={index} item={item} setShow={setShow} />
                   );
                 }
                 if (item?.circleSellerID?.length !== 0) {
                   return (
-                    <div
-                      className='col-4 d-flex align-items-center justify-content-center'
-                      key={index}
-                    >
-                      <div className='upper'>
-                        <div className='try'></div>
-
-                        <div className='main'>
-                          <div className='name'>Biryani</div>
-
-                          <div
-                            className='imguppertwo '
-                            style={{ backgroundColor: `${item.bg}` }}
-                          >
-                            <h3>{item?.circleType}</h3>
-                          </div>
-
-                          <div className='imgupperone '>
-                            <i></i>
-                          </div>
-
-                          <div
-                            className='img0 '
-                            style={{ backgroundColor: `${item.bg}` }}
-                          >
-                            <i class='fa-solid fa-plus fa-2xl plus  '></i>
-                          </div>
-
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img1 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-1.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img2 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-2.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img3 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-3.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img4 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-4.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img5 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-5.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img6 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-6.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                        </div>
-                      </div>
-                    </div>
+                    <CircleSingle key={index} item={item} setShow={setShow} />
                   );
                 }
                 if (item?.circleCountryID?.length !== 0) {
                   return (
-                    <div
-                      className='col-4 d-flex align-items-center justify-content-center'
-                      key={index}
-                    >
-                      <div className='upper'>
-                        <div className='try'></div>
-
-                        <div className='main'>
-                          <div className='name'>Biryani</div>
-
-                          <div
-                            className='imguppertwo '
-                            style={{ backgroundColor: `${item.bg}` }}
-                          >
-                            <h3>{item?.circleType}</h3>
-                          </div>
-
-                          <div className='imgupperone '>
-                            <i></i>
-                          </div>
-
-                          <div
-                            className='img0 '
-                            style={{ backgroundColor: `${item.bg}` }}
-                          >
-                            <i class='fa-solid fa-plus fa-2xl plus  '></i>
-                          </div>
-
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img1 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-1.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img2 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-2.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img3 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-3.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img4 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-4.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img5 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-5.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip placement='top' overlay={"Custom Text"}>
-                            <img
-                              className='img6 img-fluid'
-                              alt=''
-                              src={"/Assets/Img/cuisine-6.jpg"}
-                              onClick={() => {
-                                setShow(true);
-                              }}
-                            />
-                          </Tooltip>
-                        </div>
-                      </div>
-                    </div>
+                    <CircleSingle key={index} item={item} setShow={setShow} />
                   );
                 }
-                return <>lllllllllllllllllll</>;
+                return <></>;
               })}
             </Slider>
           </div>
