@@ -147,10 +147,14 @@ const HomeComponent = () => {
         if (item.sectionStyle === "Style10") {
           return <Dairy key={index} data={item} />;
         }
+        if (item.sectionStyle === "Style11") {
+          return <Receipebook_layoutTwo key={index} data={item} />;
+        }
 
         return <></>;
       })}
 
+      {/* <Receipebook_layoutTwo /> */}
       {/* <InstantFood title={"Instant"} /> */}
       {/* <BrowseByKitchen /> */}
       {/* <FoodNameCategory /> */}

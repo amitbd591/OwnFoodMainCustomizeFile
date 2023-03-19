@@ -1,8 +1,17 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Slider from "react-slick";
+import { BaseURL } from "../../Helper/config";
 const Receipebook_layoutTwo = () => {
+  const [data, setData] = useState([]);
+  console.log(data);
+  useEffect(() => {
+    axios.get(BaseURL + "/get-recipe").then((res) => {
+      setData(res.data.data);
+    });
+  }, []);
   const settings = {
     dots: false,
     infinite: true,
@@ -24,54 +33,81 @@ const Receipebook_layoutTwo = () => {
       </div>
       <div className='top__gallery'>
         {" "}
-        <Slider {...settings}>
-          <div className='rightSide'>
-            <div className='rightSide_inner'>
-              <div className='d-flex justify-content-center'>
-                <div className='leftBar pe-2'>
-                  <div className='big_imgFileTwo'>
-                    <img
-                      className='img-fluid first_image'
-                      src={"/Assets/Img/RecipeBook/RecipeBook_1.jpeg"}
-                      alt=''
-                    />
-                  </div>
-                </div>
-                <div className='rightBar '>
-                  <div className='imgFile mb-2'>
-                    <img
-                      className='img-fluid'
-                      src={"/Assets/Img/RecipeBook/RecipeBook_2.jpeg"}
-                      alt=''
-                    />
-                  </div>
-                  <div className='imgFile  mb-2'>
-                    <img
-                      className='img-fluid'
-                      src={"/Assets/Img/RecipeBook/RecipeBook_3.jpeg"}
-                      alt=''
-                    />
-                  </div>
-                  <div className='imgFile  mb-2'>
-                    <img
-                      className='img-fluid'
-                      src={"/Assets/Img/RecipeBook/RecipeBook_4.jpeg"}
-                      alt=''
-                    />
-                  </div>
-                  <div className='imgFile  '>
-                    <img
-                      className='img-fluid'
-                      src={"/Assets/Img/RecipeBook/RecipeBook_2.jpeg"}
-                      alt=''
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className='leftSide'>
+        {data.length !== undefined ? (
+          <>
+            <Slider {...settings}>
+              {data?.map((item, index) => {
+                if (index % 2 === 0) {
+                  return (
+                    <>
+                      <div className='leftSide'>
+                        <div className='rightSide_inner w-100 h-100'>
+                          <div className='d-flex justify-content-center w-100 h-100'>
+                            <div className='leftBar w-100 h-100'>
+                              <div className='imgFile w-100 h-100'>
+                                <img
+                                  className='img-fluid center_image '
+                                  src={item?.recipeSteps?.[0]?.Photo}
+                                  alt=''
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                } else {
+                  return (
+                    <>
+                      <div className='rightSide'>
+                        <div className='rightSide_inner w-100 h-100'>
+                          <div className='d-flex justify-content-center w-100 h-100'>
+                            <div className='rightBar h-100 w-50'>
+                              <div className='imgFile w-100 h-100'>
+                                <img
+                                  className='img-fluid'
+                                  src={
+                                    "/Assets/Img/RecipeBook/RecipeBook_2.jpeg"
+                                  }
+                                  alt=''
+                                />
+                              </div>
+                              <div className='imgFile w-100 h-100'>
+                                <img
+                                  className='img-fluid'
+                                  src={item?.recipeSteps?.[0]?.Photo}
+                                  alt=''
+                                />
+                              </div>
+                              <div className='imgFile  w-100 h-100'>
+                                <img
+                                  className='img-fluid'
+                                  src={item?.recipeSteps?.[1]?.Photo}
+                                  alt=''
+                                />
+                              </div>
+                            </div>
+                            <div className='leftBar ps-2 h-100'>
+                              <div className='big_imgFileTwo h-100'>
+                                <img
+                                  className='img-fluid last_image'
+                                  src={item?.recipeSteps?.[2]?.Photo}
+                                  alt=''
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                }
+              })}
+            </Slider>
+          </>
+        ) : null}
+        {/* <div className='leftSide'>
             <div className='rightSide_inner'>
               <div className='d-flex justify-content-center'>
                 <div className='leftBar '>
@@ -132,6 +168,7 @@ const Receipebook_layoutTwo = () => {
               </div>
             </div>
           </div>
+
           <div className='leftSide'>
             <div className='rightSide_inner'>
               <div className='d-flex justify-content-center'>
@@ -146,8 +183,8 @@ const Receipebook_layoutTwo = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </Slider>
+          </div> */}
+        {/* </Slider> */}
       </div>
     </Container>
   );
