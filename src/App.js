@@ -23,7 +23,7 @@ function App() {
           element={<ProductsDetailsPage />}
         />
         <Route exact path='/SellerProfile' element={<SellerProfilePage />} />
-        <Route exact path='/Category' element={<CategoryPage />} />
+        <Route exact path='/Category/:id/:limit' element={<CategoryPage />} />
         <Route exact path='/Faq' element={<FaqPage />} />
         <Route
           exact

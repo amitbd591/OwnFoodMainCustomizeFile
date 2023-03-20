@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { AiFillHeart, AiOutlineShopping } from "react-icons/ai";
+import { GetFoodByCategoryAPI } from "../../API/CategoryAPI";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import PageLoading from "../Elements/PageLoading";
 
 const Category = () => {
+  let params = useParams();
+  let [limitData, setLimitData] = useState(20);
+  let [loader, setLoader] = useState(false);
+  useEffect(() => {
+    GetFoodByCategoryAPI(params.id, params.limit);
+  }, []);
+
+  const loadMoreItem = () => {
+    setLimitData(limitData + 10);
+    setLoader(true);
+    GetFoodByCategoryAPI(params.id, limitData).then((res) => {
+      if (res === true) {
+        setLoader(false);
+      }
+    });
+  };
+
+  console.log(limitData);
+
+  let allFoodByCategoryList = useSelector(
+    (state) => state.category.allFoodByCategoryList
+  );
+  let foodList = allFoodByCategoryList?.[0]?.data;
+  console.log(foodList);
   const [column, setColumn] = useState("12");
 
   const FoodItem = [
@@ -421,156 +449,193 @@ const Category = () => {
                 </div>
               </div>
               <div class='row'>
-                {column === "12" &&
-                  FoodItem.map((item) => (
-                    <div className={`col-${column}`}>
-                      <div class='product-standard border'>
-                        <div class='standard-label-group'>
-                          <label class='standard-label off'>-15%</label>
-                        </div>
-                        <div class='standard-media'>
-                          <a class='standard-image' href='product-video.html'>
-                            <img src={item.item_image} alt='product' />
-                          </a>
-                          <div class='standard-widget'>
-                            <a
-                              title='Product View'
-                              href='#'
-                              class='fas fa-eye'
-                              data-bs-toggle='modal'
-                              data-bs-target='#product-view'
-                            ></a>
-                          </div>
-                        </div>
-                        <div class='standard-content'>
-                          <h4 class='standard-name'>
-                            <a>{item.item_name}</a>
-                          </h4>
-                          <h5 class='standard-price'>
-                            <del>$34</del>
-                            <span>
-                              $28<small>/piece</small>
-                            </span>
-                          </h5>
-                          <div class='standard-rating'>
-                            <i class='active icofont-star'></i>
-                            <i class='active icofont-star'></i>
-                            <i class='active icofont-star'></i>
-                            <i class='active icofont-star'></i>
-                            <i class='icofont-star'></i>
-                            <a>(3)</a>
-                          </div>
-                          <p class='standard-desc'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit molestias quaerat rem ullam ut nam quibusdam
-                            labore sed magnam eos Inventore quis corrupti nemo
-                            ipsa ratione culpa porro vitae.
-                          </p>
-                          <div class='standard-action-group'>
-                            <button class='product-add' title='Add to Cart'>
-                              <i class='fas fa-shopping-basket'></i>
-                              <span>add to cart</span>
-                            </button>
+                {column === "12" ? (
+                  <>
+                    {foodList?.length !== undefined && foodList?.length > 0 ? (
+                      <>
+                        {foodList?.map((item, index) => (
+                          <div className={`col-${column}`} key={index}>
+                            <div class='product-standard border'>
+                              <div class='standard-label-group'>
+                                <label class='standard-label off'>-15%</label>
+                              </div>
+                              <div class='standard-media'>
+                                <a
+                                  class='standard-image'
+                                  href='product-video.html'
+                                >
+                                  <img src={item.foodImage} alt='product' />
+                                </a>
+                                <div class='standard-widget'>
+                                  <a
+                                    title='Product View'
+                                    href='#'
+                                    class='fas fa-eye'
+                                    data-bs-toggle='modal'
+                                    data-bs-target='#product-view'
+                                  ></a>
+                                </div>
+                              </div>
+                              <div class='standard-content'>
+                                <h4 class='standard-name'>
+                                  <a>{item.foodName}</a>
+                                </h4>
+                                <h5 class='standard-price'>
+                                  <del>$34</del>
+                                  <span>
+                                    {item?.foodPrice}
+                                    <small>/piece</small>
+                                  </span>
+                                </h5>
+                                <div class='standard-rating'>
+                                  <i class='active icofont-star'></i>
+                                  <i class='active icofont-star'></i>
+                                  <i class='active icofont-star'></i>
+                                  <i class='active icofont-star'></i>
+                                  <i class='icofont-star'></i>
+                                  <a>(3)</a>
+                                </div>
+                                <p class='standard-desc'>
+                                  {item?.foodAdditionalInfo?.slice(0, 50)}
+                                </p>
+                                <div class='standard-action-group'>
+                                  <button
+                                    class='product-add'
+                                    title='Add to Cart'
+                                  >
+                                    <i class='fas fa-shopping-basket'></i>
+                                    <span>add to cart</span>
+                                  </button>
 
-                            <button
-                              class='standard-wish wish'
-                              title='Add to Wishlist'
-                            >
-                              <i class='fas fa-heart'></i>
-                              <span>Add To Favorite</span>
-                            </button>
+                                  <button
+                                    class='standard-wish wish'
+                                    title='Add to Wishlist'
+                                  >
+                                    <i class='fas fa-heart'></i>
+                                    <span>Add To Favorite</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
+                        ))}
+                      </>
+                    ) : (
+                      <>
+                        <div className='mt-4'>
+                          <h2>No Food Found!</h2>
                         </div>
-                      </div>
-                    </div>
-                  ))}
-                {column === "6" &&
-                  FoodItem.map((item) => (
-                    <div className='wrapper col-4'>
-                      <div class='product-card shadow'>
-                        <div class='product-media'>
-                          <div class='product-label'>
-                            <label class='label-text new'>new</label>
+                      </>
+                    )}
+                  </>
+                ) : null}
+                {column === "6" ? (
+                  <>
+                    {foodList?.length !== undefined && foodList?.length > 0 ? (
+                      <>
+                        {foodList?.map((item) => (
+                          <div className='wrapper col-4'>
+                            <div class='product-card shadow'>
+                              <div class='product-media'>
+                                <div class='product-label'>
+                                  <label class='label-text new'>new</label>
+                                </div>
+                                <button class='product-wish wish' tabindex='-1'>
+                                  <AiFillHeart />
+                                </button>
+                                <a class='product-image' tabindex='-1'>
+                                  <img
+                                    src={item?.foodImage}
+                                    className='img-fluid'
+                                    alt='product'
+                                  />
+                                </a>
+                                <div class='product-widget'>
+                                  <a
+                                    title='Product View'
+                                    href='#'
+                                    class='fas fa-eye'
+                                    data-bs-toggle='modal'
+                                    data-bs-target='#product-view'
+                                    tabindex='-1'
+                                  ></a>
+                                </div>
+                              </div>
+                              <div class='product-content'>
+                                <div class='product-rating'>
+                                  <span>
+                                    {" "}
+                                    <FaStar />
+                                  </span>
+                                  <span>
+                                    {" "}
+                                    <FaStar />
+                                  </span>
+                                  <span>
+                                    {" "}
+                                    <FaStar />
+                                  </span>
+                                  <span>
+                                    {" "}
+                                    <FaStar />
+                                  </span>
+                                  <span>
+                                    {" "}
+                                    <FaStar />
+                                  </span>
+                                  <a href='#' tabindex='-1'>
+                                    (3)
+                                  </a>
+                                </div>
+                                <h6 class='product-name'>
+                                  <a href='#' tabindex='-1'>
+                                    {item.foodName}
+                                  </a>
+                                </h6>
+                                <h6 class='product-price'>
+                                  <del>$34</del>
+                                  <span>
+                                    {item?.foodPrice} <small>/piece</small>
+                                  </span>
+                                </h6>
+                                <button
+                                  class='product-add '
+                                  title='Add to Cart'
+                                  tabindex='-1'
+                                >
+                                  <AiOutlineShopping />
+                                  <span>add</span>
+                                </button>
+                              </div>
+                            </div>
                           </div>
-                          <button class='product-wish wish' tabindex='-1'>
-                            <AiFillHeart />
-                          </button>
-                          <a class='product-image' tabindex='-1'>
-                            <img
-                              src={item.item_image}
-                              className='img-fluid'
-                              alt='product'
-                            />
-                          </a>
-                          <div class='product-widget'>
-                            <a
-                              title='Product View'
-                              href='#'
-                              class='fas fa-eye'
-                              data-bs-toggle='modal'
-                              data-bs-target='#product-view'
-                              tabindex='-1'
-                            ></a>
-                          </div>
+                        ))}
+                      </>
+                    ) : (
+                      <>
+                        <div className='mt-4'>
+                          <h2>No Food Found!</h2>
                         </div>
-                        <div class='product-content'>
-                          <div class='product-rating'>
-                            <span>
-                              {" "}
-                              <FaStar />
-                            </span>
-                            <span>
-                              {" "}
-                              <FaStar />
-                            </span>
-                            <span>
-                              {" "}
-                              <FaStar />
-                            </span>
-                            <span>
-                              {" "}
-                              <FaStar />
-                            </span>
-                            <span>
-                              {" "}
-                              <FaStar />
-                            </span>
-                            <a href='#' tabindex='-1'>
-                              (3)
-                            </a>
-                          </div>
-                          <h6 class='product-name'>
-                            <a href='#' tabindex='-1'>
-                              {item.item_name}
-                            </a>
-                          </h6>
-                          <h6 class='product-price'>
-                            <del>$34</del>
-                            <span>
-                              $28 <small>/piece</small>
-                            </span>
-                          </h6>
-                          <button
-                            class='product-add '
-                            title='Add to Cart'
-                            tabindex='-1'
-                          >
-                            <AiOutlineShopping />
-                            <span>add</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                      </>
+                    )}
+                  </>
+                ) : null}
               </div>
-              <div className='d-flex justify-content-center mt-3'>
-                <button
-                  class='product-load-more  '
-                  title='Add to Cart'
-                  tabindex='-1'
-                >
-                  <span>Load More</span>
-                </button>
+              <div
+                className='d-flex justify-content-center mt-3'
+                onClick={loadMoreItem}
+              >
+                {loader === true ? (
+                  <PageLoading />
+                ) : (
+                  <button
+                    class='product-load-more  '
+                    title='Add to Cart'
+                    tabindex='-1'
+                  >
+                    <span>Load More</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>

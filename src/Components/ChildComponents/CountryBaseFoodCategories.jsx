@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Slider from "react-slick";
-import { Link, useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Container } from "react-bootstrap";
+import { GetAllCategoryAPI } from "../../API/CategoryAPI";
+import { useSelector } from "react-redux";
 const CountryBaseFoodCategories = () => {
-  const [flags, setFlags] = useState([]);
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((res) => res.json())
-      .then((data) => setFlags(data));
+    GetAllCategoryAPI();
   }, []);
+
+  let AllCategoryList = useSelector((state) => state.category.allCategoryList);
 
   const settings = {
     // dots: true,
@@ -21,49 +23,10 @@ const CountryBaseFoodCategories = () => {
     autoplaySpeed: 3000,
     slidesToShow: 9,
     slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
   return (
-    <section className='CountryBaseFoodCategories sf_section brand-part '>
+    <section className='ClientTop sf_section brand-part '>
       <Container>
-        <div className='headerText '>
-          <div>
-            <h2>
-              <span className='sf_init_title'>Food Base On</span>{" "}
-              <span className='sf_text-theme'>Country</span>
-            </h2>
-          </div>
-        </div>
         <div className='brand-slider slider-arrow slick-initialized slick-slider'>
           <div className='slick-list draggable '>
             <div
@@ -75,28 +38,25 @@ const CountryBaseFoodCategories = () => {
               }}
             >
               <Slider {...settings}>
-                {flags.map((item) => (
-                  <Link to={"/CountryCategory"}>
-                    <div
-                      className='sf_brand-wrap slick-slide slick-cloned mt-3'
-                      data-slick-index='-5'
-                      aria-hidden='true'
-                      tabIndex='-1'
-                      style={{ width: 224 }}
-                    >
-                      <div className='sf_brand-media'>
-                        <img
-                          src={item.flags.png}
-                          className='p-2 img-fluid'
-                          alt='brand'
-                        />
-                        <div className='sf_brand-overlay'></div>
+                {AllCategoryList.map((item, index) => (
+                  <div className='d-flex justify-content-center' key={index}>
+                    <Link to={`/Category/${item?._id}/10`} className='d-inline'>
+                      <div
+                        className='sf_brand-wrap slick-slide slick-cloned mt-3'
+                        data-slick-index='-5'
+                        aria-hidden='true'
+                        tabIndex='-1'
+                        style={{ width: 224 }}
+                      >
+                        <div className='sf_brand-media'>
+                          <img src={item?.categoryImage} alt='brand' />
+                        </div>
+                        <div className='brand-meta'>
+                          <h4>{item?.categoryName}</h4>
+                        </div>
                       </div>
-                      <div className='brand-meta'>
-                        <h4>{item.name.common.slice(0, 7)}</h4>
-                      </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
                 ))}
               </Slider>
             </div>

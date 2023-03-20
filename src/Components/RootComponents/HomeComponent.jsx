@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import ClientTop from "../ChildComponents/ClientTop";
 import CardSlider from "../ChildComponents/CardSlider";
 import Header from "../Common/Header";
 import CountryBaseFoodCategories from "../ChildComponents/CountryBaseFoodCategories";
@@ -70,7 +69,7 @@ const HomeComponent = () => {
   //   <section>
   //     <Header />
   //     <div className='Space__For__Header'></div>
-  //     <ClientTop />
+  //     <CountryBaseFoodCategories />
   //     <CardSlider />
   //     {/* <CountryBaseFoodCategories /> */}
   //     <EarnMoney />
@@ -109,7 +108,7 @@ const HomeComponent = () => {
     <section>
       <Header />
       <div className='Space__For__Header'></div>
-      <ClientTop />
+      <CountryBaseFoodCategories />
       <CardSlider />
       {/* <CountryBaseFoodCategories /> */}
       <EarnMoney />
