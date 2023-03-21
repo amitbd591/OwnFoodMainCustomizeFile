@@ -6,7 +6,7 @@ import { GetFoodByCategoryAPI } from "../../API/CategoryAPI";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PageLoading from "../Elements/PageLoading";
-
+import VisibilitySensor from "react-visibility-sensor";
 const Category = () => {
   let params = useParams();
   let [limitData, setLimitData] = useState(20);
@@ -15,23 +15,26 @@ const Category = () => {
     GetFoodByCategoryAPI(params.id, params.limit);
   }, []);
 
-  const loadMoreItem = () => {
-    setLimitData(limitData + 10);
-    setLoader(true);
-    GetFoodByCategoryAPI(params.id, limitData).then((res) => {
-      if (res === true) {
-        setLoader(false);
-      }
-    });
+  const loadMoreItem = (isVisible) => {
+    if (isVisible) {
+      setLimitData(limitData + 10);
+      setLoader(true);
+      GetFoodByCategoryAPI(params.id, limitData).then((res) => {
+        if (res === true) {
+          setLoader(false);
+        }
+      });
+    }
   };
 
-  console.log(limitData);
+  const limitBySelect = (limit) => {
+    GetFoodByCategoryAPI(params.id, limit);
+  };
 
   let allFoodByCategoryList = useSelector(
     (state) => state.category.allFoodByCategoryList
   );
   let foodList = allFoodByCategoryList?.[0]?.data;
-  console.log(foodList);
   const [column, setColumn] = useState("12");
 
   const FoodItem = [
@@ -410,10 +413,13 @@ const Category = () => {
                   <div class='top-filter'>
                     <div class='filter-show'>
                       <label class='filter-label'>Show :</label>
-                      <select class='form-select filter-select'>
-                        <option value='1'>12</option>
-                        <option value='2'>24</option>
-                        <option value='3'>36</option>
+                      <select
+                        class='form-select filter-select'
+                        onChange={(event) => limitBySelect(event.target.value)}
+                      >
+                        <option value='10'>10</option>
+                        <option value='20'>20</option>
+                        <option value='30'>30</option>
                       </select>
                     </div>
                     <div class='filter-short'>
@@ -621,21 +627,16 @@ const Category = () => {
                   </>
                 ) : null}
               </div>
-              <div
-                className='d-flex justify-content-center mt-3'
-                onClick={loadMoreItem}
-              >
-                {loader === true ? (
-                  <PageLoading />
-                ) : (
-                  <button
-                    class='product-load-more  '
-                    title='Add to Cart'
-                    tabindex='-1'
-                  >
-                    <span>Load More</span>
-                  </button>
-                )}
+              <div className='d-flex justify-content-center mt-3'>
+                <VisibilitySensor onChange={loadMoreItem}>
+                  {loader === true ? (
+                    <PageLoading />
+                  ) : (
+                    <>
+                      <h4 className='text-danger'>No More Foods Found!</h4>
+                    </>
+                  )}
+                </VisibilitySensor>
               </div>
             </div>
           </div>
