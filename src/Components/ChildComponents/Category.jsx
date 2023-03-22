@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PageLoading from "../Elements/PageLoading";
 import VisibilitySensor from "react-visibility-sensor";
+import { Col } from "react-bootstrap";
+
 const Category = () => {
   let params = useParams();
   let [limitData, setLimitData] = useState(20);
@@ -88,15 +90,90 @@ const Category = () => {
     },
   ];
 
+  const data = [
+    {
+      foodName: "Tandoori Chicken",
+      userName: "Maira Sola",
+      bgColor: "Fuchsia",
+      link: "/",
+      bgImg: "/Assets/Img/blog/01.jpg",
+      profileImg: "/Assets/Img/profileKitchenImg/profile-kit1.png",
+      price: "40",
+    },
+    {
+      foodName: "Horseradish Relish",
+      userName: "Danielle A. Willey",
+      bgColor: "Purple",
+      link: "/",
+      bgImg: "/Assets/Img/blog/02.jpg",
+      profileImg: "/Assets/Img/profileKitchenImg/profile-kit2.png",
+      price: "60",
+    },
+    {
+      foodName: "Guava Jelly",
+      userName: "Gerald R. Danner",
+      bgColor: "Pink",
+      link: "/",
+      bgImg: "/Assets/Img/blog/03.jpg",
+      profileImg: "/Assets/Img/profileKitchenImg/profile-kit3.png",
+      price: "46",
+    },
+    {
+      foodName: "Mango Chutney",
+      userName: "Linda S. Turner",
+      bgColor: "Emerald",
+      link: "/",
+      bgImg: "/Assets/Img/blog/04.jpg",
+      profileImg: "/Assets/Img/profileKitchenImg/profile-kit4.png",
+      price: "30",
+    },
+    {
+      foodName: "Pickapeppa Sauce",
+      userName: "Alfredo L. Escalante",
+      bgColor: "Fuchsia",
+      link: "/",
+      bgImg: "/Assets/Img/blog/05.jpg",
+      profileImg: "/Assets/Img/profileKitchenImg/profile-kit5.png",
+      price: "80",
+    },
+    {
+      foodName: "Ginger Jam",
+      userName: "Luis K. Stephens",
+      bgColor: "Purple",
+      link: "/",
+      bgImg: "/Assets/Img/blog/06.jpg",
+      profileImg: "/Assets/Img/profileKitchenImg/profile-kit6.png",
+      price: "43",
+    },
+    {
+      foodName: "Smoked Sprats",
+      userName: "Bernice F. Jackson",
+      bgColor: "Pink",
+      link: "/",
+      bgImg: "/Assets/Img/blog/07.jpg",
+      profileImg: "/Assets/Img/profileKitchenImg/profile-kit7.png",
+      price: "70",
+    },
+    {
+      foodName: "Pancit Luglug",
+      userName: "Noelia R. Hall",
+      bgColor: "Emerald",
+      link: "/",
+      bgImg: "/Assets/Img/blog/08.jpg",
+      profileImg: "/Assets/Img/profileKitchenImg/profile-kit8.png",
+      price: "55",
+    },
+  ];
+
   return (
-    <div className='Category'>
+    <div className='Category ProfileFoodGallery'>
       <section class='inner-section single-banner bannerstyle'>
         <div class='container text-white'></div>
       </section>
       <section class='inner-section shop-part'>
         <div class='container'>
           <div class='row content-reverse'>
-            <div class='col-lg-3'>
+            {/* <div class='col-lg-3'>
               <div class='shop-widget'>
                 <h6 class='shop-widget-title'>Filter by Category</h6>
                 <form>
@@ -406,12 +483,12 @@ const Category = () => {
                   </button>
                 </form>
               </div>
-            </div>
-            <div class='col-lg-9'>
+            </div> */}
+            <div class='col-lg-12'>
               <div class='row'>
                 <div class='col-lg-12'>
-                  <div class='top-filter'>
-                    <div class='filter-show'>
+                  <div class='top-filter d-flex justify-content-end'>
+                    {/* <div class='filter-show'>
                       <label class='filter-label'>Show :</label>
                       <select
                         class='form-select filter-select'
@@ -421,8 +498,8 @@ const Category = () => {
                         <option value='20'>20</option>
                         <option value='30'>30</option>
                       </select>
-                    </div>
-                    <div class='filter-short'>
+                    </div> */}
+                    {/* <div class='filter-short'>
                       <label class='filter-label'>Short by :</label>
                       <select class='form-select filter-select'>
                         <option selected>default</option>
@@ -430,8 +507,8 @@ const Category = () => {
                         <option value='1'>featured</option>
                         <option value='2'>recommend</option>
                       </select>
-                    </div>
-                    <div class='filter-action'>
+                    </div> */}
+                    <div class='filter-action '>
                       <div onClick={() => setColumn("6")} title='Two Column'>
                         {column === "6" ? (
                           <i class='fas fa-th-large bg-icon'></i>
@@ -539,82 +616,37 @@ const Category = () => {
                   <>
                     {foodList?.length !== undefined && foodList?.length > 0 ? (
                       <>
-                        {foodList?.map((item) => (
-                          <div className='wrapper col-4'>
-                            <div class='product-card shadow'>
-                              <div class='product-media'>
-                                <div class='product-label'>
-                                  <label class='label-text new'>new</label>
-                                </div>
-                                <button class='product-wish wish' tabindex='-1'>
-                                  <AiFillHeart />
-                                </button>
-                                <a class='product-image' tabindex='-1'>
-                                  <img
-                                    src={item?.foodImage}
-                                    className='img-fluid'
-                                    alt='product'
-                                  />
-                                </a>
-                                <div class='product-widget'>
-                                  <a
-                                    title='Product View'
-                                    href='#'
-                                    class='fas fa-eye'
-                                    data-bs-toggle='modal'
-                                    data-bs-target='#product-view'
-                                    tabindex='-1'
-                                  ></a>
-                                </div>
+                        {foodList?.map((item, index) => (
+                          <Col xs={3} className='mb-4' key={index}>
+                            <div className={`inner__body ${"Pink"}`}>
+                              <div className='img__file'>
+                                <img
+                                  className='img-fluid'
+                                  src={item?.foodImage}
+                                  alt=''
+                                />
                               </div>
-                              <div class='product-content'>
-                                <div class='product-rating'>
-                                  <span>
-                                    {" "}
-                                    <FaStar />
-                                  </span>
-                                  <span>
-                                    {" "}
-                                    <FaStar />
-                                  </span>
-                                  <span>
-                                    {" "}
-                                    <FaStar />
-                                  </span>
-                                  <span>
-                                    {" "}
-                                    <FaStar />
-                                  </span>
-                                  <span>
-                                    {" "}
-                                    <FaStar />
-                                  </span>
-                                  <a href='#' tabindex='-1'>
-                                    (3)
-                                  </a>
+                              <div className='text__file'>
+                                <h2>{item?.foodName.slice(0, 10)}</h2>
+                                <p className='name'>{"Middle Eastern"}</p>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                  <p className='intro'>
+                                    64 <FaStar className='star' />
+                                  </p>
+                                  <p className='price'>${item?.foodPrice}</p>
                                 </div>
-                                <h6 class='product-name'>
-                                  <a href='#' tabindex='-1'>
-                                    {item.foodName}
-                                  </a>
-                                </h6>
-                                <h6 class='product-price'>
-                                  <del>$34</del>
-                                  <span>
-                                    {item?.foodPrice} <small>/piece</small>
-                                  </span>
-                                </h6>
-                                <button
-                                  class='product-add '
-                                  title='Add to Cart'
-                                  tabindex='-1'
-                                >
-                                  <AiOutlineShopping />
-                                  <span>add</span>
-                                </button>
+                                <div className='overlay__img'>
+                                  <img
+                                    className='img-fluid'
+                                    src={
+                                      "/Assets/Img/profileKitchenImg/profile-kit6.png"
+                                    }
+                                    alt=''
+                                  />
+                                </div>
                               </div>
                             </div>
-                          </div>
+                          </Col>
                         ))}
                       </>
                     ) : (
