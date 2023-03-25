@@ -10,6 +10,7 @@ import ForgetPasswordPage from "./Pages/ForgetPasswordPage";
 import CategoryPage from "./Pages/CategoryPage";
 import FaqPage from "./Pages/FaqPage";
 import { Toaster } from "react-hot-toast";
+import AllRecipeCategoryPage from "./Pages/AllRecipeCategoryPage";
 function App() {
   return (
     <BrowserRouter>
@@ -22,8 +23,17 @@ function App() {
           path='/ProductsDetails'
           element={<ProductsDetailsPage />}
         />
-        <Route exact path='/SellerProfile' element={<SellerProfilePage />} />
+        <Route
+          exact
+          path='/SellerProfile/:id'
+          element={<SellerProfilePage />}
+        />
         <Route exact path='/Category/:id/:limit' element={<CategoryPage />} />
+        <Route
+          exact
+          path='/AllRecipeCategory'
+          element={<AllRecipeCategoryPage />}
+        />
         <Route exact path='/Faq' element={<FaqPage />} />
         <Route
           exact

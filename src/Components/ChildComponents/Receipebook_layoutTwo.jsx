@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { BaseURL } from "../../Helper/config";
 const Receipebook_layoutTwo = () => {
@@ -50,6 +51,18 @@ const Receipebook_layoutTwo = () => {
                                   src={item?.recipeSteps?.[0]?.Photo}
                                   alt=''
                                 />
+
+                                <div className='sellerOverflowImg'>
+                                  <img
+                                    src='https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
+                                    alt=''
+                                  />
+                                </div>
+                                <div className='titleOverFlow'>
+                                  <Link to={"/"}>
+                                    <h2>Smitten Kitchen features delectable</h2>
+                                  </Link>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -67,9 +80,7 @@ const Receipebook_layoutTwo = () => {
                               <div className='imgFile w-100 h-100'>
                                 <img
                                   className='img-fluid'
-                                  src={
-                                    "/Assets/Img/RecipeBook/RecipeBook_2.jpeg"
-                                  }
+                                  src={item?.recipeSteps?.[2]?.Photo}
                                   alt=''
                                 />
                               </div>
@@ -86,15 +97,30 @@ const Receipebook_layoutTwo = () => {
                                   src={item?.recipeSteps?.[1]?.Photo}
                                   alt=''
                                 />
+
+                                <Link to={"/"} className='moreOverFlow'>
+                                  More Items
+                                </Link>
                               </div>
                             </div>
-                            <div className='leftBar ps-2 h-100'>
+                            <div className='leftBar h-100'>
                               <div className='big_imgFileTwo h-100'>
                                 <img
                                   className='img-fluid last_image'
                                   src={item?.recipeSteps?.[2]?.Photo}
                                   alt=''
                                 />
+                                <div className='sellerOverflowImg'>
+                                  <img
+                                    src='https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
+                                    alt=''
+                                  />
+                                </div>
+                                <div className='titleOverFlow'>
+                                  <Link to={"/"}>
+                                    <h2>Smitten Kitchen features delectable</h2>
+                                  </Link>{" "}
+                                </div>
                               </div>
                             </div>
                           </div>

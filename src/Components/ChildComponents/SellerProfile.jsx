@@ -1,53 +1,73 @@
+import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { BaseURL } from "../../Helper/config";
 
 const SellerProfile = () => {
+  let params = useParams();
+  const [seller, setSeller] = useState([]);
+  useEffect(() => {
+    axios
+      .get(BaseURL + "/get-single-public-become-seller/" + params.id)
+      .then((res) => {
+        setSeller(res.data.data?.[0]);
+      });
+  }, []);
+
+  let totalSub = 0;
+
+  for (let i = 0; i < seller?.foodReview?.length; i++) {
+    totalSub = totalSub + seller?.foodReview?.[i].reviewStar;
+  }
+
+  let rate = totalSub / seller?.foodReview?.length;
+
   return (
     <div>
-      <main class='SellerProfile body-content'>
-        <div class='ms-content-wrapper'>
-          <div class='ms-profile-overview'>
-            <div class='ms-profile-cover'>
+      <main className='SellerProfile body-content'>
+        <div className='ms-content-wrapper'>
+          <div className='ms-profile-overview'>
+            <div
+              className='ms-profile-cover'
+              style={{ backgroundImage: 'url("/Assets/Img/b1.jpg")' }}
+            >
               <img
-                class='ms-profile-img'
-                src='https://mdbcdn.b-cdn.net/img/new/avatars/2.webp'
+                className='ms-profile-img'
+                src={seller?.sellerProfilePhoto}
                 alt='people'
               />
-              <div class='ms-profile-user-info'>
-                <h4 class='ms-profile-username text-white'>Chihoo Hwang</h4>
-                <h2 class='ms-profile-role'>Professional Cheff</h2>
+              <div className='ms-profile-user-info'>
+                <h4 className='ms-profile-username text-white'>
+                  {seller?.kitchenName}
+                </h4>
+                <h2 className='ms-profile-role'>{seller?.sellerNationality}</h2>
               </div>
             </div>
 
-            <div class='tab-content'>
-              <div class='tab-pane' id='tab1'></div>
-              <div class='tab-pane' id='tab2'></div>
-              <div class='tab-pane' id='tab3'></div>
+            <div className='tab-content'>
+              <div className='tab-pane' id='tab1'></div>
+              <div className='tab-pane' id='tab2'></div>
+              <div className='tab-pane' id='tab3'></div>
             </div>
           </div>
 
-          <div class='row'>
-            <div class='col-xl-9 col-md-12'>
+          <div className='row'>
+            <div className='col-xl-9 col-md-12'>
               <div className='row'>
                 <div className='col-12'>
-                  <div class='ms-panel ms-panel-fh'>
-                    <div class='ms-panel-body'>
+                  <div className='ms-panel ms-panel-fh'>
+                    <div className='ms-panel-body'>
                       <h4 className='fw-bold '>About Me</h4>
                       <hr />
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Aenean non elit nisl. Class aptent taciti sociosqu ad
-                        litora torquent per conubia nostra, per inceptos
-                        himenaeos. Aenean luctus, entesque imperdiet, augue
-                        metus ornare quam, in pulvinar massa erat nec dui. Nam
-                        at facilisis nulla....
-                      </p>
+                      <p>{seller?.aboutSeller}</p>
                     </div>
                   </div>
                 </div>
                 <div className='col-12'>
-                  <div class='ms-panel ms-panel-fh'>
-                    <div class='ms-panel-body'>
+                  <div className='ms-panel ms-panel-fh'>
+                    <div className='ms-panel-body'>
                       <h5>Pick a delivery date</h5>
                       <hr />
                       <div className='row gap-1 mt-3'>
@@ -127,16 +147,16 @@ const SellerProfile = () => {
                 </div>
               </div>
             </div>
-            <div class='col-xl-3 col-md-12'>
-              <div class='ms-panel ms-panel-fh'>
-                <div class='ms-panel-body'>
-                  <ul class='ms-profile-stats'>
+            <div className='col-xl-3 col-md-12'>
+              <div className='ms-panel ms-panel-fh'>
+                <div className='ms-panel-body'>
+                  <ul className='ms-profile-stats'>
                     <li>
-                      <h3 class='ms-count'>5790</h3>
-                      <span>Total Delivary</span>
+                      <h3 className='ms-count'>{"120"}</h3>
+                      <span>Total Delivery</span>
                     </li>
                     <li>
-                      <h3 class='ms-count'>4.8</h3>
+                      <h3 className='ms-count'>{rate}/5</h3>
                       <span>User Rating</span>
                     </li>
                   </ul>
@@ -146,7 +166,7 @@ const SellerProfile = () => {
               </div>
             </div>
 
-            <div class='col-xl-3 col-md-12'>
+            <div className='col-xl-3 col-md-12'>
               <div className='asidebar  bg-white shadow-lg'>
                 <Link to={"/sellerprofile/allproduct"}> All Prodct</Link>
                 <Link to={"/ba"}>Chickn</Link>
@@ -157,8 +177,8 @@ const SellerProfile = () => {
                 <Link to={"/allproduc"}>Burger</Link>
               </div>
             </div>
-            <div class='col-xl-9 col-md-12'>
-              <div class='ms-panel pt-3'>{/* <AllProduct /> */}</div>
+            <div className='col-xl-9 col-md-12'>
+              <div className='ms-panel pt-3'>{/* <AllProduct /> */}</div>
             </div>
           </div>
         </div>

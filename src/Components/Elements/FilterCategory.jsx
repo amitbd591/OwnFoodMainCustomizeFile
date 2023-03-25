@@ -1,15 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import { Button, Col, Container, Modal, Row } from "react-bootstrap";
-import { FaTheRedYeti } from "react-icons/fa";
+import { FaRegStar, FaStar, FaTheRedYeti } from "react-icons/fa";
 import { GiOpenedFoodCan } from "react-icons/gi";
+import Rating from "react-rating";
 
 const FilterCategory = () => {
   const [cuisinesShow, setCuisinesShow] = useState(false);
   const [dietaryShow, setDietaryShow] = useState(false);
   const [proteinShow, setProteinShow] = useState(false);
   const [moreFilters, setMoreFilters] = useState(false);
-  const [rangeval, setRangeval] = useState(10);
+  const [rate, setRate] = useState(2);
+  const [price, setPrice] = useState(10);
+
   return (
     <div className='filterCategory'>
       <Container>
@@ -144,26 +147,26 @@ const FilterCategory = () => {
                     <Col lg={4}>
                       <div className='wrapperOne'>
                         <p className='textHeader'>Dish rating</p>
-                        <input
-                          type='range'
-                          defaultValue={rangeval}
-                          min='10'
-                          max='1000'
-                          onChange={(event) => setRangeval(event.target.value)}
+                        <Rating
+                          className='rating'
+                          emptySymbol={<FaRegStar />}
+                          fullSymbol={<FaStar />}
+                          initialRating={rate}
+                          onClick={(e) => setRate(e)}
                         />
-                        <p>Price Range: {rangeval} $</p>
+                        <p className='py-2'>Rating Range: {rate} Star</p>
                       </div>
-                      <hr />
+
                       <div className='wrapperOne'>
-                        <p className='textHeader'>Dish rating</p>
+                        <p className='textHeader'>Filter By Price</p>
                         <input
                           type='range'
-                          defaultValue={rangeval}
+                          defaultValue={price}
                           min='10'
                           max='1000'
-                          onChange={(event) => setRangeval(event.target.value)}
+                          onChange={(event) => setPrice(event.target.value)}
                         />
-                        <p>Price Range: {rangeval} $</p>
+                        <p className='py-2'>Price Range: {price} $</p>
                       </div>
                     </Col>
                   </Row>

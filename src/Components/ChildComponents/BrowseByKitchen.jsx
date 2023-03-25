@@ -18,6 +18,8 @@ const BrowseByKitchen = ({ data }) => {
       });
   }, []);
 
+  console.log(foodData);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -56,7 +58,7 @@ const BrowseByKitchen = ({ data }) => {
             >
               <Slider {...settings}>
                 {foodData?.map((item, index) => (
-                  <Link to={"/SellerProfile"} key={index}>
+                  <Link to={`/SellerProfile/${item?._id}`} key={index}>
                     <div
                       className='brand-wrap slick-slide slick-cloned mt-3 '
                       data-slick-index='-5'
@@ -71,7 +73,12 @@ const BrowseByKitchen = ({ data }) => {
                         <h4 className='sf_title_color_brand'>
                           {item?.kitchenName}
                         </h4>
-                        <p className='text-dark'>{item?.foodData[0]?.count}</p>
+                        <p className='text-dark'>
+                          Total Foods:{" "}
+                          {item?.foodData?.length > 0
+                            ? item?.foodData?.[0]?.count
+                            : 0}
+                        </p>
                       </div>
                     </div>
                   </Link>
