@@ -5,7 +5,7 @@ import AllRecipeCategory from "../ChildComponents/AllRecipeCategory";
 import Footer from "../Common/Footer";
 import Header from "../Common/Header";
 
-const AllRecipeCategoryComponent = () => {
+const SingleRecipeCategoryAllFoodComponent = () => {
   return (
     <>
       <Header />
@@ -18,13 +18,13 @@ const AllRecipeCategoryComponent = () => {
           <Container>
             <Row>
               <Col>
-                <h2 className='header-intro'>All-time favorite dishes</h2>
+                <h2 className='header-intro'>View All Single Recipe Items.</h2>
               </Col>
             </Row>
             <Row>
               {[...Array(16)].map((item, index) => (
                 <Col xs={3} key={index}>
-                  <div className='single-recipe-cat-items'>
+                  <div className='single-recipe-cat-items '>
                     <div className='imgFile'>
                       <img
                         className='img-fluid'
@@ -33,11 +33,20 @@ const AllRecipeCategoryComponent = () => {
                       />
                     </div>
                     <div className='textFile'>
-                      <Link to={"/SingleRecipeCategoryAllFood/:id"}>
-                        <h3>Apple crumble</h3>
+                      <Link to={"/SingleRecipeFood/:id"}>
+                        <h3>Veggie mulligatawny soup</h3>
                       </Link>
-                      <p>14 recipes</p>
-                      <span>DISH</span>
+                      <p>By Alex Johan</p>
+                      <p className='mt-1'>
+                        <strong>From:</strong> Thrifty Cooking in the Doctor’s
+                        Kitchen
+                      </p>
+                      <div className='img-overlay'>
+                        <img
+                          src='https://ichef.bbci.co.uk/food/ic/food_1x1_72/chefs/rupy_aujla_1x1.jpg'
+                          alt=''
+                        />
+                      </div>
                     </div>
                   </div>
                 </Col>
@@ -46,10 +55,9 @@ const AllRecipeCategoryComponent = () => {
           </Container>
         </div>
       </div>
-
       <Footer />
     </>
   );
 };
 
-export default AllRecipeCategoryComponent;
+export default SingleRecipeCategoryAllFoodComponent;

@@ -210,19 +210,19 @@
 
 /* Recipe Feature */
 .RecipeFeature {
-  padding: 50px 0;
+  padding-top: 50px;
 }
 .RecipeFeature .titleIntro h3 {
   font-size: 30px;
 }
 .RecipeFeature .titleIntro p {
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 6px;
-  font-weight: 600;
+  font-weight: 500;
   border-bottom: 1px solid #ddd;
 }
 .RecipeFeature .leftSide .wrapper .img-file {
-  margin-top: 40px;
+  margin-top: 16px;
   width: 100%;
   height: 400px;
   border-radius: 6px;
@@ -241,7 +241,8 @@
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: start;
+  margin-top: 6px;
 }
 .RecipeFeature .rightSide .wrapper .preparation {
   padding-bottom: 5px;
@@ -263,6 +264,14 @@
   overflow: hidden;
   border-radius: 50%;
 }
+.RecipeFeature .rightSide .wrapper .inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-items: flex-end;
+}
 .RecipeFeature .rightSide .wrapper .img-file img {
   width: 100%;
   height: 100%;
@@ -272,12 +281,30 @@
   font-size: 16px;
   color: var(--gray);
 }
+.RecipeFeature .rightSide .wrapper .recipe-title a {
+  font-size: 30px;
+  color: #db2777;
+  font-weight: 800;
+  transition: all 0.2s linear;
+}
+.RecipeFeature .rightSide .wrapper .recipe-title a h2 {
+  font-size: 36px;
+  color: #db2777;
+  font-weight: 700;
+  transition: all 0.2s linear;
+}
+.RecipeFeature .rightSide .wrapper .recipe-title a:hover {
+  color: #db2777;
+}
 .RecipeFeature .rightSide .wrapper .text-file p a {
   font-size: 16px;
   color: #db2777;
 }
 .RecipeFeature .allRecipeCatItem {
-  margin-top: 50px;
+  margin-top: 12px;
+}
+.RecipeFeature .allRecipeCatItem .row {
+  --bs-gutter-x: 14px !important;
 }
 .RecipeFeature .allRecipeCatItem .header-intro {
   font-size: 20px;
@@ -306,15 +333,18 @@
   border-radius: 0px 0px 8px 8px;
   position: relative;
 }
+.RecipeFeature .allRecipeCatItem .single-recipe-cat-items .textFile p {
+  padding-right: 75px;
+}
 .RecipeFeature
   .allRecipeCatItem
   .single-recipe-cat-items
   .textFile
   .img-overlay {
   position: absolute;
-  right: 9px;
-  bottom: 35px;
-  z-index: 99;
+  right: 12px;
+  bottom: 16px;
+  z-index: 1;
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -353,4 +383,84 @@
   border-radius: 3px;
   margin-top: 15px;
   display: inline-block;
+}
+
+/* SingleRecipeFood */
+
+.SingleRecipeFood {
+  padding: 80px 0;
+}
+.SingleRecipeFood .wrapper-left .title h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.SingleRecipeFood .wrapper-left .img-file {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+.SingleRecipeFood .wrapper-left .img-file img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.SingleRecipeFood .wrapper-right {
+  margin-top: 50px;
+  padding-left: 20px;
+}
+.SingleRecipeFood .wrapper-right .preparation .items {
+  margin-bottom: 20px;
+}
+.SingleRecipeFood .wrapper-right .preparation .items p {
+  color: var(--gray);
+}
+.SingleRecipeFood .wrapper-right .preparation .items h5 {
+  font-size: 15px;
+  font-weight: 600;
+}
+.SingleRecipeFood .wrapper-right .profile-info {
+  margin-top: 200px;
+}
+.SingleRecipeFood .wrapper-right .profile-info .img-file {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.SingleRecipeFood .wrapper-right .profile-info .img-file img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.SingleRecipeFood .ingredients h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 10px 0;
+  padding-bottom: 10px;
+}
+.SingleRecipeFood .ingredients ul {
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+.SingleRecipeFood .ingredients ul li {
+  font-size: 16px;
+  color: var(--gray);
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+.SingleRecipeFood .method h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+.SingleRecipeFood .method ul {
+  padding-left: 15px;
+}
+.SingleRecipeFood .method ul li {
+  list-style: auto;
+  font-size: 16px;
+  color: var(--gray);
+  padding-bottom: 5px;
+  font-weight: 600;
 }

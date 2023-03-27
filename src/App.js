@@ -11,6 +11,8 @@ import CategoryPage from "./Pages/CategoryPage";
 import FaqPage from "./Pages/FaqPage";
 import { Toaster } from "react-hot-toast";
 import AllRecipeCategoryPage from "./Pages/AllRecipeCategoryPage";
+import SingleRecipeCategoryAllFoodPage from "./Pages/SingleRecipeCategoryAllFoodPage";
+import SingleRecipeFoodPage from "./Pages/SingleRecipeFoodPage";
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +35,16 @@ function App() {
           exact
           path='/AllRecipeCategory'
           element={<AllRecipeCategoryPage />}
+        />
+        <Route
+          exact
+          path='/SingleRecipeCategoryAllFood/:id'
+          element={<SingleRecipeCategoryAllFoodPage />}
+        />
+        <Route
+          exact
+          path='/SingleRecipeFood/:id'
+          element={<SingleRecipeFoodPage />}
         />
         <Route exact path='/Faq' element={<FaqPage />} />
         <Route

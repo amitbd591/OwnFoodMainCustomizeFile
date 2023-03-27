@@ -32,18 +32,23 @@ const RecipeFeature = () => {
           <Col lg={4}>
             <div className='rightSide'>
               <div className='wrapper'>
-                <div className='inner'>
-                  <div className='recipe-title'>
-                    <Link to={"/SingleRecipeFood/:id"}>
-                      <h2>Easy and cheap one pots</h2>
-                    </Link>
-                    <div className='text-file'>
-                      <p>
-                        Short on time and cash? These one pot recipes will make
-                        life a little bit easier. Look for delicious Puy lentils
-                        for this pork and pulse stew. Serve with cooked green
-                        leafy vegetables, or warmed, crusty bread.
-                      </p>
+                <div>
+                  <div>
+                    <div className='preparation'>
+                      <p>Preparation Time</p>
+                      <h6>Less than 30 mins</h6>
+                    </div>
+                    <div className='preparation mt-2'>
+                      <p>Cooking Time</p>
+                      <h6>30 mins to 1 hour</h6>
+                    </div>
+                    <div className='preparation mt-2'>
+                      <p>Serves</p>
+                      <h6>Serves 4</h6>
+                    </div>
+                    <div className='preparation mt-2'>
+                      <p>Dietary</p>
+                      <span className='badge-btn'>Yes</span>
                     </div>
                   </div>
                   <div className='profile-info'>
@@ -70,6 +75,8 @@ const RecipeFeature = () => {
             </div>
           </Col>
         </Row>
+        <br />
+        <hr />
       </Container>
 
       <div className='allRecipeCatItem'>
@@ -90,7 +97,7 @@ const RecipeFeature = () => {
                       <h3>Veggie mulligatawny soup</h3>
                     </Link>
                     <p>By Alex Johan</p>
-                    <p className='mt-1'>
+                    <p className='pe-4'>
                       <strong>From:</strong> Thrifty Cooking in the Doctor’s
                       Kitchen
                     </p>
@@ -100,6 +107,39 @@ const RecipeFeature = () => {
                         alt=''
                       />
                     </div>
+                  </div>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+
+      {/* Recipe Category All Items */}
+      <div className='allRecipeCatItem'>
+        <Container>
+          <Row>
+            <Col>
+              <h2 className='header-intro'>All-time favorite dishes</h2>
+            </Col>
+          </Row>
+          <Row>
+            {[...Array(16)].map((item, index) => (
+              <Col xs={3} key={index}>
+                <div className='single-recipe-cat-items'>
+                  <div className='imgFile'>
+                    <img
+                      className='img-fluid'
+                      src='https://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/creamy_mushroom_pasta_41818_16x9.jpg'
+                      alt=''
+                    />
+                  </div>
+                  <div className='textFile'>
+                    <Link to={"/"}>
+                      <h3>Apple crumble</h3>
+                    </Link>
+                    <p>14 recipes</p>
+                    <span>DISH</span>
                   </div>
                 </div>
               </Col>
