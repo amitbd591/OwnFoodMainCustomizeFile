@@ -1,20 +1,17 @@
 import React from "react";
-import CardSlider from "../ChildComponents/CardSlider";
-import Category from "../ChildComponents/Category";
+import ResetPassword from "../ChildComponents/ResetPassword";
 import Footer from "../Common/Footer";
 import Header from "../Common/Header";
 
-const CategoryComponent = () => {
+const ResetPasswordComponent = () => {
   return (
     <>
       <Header />
       <div className='Space__For__Header'></div>
-      <CardSlider />
-
-      <Category />
+      <ResetPassword />
       <Footer />
     </>
   );
 };
 
-export default CategoryComponent;
+export default ResetPasswordComponent;

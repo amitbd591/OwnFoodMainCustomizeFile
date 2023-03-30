@@ -1,20 +1,54 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { FaStar } from "react-icons/fa";
+import { FaRegStar, FaStar, FaTheRedYeti } from "react-icons/fa";
 import { AiFillHeart, AiOutlineShopping } from "react-icons/ai";
 import { GetFoodByCategoryAPI } from "../../API/CategoryAPI";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PageLoading from "../Elements/PageLoading";
 import VisibilitySensor from "react-visibility-sensor";
-import { Col } from "react-bootstrap";
+import { Col, Container, Modal, Row } from "react-bootstrap";
+import { GiOpenedFoodCan } from "react-icons/gi";
+import Rating from "react-rating";
+import axios from "axios";
+import { BaseURL } from "../../Helper/config";
 
 const Category = () => {
   let params = useParams();
+  const [catId, setCatId] = useState();
   let [limitData, setLimitData] = useState(20);
   let [loader, setLoader] = useState(false);
+  const [cuisinesShow, setCuisinesShow] = useState(false);
+  const [tags, setTags] = useState(false);
+  const [category, setCategory] = useState(false);
+  const [subCategory, setSubCategory] = useState(false);
+  const [moreFilters, setMoreFilters] = useState(false);
+  const [rate, setRate] = useState(2);
+  const [price, setPrice] = useState(10);
+  const [tagData, setTagData] = useState([]);
+  const [categoryData, setCategoryData] = useState([]);
+  const [subCategoryData, setSubCategoryData] = useState([]);
+  const [foodTypeData, setFoodTypeData] = useState([]);
   useEffect(() => {
-    GetFoodByCategoryAPI(params.id, params.limit);
+    GetFoodByCategoryAPI(params.id, 10);
+    axios.get(BaseURL + "/get-additionaltags").then((res) => {
+      setTagData(res.data.data);
+    });
+
+    axios.get(BaseURL + "/get-category").then((res) => {
+      setCategoryData(res.data.data);
+      setCatId(res.data.data);
+    });
+
+    axios
+      .get(BaseURL + "/get-sub-category-by-single-category/" + params.id)
+      .then((res) => {
+        setSubCategoryData(res.data.data?.[0]?.subcategoryData);
+      });
+
+    axios.get(BaseURL + "/get-foodType").then((res) => {
+      setFoodTypeData(res.data.data);
+    });
   }, []);
 
   const loadMoreItem = (isVisible) => {
@@ -29,6 +63,11 @@ const Category = () => {
     }
   };
 
+  const changeLink = () => {
+    GetFoodByCategoryAPI(params.id, 10);
+    setCategory(false);
+  };
+
   const limitBySelect = (limit) => {
     GetFoodByCategoryAPI(params.id, limit);
   };
@@ -37,143 +76,251 @@ const Category = () => {
     (state) => state.category.allFoodByCategoryList
   );
   let foodList = allFoodByCategoryList?.[0]?.data;
-  const [column, setColumn] = useState("12");
 
-  const FoodItem = [
-    {
-      item_name: "Barger",
-      item_image: "/Assets/Img/barger.png",
-    },
-    {
-      item_name: "Biriyani",
-      item_image: "/Assets/Img/biriyani.png",
-    },
-    {
-      item_name: "Chaowmin",
-      item_image: "/Assets/Img/chaowmin.png",
-    },
-    {
-      item_name: "Nachos",
-      item_image: "/Assets/Img/nachos.png",
-    },
-    {
-      item_name: "Pizza",
-      item_image: "/Assets/Img/pizza.png",
-    },
-    {
-      item_name: "Roll Chicken",
-      item_image: "/Assets/Img/roll_chicken.png",
-    },
-    {
-      item_name: "Barger",
-      item_image: "/Assets/Img/barger.png",
-    },
-    {
-      item_name: "Biriyani",
-      item_image: "/Assets/Img/biriyani.png",
-    },
-    {
-      item_name: "Chaowmin",
-      item_image: "/Assets/Img/chaowmin.png",
-    },
-    {
-      item_name: "Nachos",
-      item_image: "/Assets/Img/nachos.png",
-    },
-    {
-      item_name: "Pizza",
-      item_image: "/Assets/Img/pizza.png",
-    },
-    {
-      item_name: "Roll Chicken",
-      item_image: "/Assets/Img/roll_chicken.png",
-    },
-  ];
-
-  const data = [
-    {
-      foodName: "Tandoori Chicken",
-      userName: "Maira Sola",
-      bgColor: "Fuchsia",
-      link: "/",
-      bgImg: "/Assets/Img/blog/01.jpg",
-      profileImg: "/Assets/Img/profileKitchenImg/profile-kit1.png",
-      price: "40",
-    },
-    {
-      foodName: "Horseradish Relish",
-      userName: "Danielle A. Willey",
-      bgColor: "Purple",
-      link: "/",
-      bgImg: "/Assets/Img/blog/02.jpg",
-      profileImg: "/Assets/Img/profileKitchenImg/profile-kit2.png",
-      price: "60",
-    },
-    {
-      foodName: "Guava Jelly",
-      userName: "Gerald R. Danner",
-      bgColor: "Pink",
-      link: "/",
-      bgImg: "/Assets/Img/blog/03.jpg",
-      profileImg: "/Assets/Img/profileKitchenImg/profile-kit3.png",
-      price: "46",
-    },
-    {
-      foodName: "Mango Chutney",
-      userName: "Linda S. Turner",
-      bgColor: "Emerald",
-      link: "/",
-      bgImg: "/Assets/Img/blog/04.jpg",
-      profileImg: "/Assets/Img/profileKitchenImg/profile-kit4.png",
-      price: "30",
-    },
-    {
-      foodName: "Pickapeppa Sauce",
-      userName: "Alfredo L. Escalante",
-      bgColor: "Fuchsia",
-      link: "/",
-      bgImg: "/Assets/Img/blog/05.jpg",
-      profileImg: "/Assets/Img/profileKitchenImg/profile-kit5.png",
-      price: "80",
-    },
-    {
-      foodName: "Ginger Jam",
-      userName: "Luis K. Stephens",
-      bgColor: "Purple",
-      link: "/",
-      bgImg: "/Assets/Img/blog/06.jpg",
-      profileImg: "/Assets/Img/profileKitchenImg/profile-kit6.png",
-      price: "43",
-    },
-    {
-      foodName: "Smoked Sprats",
-      userName: "Bernice F. Jackson",
-      bgColor: "Pink",
-      link: "/",
-      bgImg: "/Assets/Img/blog/07.jpg",
-      profileImg: "/Assets/Img/profileKitchenImg/profile-kit7.png",
-      price: "70",
-    },
-    {
-      foodName: "Pancit Luglug",
-      userName: "Noelia R. Hall",
-      bgColor: "Emerald",
-      link: "/",
-      bgImg: "/Assets/Img/blog/08.jpg",
-      profileImg: "/Assets/Img/profileKitchenImg/profile-kit8.png",
-      price: "55",
-    },
-  ];
+  console.log(catId);
 
   return (
-    <div className='Category ProfileFoodGallery'>
-      <section class='inner-section single-banner bannerstyle'>
-        <div class='container text-white'></div>
-      </section>
-      <section class='inner-section shop-part'>
-        <div class='container'>
-          <div class='row content-reverse'>
-            {/* <div class='col-lg-3'>
+    <>
+      <div className='filterCategory'>
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <button
+                onClick={() => setCuisinesShow(true)}
+                className='me-2 myBtn'
+              >
+                All cuisines
+              </button>
+              <button className='me-2 myBtn'>Near Me</button>
+              <button onClick={() => setCategory(true)} className='me-2 myBtn'>
+                All Category
+              </button>
+              <button
+                onClick={() => setSubCategory(true)}
+                className='me-2 myBtn'
+              >
+                All Sub-Category
+              </button>
+              <button onClick={() => setTags(true)} className='me-2 myBtn'>
+                Tags
+              </button>
+              <button
+                onClick={() => setMoreFilters(true)}
+                className='me-2 myBtn'
+              >
+                More Filters
+              </button>
+
+              <Modal
+                size='lg'
+                show={cuisinesShow}
+                onHide={() => setCuisinesShow(false)}
+                aria-labelledby='example-modal-sizes-title-sm'
+                className='filterCategoryModal'
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id='example-modal-sizes-title-sm'>
+                    All cuisines
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <div className='allCuisines'>
+                    <Row>
+                      {[...Array(20)].map((item, index) => (
+                        <Col lg={2}>
+                          <div className='wrapper'>
+                            <div className='imgFile'>
+                              <img
+                                src='https://cdn.shef.com/static/media/All-Cuisine-Icon_Globe_200x200px_Colour-HOVER.9cf42dfb.svg'
+                                alt=''
+                              />
+                            </div>
+                            <div className='textFile'>
+                              <p>All cuisines</p>
+                            </div>
+                          </div>
+                        </Col>
+                      ))}
+                    </Row>
+                  </div>
+                </Modal.Body>
+              </Modal>
+
+              <Modal
+                size='lg'
+                show={category}
+                onHide={() => setCategory(false)}
+                aria-labelledby='example-modal-sizes-title-lg'
+                className='filterCategoryModal'
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id='example-modal-sizes-title-lg'>
+                    Category
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <div className='dietary '>
+                    {categoryData?.map((item, index) => (
+                      <Link to={`/Category/${item?._id}`}>
+                        <button
+                          className='wrapper'
+                          key={index}
+                          onClick={changeLink}
+                        >
+                          <span className='textFile'>{item?.categoryName}</span>
+                        </button>
+                      </Link>
+                    ))}
+                  </div>
+                </Modal.Body>
+              </Modal>
+
+              <Modal
+                size='lg'
+                show={subCategory}
+                onHide={() => setSubCategory(false)}
+                aria-labelledby='example-modal-sizes-title-lg'
+                className='filterCategoryModal'
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id='example-modal-sizes-title-lg'>
+                    Sub-Category
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <div className='dietary '>
+                    {subCategoryData?.map((item, index) => (
+                      <button className='wrapper' key={index}>
+                        <span className='textFile'>{item?.categoryName}</span>
+                      </button>
+                    ))}
+                  </div>
+                </Modal.Body>
+              </Modal>
+
+              <Modal
+                size='lg'
+                show={tags}
+                onHide={() => setTags(false)}
+                aria-labelledby='example-modal-sizes-title-lg'
+                className='filterCategoryModal'
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id='example-modal-sizes-title-lg'>
+                    Tags
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <div className='dietary '>
+                    {tagData?.map((item, index) => (
+                      <button className='wrapper' key={index}>
+                        <span className='textFile'>{item?.tagName}</span>
+                      </button>
+                    ))}
+                  </div>
+                </Modal.Body>
+              </Modal>
+
+              <Modal
+                size='lg'
+                show={moreFilters}
+                onHide={() => setMoreFilters(false)}
+                aria-labelledby='example-modal-sizes-title-lg'
+                className='filterCategoryModal'
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id='example-modal-sizes-title-lg'>
+                    More Filters
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <div className='moreFilters'>
+                    <Row>
+                      <Col lg={4}>
+                        <div className='wrapperOne'>
+                          <p className='textHeader'>
+                            Filter By Price = {price} $
+                          </p>
+                          <input
+                            type='range'
+                            defaultValue={price}
+                            min='10'
+                            max='1000'
+                            onChange={(event) => setPrice(event.target.value)}
+                          />
+                        </div>
+                      </Col>
+                      <Col lg={2}>
+                        <div className='wrapperOne'>
+                          <div className='rating'>
+                            <p className='py-2'>Filter By Review</p>
+                            <form className='rating-form'>
+                              <label htmlFor='neutral' className='lb'>
+                                <input
+                                  type='radio'
+                                  name='rating'
+                                  className='neutral'
+                                  id='neutral'
+                                  defaultValue='neutral'
+                                />
+                                <svg
+                                  className='svg'
+                                  xmlns='http://www.w3.org/2000/svg'
+                                  xmlnsXlink='http://www.w3.org/1999/xlink'
+                                  version='1.1'
+                                  width='100%'
+                                  height='100%'
+                                  viewBox='0 0 24 24'
+                                >
+                                  <path d='M8.5,11A1.5,1.5 0 0,1 7,9.5A1.5,1.5 0 0,1 8.5,8A1.5,1.5 0 0,1 10,9.5A1.5,1.5 0 0,1 8.5,11M15.5,11A1.5,1.5 0 0,1 14,9.5A1.5,1.5 0 0,1 15.5,8A1.5,1.5 0 0,1 17,9.5A1.5,1.5 0 0,1 15.5,11M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M9,14H15A1,1 0 0,1 16,15A1,1 0 0,1 15,16H9A1,1 0 0,1 8,15A1,1 0 0,1 9,14Z' />
+                                </svg>
+                              </label>
+                              <label htmlFor='super-happy' className='lb'>
+                                <input
+                                  type='radio'
+                                  name='rating'
+                                  className='super-happy'
+                                  id='super-happy'
+                                  defaultValue='super-happy'
+                                />
+                                <svg className='svg' viewBox='0 0 24 24'>
+                                  <path d='M12,17.5C14.33,17.5 16.3,16.04 17.11,14H6.89C7.69,16.04 9.67,17.5 12,17.5M8.5,11A1.5,1.5 0 0,0 10,9.5A1.5,1.5 0 0,0 8.5,8A1.5,1.5 0 0,0 7,9.5A1.5,1.5 0 0,0 8.5,11M15.5,11A1.5,1.5 0 0,0 17,9.5A1.5,1.5 0 0,0 15.5,8A1.5,1.5 0 0,0 14,9.5A1.5,1.5 0 0,0 15.5,11M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z' />
+                                </svg>
+                              </label>
+                            </form>
+                          </div>
+                        </div>
+                      </Col>
+                      <Col lg={6}>
+                        <div className='wrapperOne'>
+                          <p className='textHeader'>Filter By Food-Type</p>
+                          <div className='dietary '>
+                            {foodTypeData?.map((item, index) => (
+                              <button className='wrapper' key={index}>
+                                <span className='textFile'>
+                                  {item?.foodTypeName}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                </Modal.Body>
+              </Modal>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      <div className='Category ProfileFoodGallery'>
+        <section class='inner-section single-banner bannerstyle'>
+          <div class='container text-white'></div>
+        </section>
+        <section class='inner-section shop-part'>
+          <div class='container'>
+            <div class='row content-reverse'>
+              {/* <div class='col-lg-3'>
               <div class='shop-widget'>
                 <h6 class='shop-widget-title'>Filter by Category</h6>
                 <form>
@@ -484,11 +631,11 @@ const Category = () => {
                 </form>
               </div>
             </div> */}
-            <div class='col-lg-12'>
-              <div class='row'>
-                <div class='col-lg-12'>
-                  <div class='top-filter d-flex justify-content-end'>
-                    {/* <div class='filter-show'>
+              <div class='col-lg-12'>
+                <div class='row'>
+                  <div class='col-lg-12'>
+                    <div class='top-filter d-flex justify-content-end'>
+                      {/* <div class='filter-show'>
                       <label class='filter-label'>Show :</label>
                       <select
                         class='form-select filter-select'
@@ -499,7 +646,7 @@ const Category = () => {
                         <option value='30'>30</option>
                       </select>
                     </div> */}
-                    {/* <div class='filter-short'>
+                      {/* <div class='filter-short'>
                       <label class='filter-label'>Short by :</label>
                       <select class='form-select filter-select'>
                         <option selected>default</option>
@@ -508,173 +655,90 @@ const Category = () => {
                         <option value='2'>recommend</option>
                       </select>
                     </div> */}
-                    <div class='filter-action '>
-                      <div onClick={() => setColumn("6")} title='Two Column'>
-                        {column === "6" ? (
-                          <i class='fas fa-th-large bg-icon'></i>
-                        ) : (
-                          <i class='fas fa-th-large '></i>
-                        )}
-                      </div>
-                      <div
-                        className='mx-2'
-                        title='One Column'
-                        onClick={() => setColumn("12")}
-                      >
-                        {column === "12" ? (
-                          <i class='fas fa-th-list bg-icon'></i>
-                        ) : (
-                          <i class='fas fa-th-list '></i>
-                        )}
-                      </div>
+                      {/* <div class='filter-action '>
+                        <div onClick={() => setColumn("6")} title='Two Column'>
+                          {column === "6" ? (
+                            <i class='fas fa-th-large bg-icon'></i>
+                          ) : (
+                            <i class='fas fa-th-large '></i>
+                          )}
+                        </div>
+                        <div
+                          className='mx-2'
+                          title='One Column'
+                          onClick={() => setColumn("12")}
+                        >
+                          {column === "12" ? (
+                            <i class='fas fa-th-list bg-icon'></i>
+                          ) : (
+                            <i class='fas fa-th-list '></i>
+                          )}
+                        </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class='row'>
-                {column === "12" ? (
-                  <>
-                    {foodList?.length !== undefined && foodList?.length > 0 ? (
-                      <>
-                        {foodList?.map((item, index) => (
-                          <div className={`col-${column}`} key={index}>
-                            <div class='product-standard border'>
-                              <div class='standard-label-group'>
-                                <label class='standard-label off'>-15%</label>
-                              </div>
-                              <div class='standard-media'>
-                                <a
-                                  class='standard-image'
-                                  href='product-video.html'
-                                >
-                                  <img src={item.foodImage} alt='product' />
-                                </a>
-                                <div class='standard-widget'>
-                                  <a
-                                    title='Product View'
-                                    href='#'
-                                    class='fas fa-eye'
-                                    data-bs-toggle='modal'
-                                    data-bs-target='#product-view'
-                                  ></a>
-                                </div>
-                              </div>
-                              <div class='standard-content'>
-                                <h4 class='standard-name'>
-                                  <a>{item.foodName}</a>
-                                </h4>
-                                <h5 class='standard-price'>
-                                  <del>$34</del>
-                                  <span>
-                                    {item?.foodPrice}
-                                    <small>/piece</small>
-                                  </span>
-                                </h5>
-                                <div class='standard-rating'>
-                                  <i class='active icofont-star'></i>
-                                  <i class='active icofont-star'></i>
-                                  <i class='active icofont-star'></i>
-                                  <i class='active icofont-star'></i>
-                                  <i class='icofont-star'></i>
-                                  <a>(3)</a>
-                                </div>
-                                <p class='standard-desc'>
-                                  {item?.foodAdditionalInfo?.slice(0, 50)}
-                                </p>
-                                <div class='standard-action-group'>
-                                  <button
-                                    class='product-add'
-                                    title='Add to Cart'
-                                  >
-                                    <i class='fas fa-shopping-basket'></i>
-                                    <span>add to cart</span>
-                                  </button>
-
-                                  <button
-                                    class='standard-wish wish'
-                                    title='Add to Wishlist'
-                                  >
-                                    <i class='fas fa-heart'></i>
-                                    <span>Add To Favorite</span>
-                                  </button>
-                                </div>
-                              </div>
+                <div class='row'>
+                  {foodList?.length !== undefined && foodList?.length > 0 ? (
+                    <>
+                      {foodList?.map((item, index) => (
+                        <Col xs={3} className='mb-4' key={index}>
+                          <div className={`inner__body ${"Pink"}`}>
+                            <div className='img__file'>
+                              <img
+                                className='img-fluid'
+                                src={item?.foodImage}
+                                alt=''
+                              />
                             </div>
-                          </div>
-                        ))}
-                      </>
-                    ) : (
-                      <>
-                        <div className='mt-4'>
-                          <h2>No Food Found!</h2>
-                        </div>
-                      </>
-                    )}
-                  </>
-                ) : null}
-                {column === "6" ? (
-                  <>
-                    {foodList?.length !== undefined && foodList?.length > 0 ? (
-                      <>
-                        {foodList?.map((item, index) => (
-                          <Col xs={3} className='mb-4' key={index}>
-                            <div className={`inner__body ${"Pink"}`}>
-                              <div className='img__file'>
+                            <div className='text__file'>
+                              <h2>{item?.foodName.slice(0, 10)}</h2>
+                              <p className='name'>{"Middle Eastern"}</p>
+                              <div className='d-flex justify-content-between align-items-center'>
+                                <p className='intro'>
+                                  64 <FaStar className='star' />
+                                </p>
+                                <p className='price'>${item?.foodPrice}</p>
+                              </div>
+                              <div className='overlay__img'>
                                 <img
                                   className='img-fluid'
-                                  src={item?.foodImage}
+                                  src={
+                                    "/Assets/Img/profileKitchenImg/profile-kit6.png"
+                                  }
                                   alt=''
                                 />
                               </div>
-                              <div className='text__file'>
-                                <h2>{item?.foodName.slice(0, 10)}</h2>
-                                <p className='name'>{"Middle Eastern"}</p>
-                                <div className='d-flex justify-content-between align-items-center'>
-                                  <p className='intro'>
-                                    64 <FaStar className='star' />
-                                  </p>
-                                  <p className='price'>${item?.foodPrice}</p>
-                                </div>
-                                <div className='overlay__img'>
-                                  <img
-                                    className='img-fluid'
-                                    src={
-                                      "/Assets/Img/profileKitchenImg/profile-kit6.png"
-                                    }
-                                    alt=''
-                                  />
-                                </div>
-                              </div>
                             </div>
-                          </Col>
-                        ))}
-                      </>
-                    ) : (
-                      <>
-                        <div className='mt-4'>
-                          <h2>No Food Found!</h2>
-                        </div>
-                      </>
-                    )}
-                  </>
-                ) : null}
-              </div>
-              <div className='d-flex justify-content-center mt-3'>
-                <VisibilitySensor onChange={loadMoreItem}>
-                  {loader === true ? (
-                    <PageLoading />
+                          </div>
+                        </Col>
+                      ))}
+                    </>
                   ) : (
                     <>
-                      <h4 className='text-danger'>No More Foods Found!</h4>
+                      <div className='mt-4'>
+                        <h2>No Food Found!</h2>
+                      </div>
                     </>
                   )}
-                </VisibilitySensor>
+                </div>
+                <div className='d-flex justify-content-center mt-3'>
+                  <VisibilitySensor onChange={loadMoreItem}>
+                    {loader === true ? (
+                      <PageLoading />
+                    ) : (
+                      <>
+                        <h4 className='text-danger'>No More Foods Found!</h4>
+                      </>
+                    )}
+                  </VisibilitySensor>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 };
 

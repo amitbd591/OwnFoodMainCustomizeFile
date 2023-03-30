@@ -9,6 +9,13 @@
   background: #ebebec;
   padding: 5px 15px;
   border-radius: 5px;
+  transition: all 0.2s linear;
+}
+.filterCategory .myBtn:hover {
+  background: #676767;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
 }
 .filterCategoryModal {
   padding: 0 !important;
@@ -49,16 +56,24 @@
   font-weight: 600;
 }
 
+.filterCategoryModal .dietary {
+  display: inline-block;
+}
+
 .filterCategoryModal .dietary .wrapper {
-  border: 1px solid #636363;
-  display: flex;
-  gap: 10px;
-  justify-content: space-around;
-  align-items: center;
-  padding: 8px 0;
+  background: #ebebec;
+  color: #333;
+  font-weight: 400;
+  padding: 5px 15px;
   border-radius: 5px;
-  background: #fff;
-  margin-bottom: 10px;
+  transition: all 0.2s linear;
+  margin: 5px 5px;
+}
+.filterCategoryModal .dietary .wrapper:hover {
+  background: #676767;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
 }
 .filterCategoryModal .dietary .wrapper .imgFile {
   width: 40px;
@@ -91,7 +106,10 @@
   font-size: 26px;
 }
 
-.filterCategoryModal .dietary .wrapperOne input[type="range"] {
+.filterCategoryModal .moreFilters .wrapperOne {
+  margin-bottom: 30px;
+}
+.filterCategoryModal .moreFilters .wrapperOne input[type="range"] {
   -webkit-appearance: none;
   margin-right: 15px;
   width: 85%;
@@ -102,11 +120,11 @@
   background-size: 70% 100%;
   background-repeat: no-repeat;
   display: block;
-  margin: 15px 0;
+  margin-top: 22px;
 }
 
 .filterCategoryModal
-  .dietary
+  .moreFilters
   .wrapperOne
   input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -120,11 +138,83 @@
 }
 
 .filterCategoryModal
-  .dietary
+  .moreFilters
   .wrapperOne
   input[type="range"]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   box-shadow: none;
   border: none;
   background: transparent;
+}
+.filterCategoryModal .moreFilters .wrapperOne p {
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* =========== */
+
+.rating {
+  cursor: pointer;
+}
+
+.rating-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0.4rem 0.8rem;
+  width: 100%;
+}
+
+.rating-form {
+  display: flex;
+}
+
+.svg {
+  fill: #979797;
+  height: 50px;
+  width: 50px;
+  margin: 0.2rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.rating-form-2 svg {
+  height: 3rem;
+  width: 3rem;
+  margin: 0.5rem;
+}
+
+#radios label {
+  position: relative;
+}
+
+.super-happy,
+[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.input,
+[type="radio"] + svg {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.super-happy[class="super-happy"]:hover + svg,
+.super-happy[class="super-happy"]:checked + svg,
+.super-happy[class="super-happy"]:focus + svg {
+  fill: #4ade80;
+  transition: 1.5s;
+}
+
+.neutral[class="neutral"]:hover + svg,
+.neutral[class="neutral"]:checked + svg,
+.neutral[class="neutral"]:focus + svg {
+  fill: #eab308;
+  transition: 1.5s;
 }

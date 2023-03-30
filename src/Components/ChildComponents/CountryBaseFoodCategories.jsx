@@ -40,7 +40,7 @@ const CountryBaseFoodCategories = () => {
               <Slider {...settings}>
                 {AllCategoryList.map((item, index) => (
                   <div className='d-flex justify-content-center' key={index}>
-                    <Link to={`/Category/${item?._id}/10`} className='d-inline'>
+                    <Link to={`/Category/${item?._id}`} className='d-inline'>
                       <div
                         className='sf_brand-wrap slick-slide slick-cloned mt-3'
                         data-slick-index='-5'

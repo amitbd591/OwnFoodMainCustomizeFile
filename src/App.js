@@ -13,6 +13,8 @@ import { Toaster } from "react-hot-toast";
 import AllRecipeCategoryPage from "./Pages/AllRecipeCategoryPage";
 import SingleRecipeCategoryAllFoodPage from "./Pages/SingleRecipeCategoryAllFoodPage";
 import SingleRecipeFoodPage from "./Pages/SingleRecipeFoodPage";
+import OTPPage from "./Pages/OTPPage";
+import ResetPasswordPage from "./Pages/ResetPasswordPage";
 function App() {
   return (
     <BrowserRouter>
@@ -30,7 +32,7 @@ function App() {
           path='/SellerProfile/:id'
           element={<SellerProfilePage />}
         />
-        <Route exact path='/Category/:id/:limit' element={<CategoryPage />} />
+        <Route exact path='/Category/:id' element={<CategoryPage />} />
         <Route
           exact
           path='/AllRecipeCategory'
@@ -59,6 +61,8 @@ function App() {
         />
         <Route exact path='/CustomerLogin' element={<CustomerLoginPage />} />
         <Route exact path='/ForgetPassword' element={<ForgetPasswordPage />} />
+        <Route exact path='/OTP' element={<OTPPage />} />
+        <Route exact path='/Reset-Password' element={<ResetPasswordPage />} />
       </Routes>
     </BrowserRouter>
   );

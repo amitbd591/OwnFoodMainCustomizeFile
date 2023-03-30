@@ -16,7 +16,8 @@ const ForgetPassword = () => {
     } else {
       let result = await RecoveryVerifyEmail(email);
       if (result) {
-        navigate("/VerifyOTPService");
+        localStorage.setItem("forgetEmail", JSON.stringify(email));
+        navigate("/OTP");
       }
     }
   };
