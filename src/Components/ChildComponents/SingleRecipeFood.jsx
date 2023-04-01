@@ -3,7 +3,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaCheckSquare, FaHotjar, FaVideo } from "react-icons/fa";
 import Lightbox from "react-image-lightbox";
-import VideoPlayer from "react-video-js-player";
 import { useState } from "react";
 const SingleRecipeFood = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +55,73 @@ const SingleRecipeFood = () => {
                       </p>
                       <p>From Thrifty Cooking in the Doctor’s Kitchen</p>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Col>
+        </Row>
+        <br />
+
+        {/* Design Two  */}
+        <Row className='design-two'>
+          <Col lg={6}>
+            <div className='wrapper-left'>
+              <div className='title'>
+                <h2>Easy sausage and lentil stew</h2>
+              </div>
+              <div className='preparation-intro'>
+                <div className='items'>
+                  <h2>Preparation Time</h2>
+                  <p>Less than 30 mins</p>
+                </div>
+                <div className='items'>
+                  <h2>Cooking Time</h2>
+                  <p>30 mins to 1 hour</p>
+                </div>
+                <div className='items'>
+                  <h2>Serves</h2>
+                  <p>Serves 4</p>
+                </div>
+              </div>
+              <div className='img-file'>
+                <img
+                  className='img-fluid'
+                  src='https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/sausage_and_lentil_stew_90967_16x9.jpg'
+                  alt=''
+                />
+              </div>
+            </div>
+          </Col>
+          <Col lg={6}>
+            <div className='wrapper-right '>
+              <div className='video-box'>
+                <video controls>
+                  <source
+                    src='https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4'
+                    type='video/mp4'
+                  />
+                </video>
+              </div>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <div class='profile-info-block'>
+              <div class='d-flex gap-3 align-items-center'>
+                <div class='img-file'>
+                  <img
+                    src='https://ichef.bbci.co.uk/food/ic/food_1x1_72/chefs/rupy_aujla_1x1.jpg'
+                    alt=''
+                  />
+                </div>
+                <div class='text-file'>
+                  <div class='info'>
+                    <p>
+                      <strong>By</strong> <a href='/'>Dr Rupy Aujla</a>
+                    </p>
+                    <p>From Thrifty Cooking in the Doctor’s Kitchen</p>
                   </div>
                 </div>
               </div>
@@ -166,7 +232,7 @@ const SingleRecipeFood = () => {
         </Row>
         <br />
         <Row>
-          <Col lg={8}>
+          <Col lg={7}>
             <div className='method'>
               <h2>Method</h2>
               <ul>
@@ -210,59 +276,38 @@ const SingleRecipeFood = () => {
               </ul>
             </div>
           </Col>
+          <Col xs={5} className='recipeTips'>
+            <div className='textBody'>
+              <h2>
+                <FaHotjar />
+                <span>Recipe Tips</span>
+              </h2>
+              <div className='text'>
+                <p>
+                  Add half a teaspoon of crushed chilli flakes or a bay leaf if
+                  you have them in your spice collection.
+                </p>
+                <br />
+                <p>
+                  In March 2022 this recipe was costed at an average of £3.82
+                  (using standard sausages) when checking prices at four UK
+                  supermarkets. This recipe is designed to be made in
+                  conjunction with a low-cost store-cupboard, for more details
+                  click here to see how our budget recipes were costed.
+                </p>
+                <br />
+                <p>
+                  In March 2022 this recipe was costed at an average of £3.82
+                  (using standard sausages) when checking prices at four UK
+                  supermarkets. This recipe is designed to be made in
+                  conjunction with a low-cost store-cupboard, for more details
+                  click here to see how our budget recipes were costed.
+                </p>
+              </div>
+            </div>
+          </Col>
         </Row>
         <br />
-
-        <div className='recipeTips'>
-          <Row>
-            <Col xs={7}>
-              <div className='textBody'>
-                <h2>
-                  <FaHotjar />
-                  <span>Recipe Tips</span>
-                </h2>
-                <div className='text'>
-                  <p>
-                    Add half a teaspoon of crushed chilli flakes or a bay leaf
-                    if you have them in your spice collection.
-                  </p>
-                  <br />
-                  <p>
-                    In March 2022 this recipe was costed at an average of £3.82
-                    (using standard sausages) when checking prices at four UK
-                    supermarkets. This recipe is designed to be made in
-                    conjunction with a low-cost store-cupboard, for more details
-                    click here to see how our budget recipes were costed.
-                  </p>
-                  <br />
-                  <p>
-                    In March 2022 this recipe was costed at an average of £3.82
-                    (using standard sausages) when checking prices at four UK
-                    supermarkets. This recipe is designed to be made in
-                    conjunction with a low-cost store-cupboard, for more details
-                    click here to see how our budget recipes were costed.
-                  </p>
-                </div>
-              </div>
-            </Col>
-            <Col xs={5}>
-              <div className='video'>
-                <h2>
-                  <FaVideo />
-                  <span>How-to videos</span>
-                </h2>
-                <div className='video-box'>
-                  <video controls>
-                    <source
-                      src='https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4'
-                      type='video/mp4'
-                    />
-                  </video>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </div>
       </Container>
     </div>
   );

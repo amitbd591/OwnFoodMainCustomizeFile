@@ -17,8 +17,13 @@ const AllRecipeCategoryComponent = () => {
         <div className='allRecipeCatItem'>
           <Container>
             <Row>
-              <Col>
-                <h2 className='header-intro'>All-time favorite dishes</h2>
+              <Col xs={8}>
+                <h2 className='header-intro'>Category Name</h2>
+                <p className='des'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aliquid debitis sequi soluta repellendus totam harum dolorem
+                  laudantium dignissimos placeat explicabo!
+                </p>
               </Col>
             </Row>
             <Row>
