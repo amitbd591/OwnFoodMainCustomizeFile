@@ -36,6 +36,7 @@ import { BsXLg } from "react-icons/bs";
 
 import { Link, useNavigate } from "react-router-dom";
 import { Uber_image } from "../../Database/ImgData";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [show, setShow] = useState(false);
   const toggleOffcanvas = () => {
@@ -110,6 +111,8 @@ const Header = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  let allCartList = useSelector((state) => state.cart.allCartList);
 
   return (
     <header className='Header shadow'>
@@ -481,186 +484,44 @@ const Header = () => {
               </button>
             </div>
             <ul className='cart-list'>
-              <li className='cart-item'>
-                <div className='cart-media'>
-                  <a href='#'>
-                    <img src='Assets/Img/product/01.jpg' alt='product' />
-                  </a>
-                  <button className='cart-delete'>
-                    <i className='far fa-trash-alt'></i>
-                  </button>
-                </div>
-                <div className='cart-info-group'>
-                  <div className='cart-info'>
-                    <h6>
-                      <a href='product-single.html'>existing product name</a>
-                    </h6>
-                    <p>Unit Price - $8.75</p>
+              {allCartList?.map((item, index) => (
+                <li className='cart-item' key={index}>
+                  <div className='cart-media'>
+                    <a href='javascript:void(0)'>
+                      <img src={item?.foodImage} alt='product' />
+                    </a>
+                    <button className='cart-delete'>
+                      <i className='far fa-trash-alt'></i>
+                    </button>
                   </div>
-                  <div className='cart-action-group'>
-                    <div className='product-action'>
-                      <button className='action-minus' title='Quantity Minus'>
-                        <FaMinus />
-                      </button>
-                      <input
-                        className='action-input'
-                        title='Quantity Number'
-                        type='text'
-                        name='quantity'
-                        value='1'
-                      />
-                      <button className='action-plus' title='Quantity Plus'>
-                        <FaPlus />
-                      </button>
+                  <div className='cart-info-group'>
+                    <div className='cart-info'>
+                      <h6>
+                        <a href='product-single.html'>existing product name</a>
+                      </h6>
+                      <p>Unit Price - $8.75</p>
                     </div>
-                    <h6>$56.98</h6>
-                  </div>
-                </div>
-              </li>
-              <li className='cart-item'>
-                <div className='cart-media'>
-                  <a href='#'>
-                    <img src='Assets/Img/product/02.jpg' alt='product' />
-                  </a>
-                  <button className='cart-delete'>
-                    <i className='far fa-trash-alt'></i>
-                  </button>
-                </div>
-                <div className='cart-info-group'>
-                  <div className='cart-info'>
-                    <h6>
-                      <a href='product-single.html'>existing product name</a>
-                    </h6>
-                    <p>Unit Price - $8.75</p>
-                  </div>
-                  <div className='cart-action-group'>
-                    <div className='product-action'>
-                      <button className='action-minus' title='Quantity Minus'>
-                        <FaMinus />
-                      </button>
-                      <input
-                        className='action-input'
-                        title='Quantity Number'
-                        type='text'
-                        name='quantity'
-                        value='1'
-                      />
-                      <button className='action-plus' title='Quantity Plus'>
-                        <FaPlus />
-                      </button>
+                    <div className='cart-action-group'>
+                      <div className='product-action'>
+                        <button className='action-minus' title='Quantity Minus'>
+                          <FaMinus />
+                        </button>
+                        <input
+                          className='action-input'
+                          title='Quantity Number'
+                          type='text'
+                          name='quantity'
+                          value='1'
+                        />
+                        <button className='action-plus' title='Quantity Plus'>
+                          <FaPlus />
+                        </button>
+                      </div>
+                      <h6>$56.98</h6>
                     </div>
-                    <h6>$56.98</h6>
                   </div>
-                </div>
-              </li>
-              <li className='cart-item'>
-                <div className='cart-media'>
-                  <a href='#'>
-                    <img src='Assets/Img/product/03.jpg' alt='product' />
-                  </a>
-                  <button className='cart-delete'>
-                    <i className='far fa-trash-alt'></i>
-                  </button>
-                </div>
-                <div className='cart-info-group'>
-                  <div className='cart-info'>
-                    <h6>
-                      <a href='product-single.html'>existing product name</a>
-                    </h6>
-                    <p>Unit Price - $8.75</p>
-                  </div>
-                  <div className='cart-action-group'>
-                    <div className='product-action'>
-                      <button className='action-minus' title='Quantity Minus'>
-                        <FaMinus />
-                      </button>
-                      <input
-                        className='action-input'
-                        title='Quantity Number'
-                        type='text'
-                        name='quantity'
-                        value='1'
-                      />
-                      <button className='action-plus' title='Quantity Plus'>
-                        <FaPlus />
-                      </button>
-                    </div>
-                    <h6>$56.98</h6>
-                  </div>
-                </div>
-              </li>
-              <li className='cart-item'>
-                <div className='cart-media'>
-                  <a href='#'>
-                    <img src='Assets/Img/product/04.jpg' alt='product' />
-                  </a>
-                  <button className='cart-delete'>
-                    <i className='far fa-trash-alt'></i>
-                  </button>
-                </div>
-                <div className='cart-info-group'>
-                  <div className='cart-info'>
-                    <h6>
-                      <a href='product-single.html'>existing product name</a>
-                    </h6>
-                    <p>Unit Price - $8.75</p>
-                  </div>
-                  <div className='cart-action-group'>
-                    <div className='product-action'>
-                      <button className='action-minus' title='Quantity Minus'>
-                        <FaMinus />
-                      </button>
-                      <input
-                        className='action-input'
-                        title='Quantity Number'
-                        type='text'
-                        name='quantity'
-                        value='1'
-                      />
-                      <button className='action-plus' title='Quantity Plus'>
-                        <FaPlus />
-                      </button>
-                    </div>
-                    <h6>$56.98</h6>
-                  </div>
-                </div>
-              </li>
-              <li className='cart-item'>
-                <div className='cart-media'>
-                  <a href='#'>
-                    <img src='Assets/Img/product/05.jpg' alt='product' />
-                  </a>
-                  <button className='cart-delete'>
-                    <i className='far fa-trash-alt'></i>
-                  </button>
-                </div>
-                <div className='cart-info-group'>
-                  <div className='cart-info'>
-                    <h6>
-                      <a href='product-single.html'>existing product name</a>
-                    </h6>
-                    <p>Unit Price - $8.75</p>
-                  </div>
-                  <div className='cart-action-group'>
-                    <div className='product-action'>
-                      <button className='action-minus' title='Quantity Minus'>
-                        <FaMinus />
-                      </button>
-                      <input
-                        className='action-input'
-                        title='Quantity Number'
-                        type='text'
-                        name='quantity'
-                        value='1'
-                      />
-                      <button className='action-plus' title='Quantity Plus'>
-                        <FaPlus />
-                      </button>
-                    </div>
-                    <h6>$56.98</h6>
-                  </div>
-                </div>
-              </li>
+                </li>
+              ))}
             </ul>
             <div className='cart-footer'>
               <button className='coupon-btn'>Do you have a coupon code?</button>

@@ -97,6 +97,7 @@ button {
   visibility: visible;
   opacity: 1;
   top: 70px;
+  /* top: 114px; */
 }
 .Header .dropdown-position-list {
   position: absolute;
@@ -735,7 +736,9 @@ button:focus {
 }
 .cart-media a img {
   width: 100px;
+  height: 90px;
   border-radius: 8px;
+  object-fit: cover;
 }
 .cart-media button {
   position: absolute;

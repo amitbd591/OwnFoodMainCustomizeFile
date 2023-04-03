@@ -1,6 +1,13 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { FaRegStar, FaStar, FaTheRedYeti } from "react-icons/fa";
+import {
+  FaHeart,
+  FaPlay,
+  FaQuestion,
+  FaRegStar,
+  FaStar,
+  FaTheRedYeti,
+} from "react-icons/fa";
 import { AiFillHeart, AiOutlineShopping } from "react-icons/ai";
 import { GetFoodByCategoryAPI } from "../../API/CategoryAPI";
 import { Link, useParams } from "react-router-dom";
@@ -12,6 +19,10 @@ import { GiOpenedFoodCan } from "react-icons/gi";
 import Rating from "react-rating";
 import axios from "axios";
 import { BaseURL } from "../../Helper/config";
+import { useRef } from "react";
+import store from "../../Redux/Store/Store";
+import { setFoodByCategoryList } from "../../Redux/State-slice/CategorySlice";
+import { setCartList } from "../../Redux/State-slice/CartSlice";
 
 const Category = () => {
   let params = useParams();
@@ -24,13 +35,21 @@ const Category = () => {
   const [subCategory, setSubCategory] = useState(false);
   const [moreFilters, setMoreFilters] = useState(false);
   const [rate, setRate] = useState(2);
-  const [price, setPrice] = useState(10);
+  const [price, setPrice] = useState(0);
   const [tagData, setTagData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [subCategoryData, setSubCategoryData] = useState([]);
   const [foodTypeData, setFoodTypeData] = useState([]);
+  let [newPostBody, setPostBody] = useState({});
   useEffect(() => {
-    GetFoodByCategoryAPI(params.id, 10);
+    // GetFoodByCategoryAPI(params.id, 10);
+    newPostBody.categoryID = params.id;
+    axios.post(BaseURL + "/filter", { categoryID: params.id }).then((res) => {
+      // console.log(res.data);
+      if (res.data.status === "Success") {
+        store.dispatch(setFoodByCategoryList(res.data.data));
+      }
+    });
     axios.get(BaseURL + "/get-additionaltags").then((res) => {
       setTagData(res.data.data);
     });
@@ -52,15 +71,21 @@ const Category = () => {
   }, []);
 
   const loadMoreItem = (isVisible) => {
-    if (isVisible) {
-      setLimitData(limitData + 10);
-      setLoader(true);
-      GetFoodByCategoryAPI(params.id, limitData).then((res) => {
-        if (res === true) {
-          setLoader(false);
-        }
-      });
-    }
+    // if (isVisible) {
+    //   setLimitData(limitData + 10);
+    //   setLoader(true);
+    //   // GetFoodByCategoryAPI(params.id, limitData).then((res) => {
+    //   //   if (res === true) {
+    //   //     setLoader(false);
+    //   //   }
+    //   // });
+    //   axios.post(BaseURL + "/filter", newPostBody).then((res) => {
+    //     // console.log(res.data);
+    //     if (res.data.status === "Success") {
+    //       store.dispatch(setFoodByCategoryList(res.data.data));
+    //     }
+    //   });
+    // }
   };
 
   const changeLink = () => {
@@ -75,9 +100,37 @@ const Category = () => {
   let allFoodByCategoryList = useSelector(
     (state) => state.category.allFoodByCategoryList
   );
-  let foodList = allFoodByCategoryList?.[0]?.data;
+  // let allFoodByCategoryList = allFoodByCategoryList;
+  let subCatRef,
+    tagRef,
+    priceRef = useRef();
 
-  console.log(catId);
+  const filterData = () => {
+    let postBody = {};
+
+    if (subCatRef) {
+      newPostBody.subCategoryID = subCatRef;
+    }
+    if (price > 0) {
+      newPostBody.foodPrice = parseInt(price);
+    }
+    setPostBody({ ...newPostBody, postBody });
+    // console.log(postBody);
+    axios.post(BaseURL + "/filter", newPostBody).then((res) => {
+      // console.log(res.data);
+      if (res.data.status === "Success") {
+        store.dispatch(setFoodByCategoryList(res.data.data));
+      }
+    });
+  };
+
+  let allCartList = useSelector((state) => state.cart.allCartList);
+
+  let cartConrtol = (item) => {
+    store.dispatch(setCartList([...allCartList, item]));
+  };
+
+  console.log(allCartList);
 
   return (
     <>
@@ -161,7 +214,7 @@ const Category = () => {
                 <Modal.Body>
                   <div className='dietary '>
                     {categoryData?.map((item, index) => (
-                      <Link to={`/Category/${item?._id}`}>
+                      <a href={`/Category/${item?._id}`}>
                         <button
                           className='wrapper'
                           key={index}
@@ -169,7 +222,7 @@ const Category = () => {
                         >
                           <span className='textFile'>{item?.categoryName}</span>
                         </button>
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 </Modal.Body>
@@ -190,8 +243,17 @@ const Category = () => {
                 <Modal.Body>
                   <div className='dietary '>
                     {subCategoryData?.map((item, index) => (
-                      <button className='wrapper' key={index}>
-                        <span className='textFile'>{item?.categoryName}</span>
+                      <button
+                        className='wrapper'
+                        key={index}
+                        onClick={filterData}
+                      >
+                        <span
+                          className='textFile'
+                          ref={() => (subCatRef = item?._id)}
+                        >
+                          {item?.categoryName}
+                        </span>
                       </button>
                     ))}
                   </div>
@@ -247,6 +309,7 @@ const Category = () => {
                             min='10'
                             max='1000'
                             onChange={(event) => setPrice(event.target.value)}
+                            onClick={filterData}
                           />
                         </div>
                       </Col>
@@ -314,374 +377,23 @@ const Category = () => {
         </Container>
       </div>
       <div className='Category ProfileFoodGallery'>
-        <section class='inner-section single-banner bannerstyle'>
-          <div class='container text-white'></div>
+        <section className='inner-section single-banner bannerstyle'>
+          <div className='container text-white'></div>
         </section>
-        <section class='inner-section shop-part'>
-          <div class='container'>
-            <div class='row content-reverse'>
-              {/* <div class='col-lg-3'>
-              <div class='shop-widget'>
-                <h6 class='shop-widget-title'>Filter by Category</h6>
-                <form>
-                  <input
-                    class='shop-widget-search'
-                    type='text'
-                    placeholder='Search...'
-                  />
-                  <ul class='shop-widget-list shop-widget-scroll'>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate1' />
-                        <label for='cate1'>vegetables</label>
-                      </div>
-                      <span class='shop-widget-number'>(13)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate2' />
-                        <label for='cate2'>groceries</label>
-                      </div>
-                      <span class='shop-widget-number'>(28)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate3' />
-                        <label for='cate3'>fruits</label>
-                      </div>
-                      <span class='shop-widget-number'>(35)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate4' />
-                        <label for='cate4'>dairy farm</label>
-                      </div>
-                      <span class='shop-widget-number'>(47)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate5' />
-                        <label for='cate5'>sea foods</label>
-                      </div>
-                      <span class='shop-widget-number'>(59)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate6' />
-                        <label for='cate6'>diet foods</label>
-                      </div>
-                      <span class='shop-widget-number'>(64)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate7' />
-                        <label for='cate7'>dry foods</label>
-                      </div>
-                      <span class='shop-widget-number'>(77)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate8' />
-                        <label for='cate8'>fast foods</label>
-                      </div>
-                      <span class='shop-widget-number'>(85)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate9' />
-                        <label for='cate9'>drinks</label>
-                      </div>
-                      <span class='shop-widget-number'>(92)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate10' />
-                        <label for='cate10'>coffee</label>
-                      </div>
-                      <span class='shop-widget-number'>(21)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate11' />
-                        <label for='cate11'>meats</label>
-                      </div>
-                      <span class='shop-widget-number'>(14)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='cate12' />
-                        <label for='cate12'>fishes</label>
-                      </div>
-                      <span class='shop-widget-number'>(56)</span>
-                    </li>
-                  </ul>
-                  <button class='shop-widget-btn'>
-                    <i class='far fa-trash-alt'></i>
-                    <span>clear filter</span>
-                  </button>
-                </form>
-              </div>
-
-              <div class='shop-widget'>
-                <h6 class='shop-widget-title'>Filter by Price</h6>
-                <form>
-                  <div class='shop-widget-group'>
-                    <input type='text' placeholder='Min - 00' />
-                    <input type='text' placeholder='Max - 5k' />
-                  </div>
-                  <button class='shop-widget-btn'>
-                    <i class='fas fa-search'></i>
-                    <span>search</span>
-                  </button>
-                </form>
-              </div>
-
-              <div class='shop-widget'>
-                <h6 class='shop-widget-title'>Filter by Rating</h6>
-                <form>
-                  <ul class='shop-widget-list'>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='feat1' />
-                        <label for='feat1'>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                        </label>
-                      </div>
-                      <span class='shop-widget-number'>(13)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='feat2' />
-                        <label for='feat2'>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star'></i>
-                        </label>
-                      </div>
-                      <span class='shop-widget-number'>(28)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='feat3' />
-                        <label for='feat3'>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star'></i>
-                          <i class='fas fa-star'></i>
-                        </label>
-                      </div>
-                      <span class='shop-widget-number'>(35)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='feat4' />
-                        <label for='feat4'>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star'></i>
-                          <i class='fas fa-star'></i>
-                          <i class='fas fa-star'></i>
-                        </label>
-                      </div>
-                      <span class='shop-widget-number'>(47)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='feat5' />
-                        <label for='feat5'>
-                          <i class='fas fa-star active'></i>
-                          <i class='fas fa-star'></i>
-                          <i class='fas fa-star'></i>
-                          <i class='fas fa-star'></i>
-                          <i class='fas fa-star'></i>
-                        </label>
-                      </div>
-                      <span class='shop-widget-number'>(59)</span>
-                    </li>
-                  </ul>
-                  <button class='shop-widget-btn'>
-                    <i class='far fa-trash-alt'></i>
-                    <span>clear filter</span>
-                  </button>
-                </form>
-              </div>
-              <div class='shop-widget'>
-                <h6 class='shop-widget-title'>Filter by Best Seller</h6>
-                <form>
-                  <ul class='shop-widget-list'>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='tag1' />
-                        <label for='tag1'>new items</label>
-                      </div>
-                      <span class='shop-widget-number'>(13)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='tag2' />
-                        <label for='tag2'>sale items</label>
-                      </div>
-                      <span class='shop-widget-number'>(28)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='tag3' />
-                        <label for='tag3'>rating items</label>
-                      </div>
-                      <span class='shop-widget-number'>(35)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='tag4' />
-                        <label for='tag4'>feature items</label>
-                      </div>
-                      <span class='shop-widget-number'>(47)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='tag5' />
-                        <label for='tag5'>discount items</label>
-                      </div>
-                      <span class='shop-widget-number'>(59)</span>
-                    </li>
-                  </ul>
-                  <button class='shop-widget-btn'>
-                    <i class='far fa-trash-alt'></i>
-                    <span>clear filter</span>
-                  </button>
-                </form>
-              </div>
-              <div class='shop-widget'>
-                <h6 class='shop-widget-title'>Filter by Country</h6>
-                <form>
-                  <input
-                    class='shop-widget-search'
-                    type='text'
-                    placeholder='Search...'
-                  />
-                  <ul class='shop-widget-list shop-widget-scroll'>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='brand1' />
-                        <label for='brand1'>Bangaldesh</label>
-                      </div>
-                      <span class='shop-widget-number'>(13)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='brand2' />
-                        <label for='brand2'>Usa</label>
-                      </div>
-                      <span class='shop-widget-number'>(28)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='brand3' />
-                        <label for='brand3'>India</label>
-                      </div>
-                      <span class='shop-widget-number'>(35)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='brand4' />
-                        <label for='brand4'>Malaysia</label>
-                      </div>
-                      <span class='shop-widget-number'>(47)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='brand5' />
-                        <label for='brand5'>Maxico</label>
-                      </div>
-                      <span class='shop-widget-number'>(59)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='brand6' />
-                        <label for='brand6'>Australia</label>
-                      </div>
-                      <span class='shop-widget-number'>(64)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='brand7' />
-                        <label for='brand7'>Turkey</label>
-                      </div>
-                      <span class='shop-widget-number'>(77)</span>
-                    </li>
-                    <li>
-                      <div class='shop-widget-content'>
-                        <input type='checkbox' id='brand8' />
-                        <label for='brand8'>Neatherland</label>
-                      </div>
-                      <span class='shop-widget-number'>(85)</span>
-                    </li>
-                  </ul>
-                  <button class='shop-widget-btn'>
-                    <i class='far fa-trash-alt'></i>
-                    <span>clear filter</span>
-                  </button>
-                </form>
-              </div>
-            </div> */}
-              <div class='col-lg-12'>
-                <div class='row'>
-                  <div class='col-lg-12'>
-                    <div class='top-filter d-flex justify-content-end'>
-                      {/* <div class='filter-show'>
-                      <label class='filter-label'>Show :</label>
-                      <select
-                        class='form-select filter-select'
-                        onChange={(event) => limitBySelect(event.target.value)}
-                      >
-                        <option value='10'>10</option>
-                        <option value='20'>20</option>
-                        <option value='30'>30</option>
-                      </select>
-                    </div> */}
-                      {/* <div class='filter-short'>
-                      <label class='filter-label'>Short by :</label>
-                      <select class='form-select filter-select'>
-                        <option selected>default</option>
-                        <option value='3'>trending</option>
-                        <option value='1'>featured</option>
-                        <option value='2'>recommend</option>
-                      </select>
-                    </div> */}
-                      {/* <div class='filter-action '>
-                        <div onClick={() => setColumn("6")} title='Two Column'>
-                          {column === "6" ? (
-                            <i class='fas fa-th-large bg-icon'></i>
-                          ) : (
-                            <i class='fas fa-th-large '></i>
-                          )}
-                        </div>
-                        <div
-                          className='mx-2'
-                          title='One Column'
-                          onClick={() => setColumn("12")}
-                        >
-                          {column === "12" ? (
-                            <i class='fas fa-th-list bg-icon'></i>
-                          ) : (
-                            <i class='fas fa-th-list '></i>
-                          )}
-                        </div>
-                      </div> */}
-                    </div>
+        <section className='inner-section shop-part'>
+          <div className='container'>
+            <div className='row content-reverse'>
+              <div className='col-lg-12'>
+                <div className='row'>
+                  <div className='col-lg-12'>
+                    <div className='top-filter d-flex justify-content-end'></div>
                   </div>
                 </div>
-                <div class='row'>
-                  {foodList?.length !== undefined && foodList?.length > 0 ? (
+                <div className='row'>
+                  {allFoodByCategoryList?.length !== undefined &&
+                  allFoodByCategoryList?.length > 0 ? (
                     <>
-                      {foodList?.map((item, index) => (
+                      {allFoodByCategoryList?.map((item, index) => (
                         <Col xs={3} className='mb-4' key={index}>
                           <div className={`inner__body ${"Pink"}`}>
                             <div className='img__file'>
@@ -690,16 +402,94 @@ const Category = () => {
                                 src={item?.foodImage}
                                 alt=''
                               />
+                              <div className='text_design'>
+                                <h5>Abid Ahmed Sobhan</h5>
+                              </div>
+                              <ul className='card-action-buttons'>
+                                <li>
+                                  <a
+                                    href='#'
+                                    target='_blank'
+                                    className='btn-floating  white'
+                                    alt=''
+                                  >
+                                    <i className='material-icons grey-text text-darken-3'>
+                                      <FaQuestion />
+                                    </i>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a className='btn-floating accent-2'>
+                                    <i className='material-icons like'>
+                                      <FaHeart />
+                                    </i>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a id='buy' className='btn-floating  blue'>
+                                    <i className='material-icons buy'>
+                                      <FaStar />
+                                    </i>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a id='buy' className='btn-floating  blue'>
+                                    <i className='material-icons buy'>
+                                      <FaPlay />
+                                    </i>
+                                  </a>
+                                </li>
+                              </ul>
                             </div>
                             <div className='text__file'>
-                              <h2>{item?.foodName.slice(0, 10)}</h2>
-                              <p className='name'>{"Middle Eastern"}</p>
-                              <div className='d-flex justify-content-between align-items-center'>
-                                <p className='intro'>
-                                  64 <FaStar className='star' />
-                                </p>
+                              <div className='d-flex justify-content-between align-items-center top_header'>
                                 <p className='price'>${item?.foodPrice}</p>
+                                <p className=''>
+                                  <p className='intro'>
+                                    <i
+                                      className='material-icons buy'
+                                      onClick={() => cartConrtol(item)}
+                                    >
+                                      add_shopping_cart
+                                    </i>
+                                  </p>
+                                </p>
                               </div>
+                              <div className='d-flex align-items-center justify-content-center'>
+                                <p
+                                  className=''
+                                  style={{
+                                    marginTop: -18,
+                                    position: "relative",
+                                  }}
+                                >
+                                  <h2>{item?.foodName?.slice(0, 10)}</h2>
+                                </p>
+                              </div>
+                              <ul className='bottom_footer'>
+                                <li>
+                                  <img
+                                    src='/Assets/Img/pot-1.jpeg'
+                                    className='footer_img'
+                                    alt=''
+                                  />
+                                </li>
+                                <li>
+                                  <img
+                                    src='/Assets/Img/pot-2.jpeg'
+                                    className='footer_img'
+                                    alt=''
+                                  />
+                                </li>
+                                <li>
+                                  <img
+                                    src='/Assets/Img/pot-3.jpeg'
+                                    className='footer_img'
+                                    alt=''
+                                  />
+                                </li>
+                              </ul>
+
                               <div className='overlay__img'>
                                 <img
                                   className='img-fluid'
