@@ -41,9 +41,11 @@ const Category = () => {
   const [subCategoryData, setSubCategoryData] = useState([]);
   const [foodTypeData, setFoodTypeData] = useState([]);
   let [newPostBody, setPostBody] = useState({});
+
   useEffect(() => {
     // GetFoodByCategoryAPI(params.id, 10);
     newPostBody.categoryID = params.id;
+
     axios.post(BaseURL + "/filter", { categoryID: params.id }).then((res) => {
       // console.log(res.data);
       if (res.data.status === "Success") {
@@ -124,10 +126,11 @@ const Category = () => {
     });
   };
 
-  let allCartList = useSelector((state) => state.cart.allCartList);
-
+  // let allCartList = useSelector((state) => state.cart.allCartList);
+  let allCartList = JSON.parse(localStorage.getItem("cartData"));
   let cartConrtol = (item) => {
-    store.dispatch(setCartList([...allCartList, item]));
+    // store.dispatch(setCartList([...allCartList, item]));
+    localStorage.setItem("cartData", JSON.stringify([...allCartList, item]));
   };
 
   console.log(allCartList);

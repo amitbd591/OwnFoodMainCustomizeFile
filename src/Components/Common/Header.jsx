@@ -37,6 +37,7 @@ import { BsXLg } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { Uber_image } from "../../Database/ImgData";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 const Header = () => {
   const [show, setShow] = useState(false);
   const toggleOffcanvas = () => {
@@ -50,7 +51,6 @@ const Header = () => {
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
   const [paneLeft, SetpanLeft] = useState(false);
-  console.log(paneLeft);
   const [state, setState] = useState({
     isPaneOpen: false,
   });
@@ -112,7 +112,17 @@ const Header = () => {
     setValue(newValue);
   };
 
-  let allCartList = useSelector((state) => state.cart.allCartList);
+  // let allCartList = useSelector((state) => state.cart.allCartList);
+  const [allCartList, setAllCartList] = useState([]);
+
+  useEffect(() => {
+    setAllCartList(JSON.parse(localStorage.getItem("cartData")));
+  }, [allCartList]);
+
+  const removeCartData = (id) => {
+    let filterData = allCartList.filter((item) => item._id !== id);
+    localStorage.setItem("cartData", JSON.stringify(filterData));
+  };
 
   return (
     <header className='Header shadow'>
@@ -310,7 +320,7 @@ const Header = () => {
                         }}
                       >
                         <i className='fas fa-shopping-basket'></i>
-                        <sup>9+</sup>
+                        <sup>{allCartList?.length}</sup>
                       </button>
                     </div>
                   </div>
@@ -470,7 +480,7 @@ const Header = () => {
             <div className='cart-header'>
               <div className='cart-total'>
                 <i className='fas fa-shopping-basket'></i>
-                <span>total item (5)</span>
+                <span>total item ({allCartList?.length})</span>
               </div>
               <button
                 className='cart-close'
@@ -490,16 +500,19 @@ const Header = () => {
                     <a href='javascript:void(0)'>
                       <img src={item?.foodImage} alt='product' />
                     </a>
-                    <button className='cart-delete'>
+                    <button
+                      className='cart-delete'
+                      onClick={() => removeCartData(item?._id)}
+                    >
                       <i className='far fa-trash-alt'></i>
                     </button>
                   </div>
                   <div className='cart-info-group'>
                     <div className='cart-info'>
                       <h6>
-                        <a href='product-single.html'>existing product name</a>
+                        <a href='product-single.html'>{item?.foodName}</a>
                       </h6>
-                      <p>Unit Price - $8.75</p>
+                      <p>Price - ${item?.foodPrice}</p>
                     </div>
                     <div className='cart-action-group'>
                       <div className='product-action'>
