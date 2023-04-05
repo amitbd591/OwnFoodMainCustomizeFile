@@ -11,7 +11,7 @@ import {
 import { AiFillHeart, AiOutlineShopping } from "react-icons/ai";
 import { GetFoodByCategoryAPI } from "../../API/CategoryAPI";
 import { Link, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PageLoading from "../Elements/PageLoading";
 import VisibilitySensor from "react-visibility-sensor";
 import { Col, Container, Modal, Row } from "react-bootstrap";
@@ -22,7 +22,8 @@ import { BaseURL } from "../../Helper/config";
 import { useRef } from "react";
 import store from "../../Redux/Store/Store";
 import { setFoodByCategoryList } from "../../Redux/State-slice/CategorySlice";
-import { setCartList } from "../../Redux/State-slice/CartSlice";
+import { addItem, setCartList } from "../../Redux/State-slice/CartSlice";
+import { Toaster, toast } from "react-hot-toast";
 
 const Category = () => {
   let params = useParams();
@@ -126,14 +127,17 @@ const Category = () => {
     });
   };
 
-  // let allCartList = useSelector((state) => state.cart.allCartList);
-  let allCartList = JSON.parse(localStorage.getItem("cartData"));
-  let cartConrtol = (item) => {
-    // store.dispatch(setCartList([...allCartList, item]));
-    localStorage.setItem("cartData", JSON.stringify([...allCartList, item]));
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item) => {
+    dispatch(addItem(item));
+    toast.success("Food add successful!", {
+      position: "bottom-center",
+    });
   };
 
-  console.log(allCartList);
+  const cart = useSelector((state) => state.cart);
+  // console.log(cart);
 
   return (
     <>
@@ -447,15 +451,14 @@ const Category = () => {
                             <div className='text__file'>
                               <div className='d-flex justify-content-between align-items-center top_header'>
                                 <p className='price'>${item?.foodPrice}</p>
-                                <p className=''>
-                                  <p className='intro'>
-                                    <i
-                                      className='material-icons buy'
-                                      onClick={() => cartConrtol(item)}
-                                    >
-                                      add_shopping_cart
-                                    </i>
-                                  </p>
+
+                                <p className='intro'>
+                                  <i
+                                    className='material-icons buy'
+                                    onClick={() => handleAddToCart(item)}
+                                  >
+                                    add_shopping_cart
+                                  </i>
                                 </p>
                               </div>
                               <div className='d-flex align-items-center justify-content-center'>

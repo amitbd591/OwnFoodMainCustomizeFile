@@ -33,11 +33,12 @@ import Modal from "@mui/material/Modal";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import { BsXLg } from "react-icons/bs";
-
+import { addItem } from "../../Redux/State-slice/CartSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { Uber_image } from "../../Database/ImgData";
-import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-hot-toast";
 const Header = () => {
   const [show, setShow] = useState(false);
   const toggleOffcanvas = () => {
@@ -115,13 +116,16 @@ const Header = () => {
   // let allCartList = useSelector((state) => state.cart.allCartList);
   const [allCartList, setAllCartList] = useState([]);
 
-  useEffect(() => {
-    setAllCartList(JSON.parse(localStorage.getItem("cartData")));
-  }, [allCartList]);
+  const cart = useSelector((state) => state.cart);
 
+  const dispatch = useDispatch();
   const removeCartData = (id) => {
-    let filterData = allCartList.filter((item) => item._id !== id);
-    localStorage.setItem("cartData", JSON.stringify(filterData));
+    let filterData = cart.filter((item) => item._id !== id);
+    dispatch(addItem(filterData));
+    console.log(filterData);
+    toast.success("Food Remove successful!", {
+      position: "bottom-center",
+    });
   };
 
   return (
@@ -320,7 +324,7 @@ const Header = () => {
                         }}
                       >
                         <i className='fas fa-shopping-basket'></i>
-                        <sup>{allCartList?.length}</sup>
+                        <sup>{cart?.length}</sup>
                       </button>
                     </div>
                   </div>
@@ -480,7 +484,7 @@ const Header = () => {
             <div className='cart-header'>
               <div className='cart-total'>
                 <i className='fas fa-shopping-basket'></i>
-                <span>total item ({allCartList?.length})</span>
+                <span>total item ({cart?.length})</span>
               </div>
               <button
                 className='cart-close'
@@ -494,7 +498,7 @@ const Header = () => {
               </button>
             </div>
             <ul className='cart-list'>
-              {allCartList?.map((item, index) => (
+              {cart?.map((item, index) => (
                 <li className='cart-item' key={index}>
                   <div className='cart-media'>
                     <a href='javascript:void(0)'>
@@ -524,13 +528,13 @@ const Header = () => {
                           title='Quantity Number'
                           type='text'
                           name='quantity'
-                          value='1'
+                          value={item?.foodQty}
                         />
                         <button className='action-plus' title='Quantity Plus'>
                           <FaPlus />
                         </button>
                       </div>
-                      <h6>$56.98</h6>
+                      <h6>${item?.foodQty * item?.foodPrice}</h6>
                     </div>
                   </div>
                 </li>
