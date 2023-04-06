@@ -15,6 +15,7 @@ import SingleRecipeCategoryAllFoodPage from "./Pages/SingleRecipeCategoryAllFood
 import SingleRecipeFoodPage from "./Pages/SingleRecipeFoodPage";
 import OTPPage from "./Pages/OTPPage";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
+import CheckOutPage from "./Pages/CheckOutPage";
 function App() {
   return (
     <BrowserRouter>
@@ -59,6 +60,7 @@ function App() {
           path='/CustomerRegistration'
           element={<CustomerRegistrationPage />}
         />
+        <Route exact path='/CheckOut' element={<CheckOutPage />} />
         <Route exact path='/CustomerLogin' element={<CustomerLoginPage />} />
         <Route exact path='/ForgetPassword' element={<ForgetPasswordPage />} />
         <Route exact path='/OTP' element={<OTPPage />} />

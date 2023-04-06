@@ -886,6 +886,7 @@ button:focus {
   background: var(--primary);
 }
 .cart-checkout-btn {
+  width: 100%;
   padding: 10px 0px;
   border-radius: 8px;
   background: var(--primary);

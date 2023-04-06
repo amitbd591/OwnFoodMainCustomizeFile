@@ -128,6 +128,11 @@ const Header = () => {
     });
   };
 
+  const checkOut = () => {
+    localStorage.setItem("checkOut", JSON.stringify(cart));
+    navigate("/CheckOut");
+  };
+
   return (
     <header className='Header shadow'>
       {/* ================== Nav Section ================== */}
@@ -528,7 +533,7 @@ const Header = () => {
                           title='Quantity Number'
                           type='text'
                           name='quantity'
-                          value={item?.foodQty}
+                          defaultValue={item?.foodQty}
                         />
                         <button className='action-plus' title='Quantity Plus'>
                           <FaPlus />
@@ -548,10 +553,10 @@ const Header = () => {
                   <span>apply</span>
                 </button>
               </form>
-              <a className='cart-checkout-btn' href='checkout.html'>
+              <button className='cart-checkout-btn' onClick={checkOut}>
                 <span className='checkout-label'>Proceed to Checkout</span>
                 <span className='checkout-price'>$369.78</span>
-              </a>
+              </button>
             </div>
           </aside>
         </SlidingPane>
