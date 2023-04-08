@@ -1,14 +1,15 @@
 import React, { useRef } from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useHistory } from "react-router-dom";
 import { loginUsersAPI } from "../../API/UsersAPI";
 import { ErrorToast, IsEmail, IsEmpty } from "../../Helper/FormHelper";
 const CustomerLogin = () => {
   let emailRef,
     passRef = useRef();
   let navigate = useNavigate();
-
+  const prevPath = localStorage.getItem("prevPath");
+  console.log(navigate);
   const LoginSubmit = async (event) => {
     event.preventDefault();
     let email = emailRef.value;
@@ -21,7 +22,8 @@ const CustomerLogin = () => {
     } else {
       let result = await loginUsersAPI(email, userPassword);
       if (result) {
-        navigate("/CustomerLogin");
+        navigate(prevPath || "/");
+        // navigate("/CustomerLogin");
       }
     }
   };
